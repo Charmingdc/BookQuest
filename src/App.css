@@ -8,9 +8,8 @@
  -moz-osx-font-smoothing: grayscale;
 }
 
-
 body {
- width: 100%;
+ width: 100vw;
  display: flex;
  flex-direction: column;
  align-items: center;
@@ -19,3 +18,31 @@ body {
  background-color: var(--bg-color);
 }
 
+nav,
+main {
+ width: 100%;
+ display: flex;
+ flex-direction: column;
+ align-items: center:
+}
+
+
+/*** essential classess starts ***/
+.flex-center {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.flex-col-center {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+.flex-between {
+ display: flex;
+ align-self: center;
+ justify-content: space-between;
+}
+/*** essential classes ends ***/
