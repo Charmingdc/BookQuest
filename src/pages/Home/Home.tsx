@@ -1,10 +1,19 @@
 import HomeTopBar from '@components/home/HomeTopBar.tsx';
+import RecommendationBox from '@components/home/RecommendationBox.tsx';
+
+import './index.css';
 
 
 const Home = () => {
   return (
     <>
-      <HomeTopBar />
+     <header>
+       <HomeTopBar />
+     </header>
+      
+     <main>
+       <RecommendationBox />
+     </main>
     </>
   )
 }

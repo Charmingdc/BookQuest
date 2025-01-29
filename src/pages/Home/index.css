@@ -1,0 +1,60 @@
+/*
+  Home top bar styling starts here
+  ====================================
+ */
+.home-topbar {
+  width: 90vw;
+  height: 4rem;
+  list-style: none;
+  margin: .6rem 0 2rem 0;
+  
+  & li {
+   height: 100%;
+  }
+}
+
+.home-topbar > li:last-of-type > div {
+  width: 2rem;
+  height: 2.1rem;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  margin-left: 1.2rem;
+  
+  & img {
+   width: 2rem;
+   height: 2.1rem;
+   object-fit: cover;
+   border-radius: 50%;
+  }
+}
+
+.home-topbar-icon {
+ width: 2rem;
+ height: 2rem;
+}
+/*
+  Home top bar styling ends here
+ ====================================
+ */
+
+
+/*
+  Recommendation box styling starts here
+ ====================================
+ */
+ 
+ .recommendation-section {
+  
+  & h2 {
+   align-self: flex-start;
+   margin-bottom: 1rem;
+  }
+ }
+ 
+.recommendation-box {
+ width: 100%;
+ height: 18rem;
+ background-color: var(--shade);
+ border-radius: 1.4rem;
+}
