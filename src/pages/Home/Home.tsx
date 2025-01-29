@@ -1,5 +1,6 @@
 import HomeTopBar from '@components/home/HomeTopBar.tsx';
 import RecommendationBox from '@components/home/RecommendationBox.tsx';
+import CategoriesBox from '@components/home/CategoriesBox.tsx';
 
 import './index.css';
 
@@ -13,6 +14,7 @@ const Home = () => {
       
      <main>
        <RecommendationBox />
+       <CategoriesBox />
      </main>
     </>
   )

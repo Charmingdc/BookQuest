@@ -1,16 +1,12 @@
-/*
-  Home top bar styling starts here
-  ====================================
- */
+/*** Home top bar styling starts here ***/
 .home-topbar {
-  width: 90vw;
+  width: 88vw;
   height: 4rem;
   list-style: none;
-  margin: .6rem 0 2rem 0;
-  
-  & li {
-   height: 100%;
-  }
+  margin: .6rem 0 1.5rem 0;
+}
+.home-topbar li {
+  height: 100%;
 }
 
 .home-topbar > li:last-of-type > div {
@@ -19,7 +15,7 @@
   object-fit: cover;
   object-position: center;
   border-radius: 50%;
-  margin-left: 1.2rem;
+  margin-left: 1.4rem;
   
   & img {
    width: 2rem;
@@ -30,31 +26,31 @@
 }
 
 .home-topbar-icon {
- width: 2rem;
- height: 2rem;
+  width: 2rem;
+  height: 2rem;
 }
-/*
-  Home top bar styling ends here
- ====================================
- */
+/*** Home top bar styling ends here ***/
 
 
-/*
-  Recommendation box styling starts here
- ====================================
- */
- 
- .recommendation-section {
-  
-  & h2 {
-   align-self: flex-start;
-   margin-bottom: 1rem;
-  }
+
+/*** Recommendation section tyling starts here ***/
+ .recommendation-section h2 {
+  align-self: flex-start;
+  margin-bottom: 1rem;
  }
  
 .recommendation-box {
- width: 100%;
- height: 18rem;
- background-color: var(--shade);
- border-radius: 1.4rem;
+  width: 100%;
+  height: 18rem;
+  background-color: var(--shade);
+  border-radius: 1.4rem;
 }
+/*** Recommendation section styling ends here ***/
+
+
+
+
+/*** Categories section styling starts here ***/
+ .categories-section {
+  margin-top: 2rem;
+ }
