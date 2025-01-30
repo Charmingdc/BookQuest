@@ -1,7 +1,8 @@
-const Tab = () => {
+
+const Tab: React.FC<{ enre: string}> = ({genre}) => {
   return (
    <button>
-    Hi
+     { genre }
    </button>
   )
 }
