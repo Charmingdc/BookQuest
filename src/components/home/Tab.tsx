@@ -1,10 +1,17 @@
+type TabProps = {
+ genre: string;
+ onClick: () => void;
+ isActive: boolean;
+}
 
-const Tab: React.FC<{ enre: string}> = ({genre}) => {
+const Tab = ({ genre, onClick, isActive }: TabProps) => {
   return (
-   <button>
-     { genre }
-   </button>
-  )
+    <button 
+      className={isActive ? 'active' : ''}
+      onClick={onClick}>
+      { genre }
+     </button>
+ )
 }
 
 export default Tab;

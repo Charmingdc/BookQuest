@@ -1,9 +1,18 @@
+import { useState } from 'react'
+
+import useDefaultGenres from '@hooks/useDefaultGenres.tsx';
 import Tab from './Tab.tsx';
 
+type SelectedGenre = {
+  name: string;
+  index: number;
+}
+
+
 const CategoriesBox = () => {
-  const defaultGenres: string[] = [
-   'All', 'Success', 'Action', 'Mystery', 'Sci-Fi', 'Romance', 'Productivity', 'Comedy', 'Horror',
-  ]
+  const { genres } = useDefaultGenres();
+  const [selectedGenre, setSelectedGenre] = useState<SelectedGenre>({name: 'All', index: 0});
+ 
   
   return (
    <section className='categories-section'>
@@ -11,8 +20,12 @@ const CategoriesBox = () => {
     
     
     <div className='tabs flex-between'>
-     {defaultGenres.map((genre, index) => (
-       <Tab genre={genre} key={index} />
+     {genres.map((genre, index) => (
+       <Tab 
+         genre={genre} 
+         key={genre}
+         onClick={() => setSelectedGenre({name: genre, index: index})} 
+         isActive={selectedGenre.index == index} />
       ))}
     </div>
    </section>
