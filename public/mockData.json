@@ -1,0 +1,196 @@
+{
+  "numFound": 20,
+  "start": 0,
+  "docs": [
+    {
+      "key": "/works/OL123456W",
+      "title": "The Enchanted Realm",
+      "author_name": ["J.K. Rowling"],
+      "first_publish_year": 1997,
+      "subject": ["Fantasy", "Magic", "Adventure"],
+      "cover_i": 240727,
+      "ratings_average": 4.7,
+      "edition_count": 5
+    },
+    {
+      "key": "/works/OL789012W",
+      "title": "Galactic Odyssey",
+      "author_name": ["Isaac Asimov"],
+      "first_publish_year": 1951,
+      "subject": ["Science Fiction", "Space", "Aliens"],
+      "cover_i": 240725,
+      "ratings_average": 4.5,
+      "edition_count": 3
+    },
+    {
+      "key": "/works/OL345678W",
+      "title": "Murder in the Shadows",
+      "author_name": ["Agatha Christie"],
+      "first_publish_year": 1934,
+      "subject": ["Mystery", "Detective", "Crime"],
+      "cover_i": 240726,
+      "ratings_average": 4.8,
+      "edition_count": 4
+    },
+    {
+      "key": "/works/OL901234W",
+      "title": "The Haunted House",
+      "author_name": ["Stephen King"],
+      "first_publish_year": 1983,
+      "subject": ["Horror", "Ghosts", "Supernatural"],
+      "cover_i": 240728,
+      "ratings_average": 4.6,
+      "edition_count": 6
+    },
+    {
+      "key": "/works/OL567890W",
+      "title": "Love Beyond Time",
+      "author_name": ["Jane Austen"],
+      "first_publish_year": 1813,
+      "subject": ["Romance", "Historical", "Drama"],
+      "cover_i": 240729,
+      "ratings_average": 4.9,
+      "edition_count": 8
+    },
+    {
+      "key": "/works/OL246810W",
+      "title": "Cybernetic Dreams",
+      "author_name": ["William Gibson"],
+      "first_publish_year": 1984,
+      "subject": ["Cyberpunk", "Science Fiction", "Future"],
+      "cover_i": 240730,
+      "ratings_average": 4.4,
+      "edition_count": 2
+    },
+    {
+      "key": "/works/OL112233W",
+      "title": "Parallel Worlds",
+      "author_name": ["Michio Kaku"],
+      "first_publish_year": 2004,
+      "subject": ["Physics", "Space", "Multiverse"],
+      "cover_i": 240731,
+      "ratings_average": 4.3,
+      "edition_count": 5
+    },
+    {
+      "key": "/works/OL445566W",
+      "title": "The Secret Garden",
+      "author_name": ["Frances Hodgson Burnett"],
+      "first_publish_year": 1911,
+      "subject": ["Children", "Classic", "Friendship"],
+      "cover_i": 240732,
+      "ratings_average": 4.6,
+      "edition_count": 10
+    },
+    {
+      "key": "/works/OL778899W",
+      "title": "Dune",
+      "author_name": ["Frank Herbert"],
+      "first_publish_year": 1965,
+      "subject": ["Science Fiction", "Politics", "Adventure"],
+      "cover_i": 240733,
+      "ratings_average": 4.7,
+      "edition_count": 9
+    },
+    {
+      "key": "/works/OL223344W",
+      "title": "The Book Thief",
+      "author_name": ["Markus Zusak"],
+      "first_publish_year": 2005,
+      "subject": ["Historical Fiction", "WWII", "Drama"],
+      "cover_i": 240734,
+      "ratings_average": 4.8,
+      "edition_count": 7
+    },
+    {
+      "key": "/works/OL556677W",
+      "title": "Percy Jackson and the Lightning Thief",
+      "author_name": ["Rick Riordan"],
+      "first_publish_year": 2005,
+      "subject": ["Fantasy", "Mythology", "Adventure"],
+      "cover_i": 240735,
+      "ratings_average": 4.7,
+      "edition_count": 6
+    },
+    {
+      "key": "/works/OL889900W",
+      "title": "1984",
+      "author_name": ["George Orwell"],
+      "first_publish_year": 1949,
+      "subject": ["Dystopian", "Politics", "Classic"],
+      "cover_i": 240736,
+      "ratings_average": 4.9,
+      "edition_count": 12
+    },
+    {
+      "key": "/works/OL102030W",
+      "title": "The Catcher in the Rye",
+      "author_name": ["J.D. Salinger"],
+      "first_publish_year": 1951,
+      "subject": ["Coming-of-age", "Classic", "Fiction"],
+      "cover_i": 240737,
+      "ratings_average": 4.2,
+      "edition_count": 7
+    },
+    {
+      "key": "/works/OL405060W",
+      "title": "The Martian",
+      "author_name": ["Andy Weir"],
+      "first_publish_year": 2011,
+      "subject": ["Science Fiction", "Survival", "Space"],
+      "cover_i": 240738,
+      "ratings_average": 4.6,
+      "edition_count": 5
+    },
+    {
+      "key": "/works/OL708090W",
+      "title": "Pride and Prejudice",
+      "author_name": ["Jane Austen"],
+      "first_publish_year": 1813,
+      "subject": ["Romance", "Classic", "Society"],
+      "cover_i": 240739,
+      "ratings_average": 4.9,
+      "edition_count": 15
+    },
+    {
+      "key": "/works/OL112233W",
+      "title": "The Name of the Wind",
+      "author_name": ["Patrick Rothfuss"],
+      "first_publish_year": 2007,
+      "subject": ["Fantasy", "Magic", "Adventure"],
+      "cover_i": 240740,
+      "ratings_average": 4.8,
+      "edition_count": 6
+    },
+    {
+      "key": "/works/OL445566W",
+      "title": "To Kill a Mockingbird",
+      "author_name": ["Harper Lee"],
+      "first_publish_year": 1960,
+      "subject": ["Classic", "Social Issues", "Justice"],
+      "cover_i": 240741,
+      "ratings_average": 4.9,
+      "edition_count": 14
+    },
+    {
+      "key": "/works/OL778899W",
+      "title": "Brave New World",
+      "author_name": ["Aldous Huxley"],
+      "first_publish_year": 1932,
+      "subject": ["Dystopian", "Science Fiction", "Philosophy"],
+      "cover_i": 240742,
+      "ratings_average": 4.7,
+      "edition_count": 9
+    },
+    {
+      "key": "/works/OL223344W",
+      "title": "The Road",
+      "author_name": ["Cormac McCarthy"],
+      "first_publish_year": 2006,
+      "subject": ["Dystopian", "Survival", "Fiction"],
+      "cover_i": 240743,
+      "ratings_average": 4.6,
+      "edition_count": 8
+    }
+  ]
+}
