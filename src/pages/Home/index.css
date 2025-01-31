@@ -1,4 +1,3 @@
-/*** Home top bar styling starts here ***/
 .home-topbar {
   width: 88vw;
   height: 4rem;
@@ -8,7 +7,6 @@
 .home-topbar li {
   height: 100%;
 }
-
 .home-topbar > li:last-of-type > div {
   width: 2rem;
   height: 2.1rem;
@@ -24,19 +22,15 @@
    border-radius: 50%;
   }
 }
-
 .home-topbar-icon {
   width: 2rem;
   height: 2rem;
 }
-/*** Home top bar styling ends here ***/
 
 
-
-/*** Recommendation section tyling starts here ***/
- .recommendation-section h2 {
+.recommendation-section h2 {
   align-self: flex-start;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
  }
  
 .recommendation-box {
@@ -45,14 +39,10 @@
   background-color: var(--shade);
   border-radius: 1.4rem;
 }
-/*** Recommendation section styling ends here ***/
 
 
-
-
-/*** Categories section styling starts here ***/
- .categories-section {
-  margin-top: 2rem;
+.categories-section {
+  margin-top: 1.5rem;
  }
  
 .mySwiper {
@@ -109,4 +99,36 @@
  color: rgb(240, 240, 240);
  background-color: var(--sclr);
  transition: 200ms;
+}
+
+.booksWrapper {
+ width: 100%;
+ height: auto;
+ gap: 1.4rem;
+ margin-top: 2rem;
+}
+
+.bookCard {
+ width: 95%;
+ height: 10rem;
+ padding: 1rem;
+ gap: 1rem;
+ background-color: var(--shade);
+ border-radius: 1rem;
+}
+
+.bookImgWrapper {
+ width: 9rem;
+ height: 100%;
+ background-color: var(--bg-color);
+ border-radius: 0.8rem;
+}
+
+.bookInfo {
+ width: 60%;
+ height: 90%;
+ display: flex;
+ flex-direction: column;
+ align-items: flex-start;
+ padding: .5rem 0;
 }
