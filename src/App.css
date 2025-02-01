@@ -72,3 +72,31 @@ h4 {
  justify-content: space-between;
 }
 /*** essential classes ends ***/
+
+.error-box {
+ width: 80vw;
+ min-height: 20rem;
+ height: 100%;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ text-align: center;
+ padding: 1rem;
+ background-color: var(--shade);
+ border-radius: 1rem;
+ 
+ & h2 {
+  align-self: center;
+  text-align: center;
+ }
+}
+
+
+
+
+@keyframes dim {
+  50% {
+   filter: opacity(0.5);
+  }
+}

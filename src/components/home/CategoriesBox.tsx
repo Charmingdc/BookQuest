@@ -39,7 +39,7 @@ const CategoriesBox = () => {
       {books.map((book, index) => (
         <BookCard 
           bookDetails={book}
-          key={book.key} />
+          key={index} />
       ))}
     </div>
    </section>
