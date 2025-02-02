@@ -25,16 +25,16 @@ const CategoriesBox = () => {
     setBookLists(books);
   }, [books]);
 
+
   useEffect(() => {
    if (selectedGenre.name === 'All') {
     setBookLists(books);
-    return;
+    return; // return immediately if selected genre is all
    }
    
+   const filteredBooks = books.filter(currentBook => currentBook.subject.includes(selectedGenre.name)); // check if book subject includes selected genre
    
-   const filteredBooks = books.filter(currentBook => currentBook.subject.includes(selectedGenre.name));
-   
-   setBookLists(filteredBooks);
+   setBookLists(filteredBooks); // update book lists
   }, [selectedGenre])
   
 
@@ -49,11 +49,15 @@ const CategoriesBox = () => {
             genre={genre} 
             key={genre} 
             onClick={() => setSelectedGenre({ name: genre, index: index })}
-            isActive={selectedGenre.index === index} 
-          />
+            isActive={selectedGenre.index === index} />
         ))}
       </div>
       
+      { error ? (
+        <div className='error-box'>
+          <h2> Error fetching books </h2>
+        </div>
+      ) : 
       <div className="booksWrapper flex-col-center">
         {bookLists.length > 0 ? (
           bookLists.map((book, index) => (
@@ -66,6 +70,7 @@ const CategoriesBox = () => {
           <p>No books available</p>
         )}
       </div>
+      }
     </section>
   );
 };

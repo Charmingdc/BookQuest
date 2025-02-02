@@ -74,8 +74,8 @@ h4 {
 /*** essential classes ends ***/
 
 .error-box {
- width: 80vw;
- min-height: 20rem;
+ width: 77vw;
+ min-height: 18rem;
  height: 100%;
  display: flex;
  flex-direction: column;
@@ -85,6 +85,7 @@ h4 {
  padding: 1rem;
  background-color: var(--shade);
  border-radius: 1rem;
+ margin: 1rem 0;
  
  & h2 {
   align-self: center;

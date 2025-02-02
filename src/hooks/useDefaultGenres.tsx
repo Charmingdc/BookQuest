@@ -1,6 +1,6 @@
 const useDefaultGenres = () => {
   const genres: string[] = [
-   'All', 'Success', 'Action', 'Mystery', 'Sci-Fi', 'Romance', 'Productivity', 'Comedy', 'Horror',
+   'All', 'Science Fiction', 'Adventure', 'Mystery', 'Sci-Fi', 'Romance', 'Productivity', 'Comedy', 'Horror',
   ]
   
   return { genres } 

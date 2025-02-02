@@ -85,16 +85,17 @@
 }
 
 .tabs button {
- width: auto;
- min-width: 6rem;
- height: 2.5rem;
- color: var(--text-color);
- font-family: 'Nunito Sans';
- font-size: 1.040rem;
- background-color: transparent;
- border: none;
- border-radius: .8rem;
- transition: 200ms;
+  width: auto;
+  min-width: 6.5rem;
+  height: 2.5rem;
+  color: var(--text-color);
+  font-family: 'Nunito Sans';
+  font-size: 1.040rem;
+  text-align: center;
+  background-color: transparent;
+  border: none;
+  border-radius: .8rem;
+  transition: 200ms;
 }
 
 .tabs .active {
