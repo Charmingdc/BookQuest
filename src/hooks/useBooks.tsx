@@ -1,15 +1,5 @@
-import { useState, useEffect } from "react";
-
-type Book = {
-  key: string;
-  title: string;
-  author_name: string[];
-  first_publish_year: number;
-  subject: string[];
-  cover_i: number;
-  ratings_average: number;
-  edition_count: number;
-};
+import { useState, useEffect } from "react"
+import { Book } from '@types/book/types.tsx'
 
 const useBooks = () => {
   const [books, setBooks] = useState<Book[]>([]);
