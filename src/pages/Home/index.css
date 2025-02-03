@@ -92,6 +92,7 @@
   font-family: 'Nunito Sans';
   font-size: 1.040rem;
   text-align: center;
+  white-space: nowrap;
   background-color: transparent;
   border: none;
   border-radius: .8rem;
@@ -99,6 +100,8 @@
 }
 
 .tabs .active {
+ width: auto;
+ min-width: 6.5rem;
  color: rgb(240, 240, 240);
  background-color: var(--sclr);
  transition: 200ms;
