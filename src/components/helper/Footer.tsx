@@ -1,20 +1,28 @@
 import { useNavigate } from 'react-router-dom';
 
-const Footer = ({currentPage: string}) => {
+import { TbSmartHome } from "react-icons/tb";
+import { BsHeart } from "react-icons/bs";
+import { LuSettings, LuHeart } from "react-icons/lu"
+
+
+const Footer = ({currentPage}: string) => {
   const navigate = useNavigate();
   
   return (
    <ul className='footer'>
      <li>
-      <p> Home </p>
+       <TbSmartHome size={29} color={currentPage === 'home' ? 'red' : 'green'} />
+       <p> Home </p>
      </li>
       
      <li>
-       <p> Favorites </p>
+       <LuHeart size={25} color={currentPage === 'favourite' ? 'red' : ''} />
+       <p> Favourites </p>
      </li>
       
      <li>
-       <p> Profile </p>
+       <LuSettings size={25} color={currentPage === 'setting' ? 'red' : ''} />
+       <p> Settings </p>
      </li>
    </ul>
   )

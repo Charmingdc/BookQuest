@@ -102,7 +102,7 @@ h4 {
 
 footer ul {
  width: 100vw;
- height: 4.5rem;
+ height: 4.8rem;
  position: fixed;
  bottom: 0;
  display: flex;
@@ -115,9 +115,15 @@ footer ul {
  
  & li {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   list-style: none;
+  
+  & p {
+   font-size: .8rem;
+   margin-top: .4rem;
+  }
  }
 }
 

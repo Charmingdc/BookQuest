@@ -19,7 +19,7 @@ const Home = () => {
      </main>
      
      <footer>
-       <Footer />
+       <Footer currentPage='home' />
      </footer>
     </>
   )
