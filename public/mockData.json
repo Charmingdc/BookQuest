@@ -10,7 +10,9 @@
       "subject": ["Fantasy", "Magic", "Adventure"],
       "cover_i": 240727,
       "ratings_average": 4.7,
-      "edition_count": 5
+      "edition_count": 5,
+      "isbn": ["9780439708180"],
+      "olid": ["OL123456M"]
     },
     {
       "key": "/works/OL789012W",
@@ -20,7 +22,9 @@
       "subject": ["Science Fiction", "Space", "Aliens"],
       "cover_i": 240725,
       "ratings_average": 4.5,
-      "edition_count": 3
+      "edition_count": 3,
+      "isbn": ["9780553293395"],
+      "olid": ["OL789012M"]
     },
     {
       "key": "/works/OL345678W",
@@ -30,7 +34,9 @@
       "subject": ["Mystery", "Detective", "Crime"],
       "cover_i": 240726,
       "ratings_average": 3.8,
-      "edition_count": 4
+      "edition_count": 4,
+      "isbn": ["9780007136834"],
+      "olid": ["OL345678M"]
     },
     {
       "key": "/works/OL901234W",
@@ -40,7 +46,9 @@
       "subject": ["Horror", "Ghosts", "Supernatural"],
       "cover_i": 240728,
       "ratings_average": 4.6,
-      "edition_count": 6
+      "edition_count": 6,
+      "isbn": ["9781501142970"],
+      "olid": ["OL901234M"]
     },
     {
       "key": "/works/OL567890W",
@@ -50,7 +58,9 @@
       "subject": ["Romance", "Historical", "Drama"],
       "cover_i": 240729,
       "ratings_average": 4.9,
-      "edition_count": 8
+      "edition_count": 8,
+      "isbn": ["9780141439518"],
+      "olid": ["OL567890M"]
     },
     {
       "key": "/works/OL246810W",
@@ -60,7 +70,9 @@
       "subject": ["Cyberpunk", "Science Fiction", "Future"],
       "cover_i": 240730,
       "ratings_average": 3.4,
-      "edition_count": 2
+      "edition_count": 2,
+      "isbn": ["9780441569595"],
+      "olid": ["OL246810M"]
     },
     {
       "key": "/works/OL112233W",
@@ -70,7 +82,9 @@
       "subject": ["Physics", "Space", "Multiverse"],
       "cover_i": 240731,
       "ratings_average": 4.3,
-      "edition_count": 5
+      "edition_count": 5,
+      "isbn": ["9780307276980"],
+      "olid": ["OL112233M"]
     },
     {
       "key": "/works/OL445566W",
@@ -80,7 +94,9 @@
       "subject": ["Children", "Classic", "Friendship"],
       "cover_i": 240732,
       "ratings_average": 4.6,
-      "edition_count": 10
+      "edition_count": 10,
+      "isbn": ["9781853261046"],
+      "olid": ["OL445566M"]
     },
     {
       "key": "/works/OL778899W",
@@ -90,7 +106,9 @@
       "subject": ["Science Fiction", "Politics", "Adventure"],
       "cover_i": 240733,
       "ratings_average": 4.7,
-      "edition_count": 9
+      "edition_count": 9,
+      "isbn": ["9780441172719"],
+      "olid": ["OL778899M"]
     },
     {
       "key": "/works/OL223344W",
@@ -100,97 +118,9 @@
       "subject": ["Historical Fiction", "WWII", "Drama"],
       "cover_i": 240734,
       "ratings_average": 4.8,
-      "edition_count": 7
-    },
-    {
-      "key": "/works/OL556677W",
-      "title": "Percy Jackson and the Lightning Thief",
-      "author_name": ["Rick Riordan"],
-      "first_publish_year": 2005,
-      "subject": ["Fantasy", "Mythology", "Adventure"],
-      "cover_i": 240735,
-      "ratings_average": 4.7,
-      "edition_count": 6
-    },
-    {
-      "key": "/works/OL889900W",
-      "title": "1984",
-      "author_name": ["George Orwell"],
-      "first_publish_year": 1949,
-      "subject": ["Dystopian", "Politics", "Classic"],
-      "cover_i": 240736,
-      "ratings_average": 4.9,
-      "edition_count": 12
-    },
-    {
-      "key": "/works/OL102030W",
-      "title": "The Catcher in the Rye",
-      "author_name": ["J.D. Salinger"],
-      "first_publish_year": 1951,
-      "subject": ["Coming-of-age", "Classic", "Fiction"],
-      "cover_i": 240737,
-      "ratings_average": 4.2,
-      "edition_count": 7
-    },
-    {
-      "key": "/works/OL405060W",
-      "title": "The Martian",
-      "author_name": ["Andy Weir"],
-      "first_publish_year": 2011,
-      "subject": ["Science Fiction", "Survival", "Space"],
-      "cover_i": 240738,
-      "ratings_average": 4.6,
-      "edition_count": 5
-    },
-    {
-      "key": "/works/OL708090W",
-      "title": "Pride and Prejudice",
-      "author_name": ["Jane Austen"],
-      "first_publish_year": 1813,
-      "subject": ["Romance", "Classic", "Society"],
-      "cover_i": 240739,
-      "ratings_average": 4.9,
-      "edition_count": 15
-    },
-    {
-      "key": "/works/OL112233W",
-      "title": "The Name of the Wind",
-      "author_name": ["Patrick Rothfuss"],
-      "first_publish_year": 2007,
-      "subject": ["Fantasy", "Magic", "Adventure"],
-      "cover_i": 240740,
-      "ratings_average": 4.8,
-      "edition_count": 6
-    },
-    {
-      "key": "/works/OL445566W",
-      "title": "To Kill a Mockingbird",
-      "author_name": ["Harper Lee"],
-      "first_publish_year": 1960,
-      "subject": ["Classic", "Social Issues", "Justice"],
-      "cover_i": 240741,
-      "ratings_average": 4.9,
-      "edition_count": 14
-    },
-    {
-      "key": "/works/OL778899W",
-      "title": "Brave New World",
-      "author_name": ["Aldous Huxley"],
-      "first_publish_year": 1932,
-      "subject": ["Dystopian", "Science Fiction", "Philosophy"],
-      "cover_i": 240742,
-      "ratings_average": 4.7,
-      "edition_count": 9
-    },
-    {
-      "key": "/works/OL223344W",
-      "title": "The Road",
-      "author_name": ["Cormac McCarthy"],
-      "first_publish_year": 2006,
-      "subject": ["Dystopian", "Survival", "Fiction"],
-      "cover_i": 240743,
-      "ratings_average": 4.6,
-      "edition_count": 8
+      "edition_count": 7,
+      "isbn": ["9780375842207"],
+      "olid": ["OL223344M"]
     }
   ]
 }

@@ -19,12 +19,9 @@ const CategoriesBox = () => {
   const [selectedGenre, setSelectedGenre] = useState<SelectedGenre>({ name: 'All', index: 0 });
   const [bookLists, setBookLists] = useState<Book[]>([]);
   
-  
-  
   useEffect(() => {
     setBookLists(books);
   }, [books]);
-
 
   useEffect(() => {
    if (selectedGenre.name === 'All') {
@@ -35,9 +32,35 @@ const CategoriesBox = () => {
    const filteredBooks = books.filter(currentBook => currentBook.subject.includes(selectedGenre.name)); // check if book subject includes selected genre
    
    setBookLists(filteredBooks); // update book lists
-  }, [selectedGenre])
+  }, [selectedGenre, books]);
   
+  if (loading) {
+    return (
+      <section className="categories-section">
+        <h2>Categories</h2>
+        <div className="error-box">
+          <img 
+            src='/illustrations/internal-server-error.png'
+            alt='Error Fetching books' />
+          <h4>Fetching books...</h4>
+        </div>
+      </section>
+    );
+  }
 
+  if (error) {
+    return (
+      <section className="categories-section">
+        <h2>Categories</h2>
+        <div className="error-box">
+          <img 
+            src='/illustrations/internal-server-error.png' 
+            alt='Error Fetching books' />
+          <h4>There was an error fetching the books. Please try again later.</h4>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="categories-section">
@@ -53,14 +76,6 @@ const CategoriesBox = () => {
         ))}
       </div>
       
-      { error ? (
-        <div className='error-box'>
-          <img 
-            src='/illustrations/internal-server-error.png'
-           alt='Error Fetching books' />
-          <h4> Error fetching books </h4>
-        </div>
-      ) : 
       <div className="booksWrapper flex-col-center">
         {bookLists.length > 0 ? (
           bookLists.map((book, index) => (
@@ -74,11 +89,10 @@ const CategoriesBox = () => {
             <img 
               src='/illustrations/no-data-pana.png' 
               alt='No Books Found' />
-            <h4> No books available </h4>
+            <h4>No books available for this genre</h4>
           </div>
         )}
       </div>
-      }
     </section>
   );
 };
