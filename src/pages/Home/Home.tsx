@@ -1,6 +1,7 @@
 import HomeTopBar from '@components/home/HomeTopBar.tsx';
 import RecommendationBox from '@components/home/RecommendationBox.tsx';
 import CategoriesBox from '@components/home/CategoriesBox.tsx';
+import Footer from '@components/helper/Footer.tsx';
 
 import './index.css';
 
@@ -16,6 +17,10 @@ const Home = () => {
        <RecommendationBox />
        <CategoriesBox />
      </main>
+     
+     <footer>
+       <Footer />
+     </footer>
     </>
   )
 }

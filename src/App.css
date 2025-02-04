@@ -100,6 +100,27 @@ h4 {
 }
 
 
+footer ul {
+ width: 100vw;
+ height: 4.5rem;
+ position: fixed;
+ bottom: 0;
+ display: flex;
+ align-items: center;
+ justify-content: space-evenly;
+ background-color: var(--shade);
+ border-top: 0.1rem solid var(--bg-color);
+ border-top-left-radius: 1.5rem;
+ border-top-right-radius: 1.5rem;
+ 
+ & li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+ }
+}
+
 
 
 @keyframes dim {

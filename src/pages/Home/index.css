@@ -54,7 +54,7 @@
 }
 
 .mySwiper .swiper-slide {
-  width: 12rem;
+  width: 11.5rem;
   height: 21rem;
   display: flex;
   flex-direction: column;
@@ -112,14 +112,6 @@
 
 .tabs::-webkit-scrollbar {
  display: none;
-}
-
-
-.tabs {
-  display: flex;
-  overflow-x: auto;  /* Allows horizontal scrolling */
-  white-space: nowrap;  /* Ensures buttons stay in a single line */
-  gap: 0.5rem; /* Space between buttons */
 }
 
 .tabs button {
