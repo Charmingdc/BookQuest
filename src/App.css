@@ -31,6 +31,10 @@ main {
  align-items: center;
 }
 
+main {
+ margin-bottom: 6rem;
+}
+
 section {
  width: 88%;
  display: flex;
