@@ -55,7 +55,10 @@ const CategoriesBox = () => {
       
       { error ? (
         <div className='error-box'>
-          <h2> Error fetching books </h2>
+          <img 
+            src='/illustrations/internal-server-error.png'
+           alt='Error Fetching books' />
+          <h4> Error fetching books </h4>
         </div>
       ) : 
       <div className="booksWrapper flex-col-center">
@@ -67,7 +70,12 @@ const CategoriesBox = () => {
             />
           ))
         ) : (
-          <p>No books available</p>
+          <div className='error-box'>
+            <img 
+              src='/illustrations/no-data-pana.png' 
+              alt='No Books Found' />
+            <h4> No books available </h4>
+          </div>
         )}
       </div>
       }

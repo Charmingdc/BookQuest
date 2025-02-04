@@ -1,5 +1,6 @@
 import useBooks from '@hooks/useBooks.tsx';
 import getCoverUrl from '@utils/helper/getCoverUrl.tsx';
+import convertToStar from '@utils/helper/convertToStar.tsx';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Autoplay } from 'swiper/modules';
@@ -9,7 +10,7 @@ import 'swiper/css/effect-coverflow';
 
 
 const RecommendationBox = () => {
-  const { books, error } = useBooks();
+  const { books, error, loading } = useBooks();
   
   return (
     <section className="recommendation-section flex-col-center">
@@ -17,7 +18,10 @@ const RecommendationBox = () => {
 
       { error ? (
         <div className='error-box'>
-         <h2> Error fetching recommended books </h2>
+          <img 
+            src='/illustrations/internal-server-error.png'
+           alt='Error Fetching books' />
+          <h4> Error fetching recommended books </h4>
         </div>
        ) :
        <Swiper
@@ -43,9 +47,19 @@ const RecommendationBox = () => {
         
         {books.map((book, index) => (
           <SwiperSlide
-            key={index}
-            style={{
-            backgroundImage: `url(${getCoverUrl(book.cover_i, book.isbn?.[0])})`}}> 
+            key={index}> 
+            <div 
+             style={{backgroundImage: `url(${getCoverUrl(book.cover_i, book.isbn?.[0])})`}}>
+            </div>
+            
+            <h3> { book.title } </h3>
+            <p> { book.author_name } </p>
+            <p> 
+              { convertToStar(book.ratings_average) }
+              <span> 
+                { book.ratings_average }
+              </span>
+            </p>
          </SwiperSlide>
         ))}
       </Swiper>}

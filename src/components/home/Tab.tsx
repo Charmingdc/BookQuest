@@ -9,7 +9,7 @@ const Tab = ({ genre, onClick, isActive }: TabProps) => {
     <button 
       className={isActive ? 'active' : ''}
       onClick={onClick}>
-      { genre }
+       { genre }
      </button>
  )
 }
