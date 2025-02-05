@@ -1,4 +1,4 @@
-import useBooks from '@hooks/useBooks.tsx';
+import useBooks from '@hooks/useBooks.tsx'
 import getCoverUrl from '@utils/helper/getCoverUrl.tsx';
 import convertToStar from '@utils/helper/convertToStar.tsx';
 
@@ -12,18 +12,66 @@ import 'swiper/css/effect-coverflow';
 const RecommendationBox = () => {
   const { books, error, loading } = useBooks();
   
+  
+  if (loading) {
+   return (
+     <section className="recommendation-section flex-col-center">
+      <h2>Recommended Books</h2>
+      <Swiper
+        effect={'coverflow'}
+        grabCursor={true}
+        centeredSlides={true}
+        slidesPerView={'auto'}
+        loop={true}
+        autoplay={{
+          delay: 2000,
+          disableOnInteraction: false,
+        }}
+        coverflowEffect={{
+          rotate: 0,
+          stretch: 0,
+          depth: 90,
+          modifier: 2.5,
+          scale: 0.9,
+          slideShadows: false,
+        }}
+        modules={[EffectCoverflow, Autoplay]}
+        className="mySwiper">
+        {[...Array(50)].map((_, index) => (
+          <SwiperSlide
+            key={index}> 
+            <div></div>
+            
+           <h3> 
+             <em> Fetching... </em>
+           </h3>
+           <p> {/** placeholders **/} </p>
+           <p> {/** placeholders **/} </p>
+         </SwiperSlide>
+        ))}
+      </Swiper>
+    </section>
+   )
+  }
+  
+  if (error) {
+    return (
+      <section className="recommendation-section">
+        <h2>Categories</h2>
+        <div className="error-box">
+          <img 
+            src='/illustrations/internal-server-error.png' 
+            alt='Error Fetching books' />
+          <h4>There was an error fetching the books. Please try again later.</h4>
+        </div>
+      </section>
+    );
+  }
+  
+  
   return (
     <section className="recommendation-section flex-col-center">
       <h2>Recommended Books</h2>
-
-      { error ? (
-        <div className='error-box'>
-          <img 
-            src='/illustrations/internal-server-error.png'
-           alt='Error Fetching books' />
-          <h4> Error fetching recommended books </h4>
-        </div>
-       ) :
        <Swiper
         effect={'coverflow'}
         grabCursor={true}
@@ -44,7 +92,6 @@ const RecommendationBox = () => {
         }}
         modules={[EffectCoverflow, Autoplay]}
         className="mySwiper">
-        
         {books.map((book, index) => (
           <SwiperSlide
             key={index}> 
@@ -62,7 +109,7 @@ const RecommendationBox = () => {
             </p>
          </SwiperSlide>
         ))}
-      </Swiper>}
+      </Swiper>
     </section>
   );
 };

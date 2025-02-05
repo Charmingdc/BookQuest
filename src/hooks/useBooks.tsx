@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Book } from "@types/book/types.tsx";
 
 const useBooks = () => {
   const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  
+  const hasFetched = useRef(false);
 
   
   const normalizedData = (data: Book): Book => {
@@ -23,6 +25,8 @@ const useBooks = () => {
   
 
   useEffect(() => {
+   if (hasFetched.current) return;
+   
     const fetchBooks = async () => {
       try {
         const response = await fetch(
@@ -43,6 +47,8 @@ const useBooks = () => {
     };
 
     fetchBooks();
+    
+    hasFetched.current = true;
   }, []);
 
   return { books, loading, error };

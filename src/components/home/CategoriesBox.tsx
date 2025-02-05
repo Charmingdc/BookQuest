@@ -38,6 +38,8 @@ const CategoriesBox = () => {
    setBookLists(filteredBooks); // update book lists
   }, [selectedGenre, books]);
   
+  
+  
   if (loading) {
     return (
       <section className="categories-section">
