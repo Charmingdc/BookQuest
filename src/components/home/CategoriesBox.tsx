@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 
 import { Book } from '@types/book/types.tsx';
 import useBooks from '@hooks/useBooks.tsx';
@@ -6,18 +6,22 @@ import useDefaultGenres from '@hooks/useDefaultGenres.tsx';
 
 import Tab from './Tab.tsx';
 import BookCard from './BookCard.tsx';
+import BookSkeletonLoader from '../helper/BookSkeletonLoader.tsx';
 
 type SelectedGenre = {
   name: string;
   index: number;
 };
 
+
 const CategoriesBox = () => {
   const { genres } = useDefaultGenres();
   const { books, error, loading } = useBooks();
   
+  
   const [selectedGenre, setSelectedGenre] = useState<SelectedGenre>({ name: 'All', index: 0 });
   const [bookLists, setBookLists] = useState<Book[]>([]);
+  
   
   useEffect(() => {
     setBookLists(books);
@@ -38,18 +42,9 @@ const CategoriesBox = () => {
     return (
       <section className="categories-section">
         <h2>Categories</h2>
-        <div className="bookSkeletonWrapper flex-col-center">
-          <div className='bookSkeleton flex-start'>
-            <div className='bookSkeletonImgWrapper'></div>
-            
-            <div className="bookSkeletonInfo">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-        </div>
+        {[...Array(5)].map((_, i) => (
+          <BookSkeletonLoader key={i}/>
+        ))}
       </section>
     );
   }

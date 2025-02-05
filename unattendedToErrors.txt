@@ -1,2 +1,2 @@
 1. Not using 'loading' in recommendBooks component
-2. Not using 'loading' in Categories components
+2. Not using 'loading' in Categories components ( solved )

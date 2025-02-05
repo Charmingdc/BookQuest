@@ -77,6 +77,54 @@ h4 {
 }
 /*** essential classes ends ***/
 
+
+.bookSkeletonWrapper {
+ width: 100%;
+ height: auto;
+ gap: 1.4rem;
+ margin-top: 2rem;
+}
+
+.bookSkeleton {
+ width: 95%;
+ height: 10rem;
+ padding: 1rem;
+ gap: 1rem;
+ background-color: var(--shade);
+ border-radius: 1rem;
+}
+
+.bookSkeletonImgWrapper {
+ width: 9rem;
+ height: 100%;
+ background-color: var(--bg-color);
+ border-radius: 0.8rem;
+ filter: opacity(1);
+ transition: 200ms;
+ animation: dim 1s linear infinite;
+}
+
+.bookSkeletonInfo {
+ width: 60%;
+ height: 90%;
+ display: flex;
+ flex-direction: column;
+ align-items: flex-start;
+ justify-content: space-between;
+ padding: .5rem 0;
+}
+
+.bookSkeletonInfo > span {
+ width: 100%;
+ height: 1.6rem;
+ background-color: var(--bg-color);
+ filter: opacity(1);
+ transition: 200ms;
+ border-radius: .6rem;
+ margin: .2rem 0;
+ animation: dim 1s linear infinite;
+}
+
 .error-box {
  width: 77vw;
  min-height: 18rem;
