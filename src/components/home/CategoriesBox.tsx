@@ -38,11 +38,17 @@ const CategoriesBox = () => {
     return (
       <section className="categories-section">
         <h2>Categories</h2>
-        <div className="error-box">
-          <img 
-            src='/illustrations/internal-server-error.png'
-            alt='Error Fetching books' />
-          <h4>Fetching books...</h4>
+        <div className="bookSkeletonWrapper flex-col-center">
+          <div className='bookSkeleton flex-start'>
+            <div className='bookSkeletonImgWrapper'></div>
+            
+            <div className="bookSkeletonInfo">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
         </div>
       </section>
     );
