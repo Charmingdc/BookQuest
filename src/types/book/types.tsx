@@ -17,6 +17,7 @@ export type BookInfoProp {
   author_name: string;
   author_key: string;
   key: string;
+  cover: string;
   excerpts?: { text: string }[];
   links?: { title: string; url: string }[];
   number_of_pages?: number;
