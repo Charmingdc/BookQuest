@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 
 import { Book } from '@types/book/types.tsx';
-import useBooks from '@hooks/useBooks.tsx';
-import useDefaultGenres from '@hooks/useDefaultGenres.tsx';
+import useBooks from '@hooks/book/useBooks.tsx';
+import useDefaultGenres from '@hooks/book/useDefaultGenres.tsx';
 
 import Tab from './Tab.tsx';
 import BookCard from './BookCard.tsx';

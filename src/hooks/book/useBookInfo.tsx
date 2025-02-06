@@ -1,25 +1,46 @@
 import { useState, useEffect, useRef } from 'react';
-import { Book } from '@types/book/types.tsx';
+import { BookInfoProp } from '@types/book/types.tsx';
 
 const useBookInfo = (identifier: string) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [bookInfo, setBookInfo] = useState<Book | null>(null);
+  const [bookInfo, setBookInfo] = useState<BookInfoProp | null>(null);
   const hasFetched = useRef(false);
+
+
+  const normalizeInfo = (book: any): BookInfoProp => ({
+    title: book.title,
+    url: book.url || "",
+    author_name: book.authors?.[0]?.name || "Unknown Author",
+    author_key: book.authors?.[0]?.url?.split("/").at(-2) || "",
+    key: book.key || "",
+    excerpts: book.excerpts || [],
+    links: book.links || [],
+    number_of_pages: book.number_of_pages || 'N/A',
+    pagination: book.pagination || "N/A",
+    publish_date: book.publish_date || "Unknown",
+    publishers: book.publishers || [],
+    weight: book.weight || "Unknown",
+  });
 
 
   useEffect(() => {
     if (hasFetched.current || !identifier) return;
 
     const getBookDetails = async () => {
+      setLoading(true);
       try {
         const url = `https://openlibrary.org/api/books?bibkeys=ISBN:${identifier}&format=json&jscmd=data`;
+        
         const response = await fetch(url);
-
-        if (!response.ok) throw new Error('Error fetching book info');
+        if (!response.ok) throw new Error("Error fetching book info");
 
         const data = await response.json();
-        setBookInfo(data[`ISBN:${identifier}`] || null);
+        const bookData = data[`ISBN:${identifier}`];
+
+        if (!bookData) throw new Error("Book not found");
+
+        setBookInfo(bookData);
       } catch (err) {
         setError((err as Error).message);
       } finally {
@@ -29,10 +50,6 @@ const useBookInfo = (identifier: string) => {
 
     getBookDetails();
     hasFetched.current = true;
-  }, [identifier]);
-
-  useEffect(() => {
-    hasFetched.current = false;
   }, [identifier]);
 
   return { bookInfo, loading, error };

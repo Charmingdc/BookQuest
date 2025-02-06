@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-
 import { Book } from '@types/book/types.tsx';
 
 import convertToStar from '@utils/helper/convertToStar.tsx';

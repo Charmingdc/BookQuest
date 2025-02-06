@@ -1,7 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 
 import useBookInfo from '@hooks/book/useBookInfo.tsx';
+import { BookInfoProp } from '@types/book/types.tsx';
 
 import TopBar from '@components/helper/TopBar.tsx';
 import Footer from '@components/helper/Footer.tsx';
@@ -9,26 +10,38 @@ import Footer from '@components/helper/Footer.tsx';
 import './index.css';
 
 const BookPreview = () => {
-  const hasFetched = useRef(false);
   const params = useParams();
   const identifier = params.identifier;
   const { bookInfo, loading, error } = useBookInfo(identifier);
 
+  useEffect(() => {
+    console.log(bookInfo);
+  }, [bookInfo, identifier]);
 
   return (
     <>
       <header>
-        <TopBar pageTitle="Book Preview" />
+        {bookInfo && <TopBar pageTitle={bookInfo.title} />}
       </header>
 
       <main>
-        <h1>Book Preview</h1>
+        {loading && <p>Loading...</p>}
 
-        <h3>Identifier: {identifier}</h3>
+        {error && (
+          <div className="error-box">
+            <img src="/illustrations/internal-server-error.png" alt="Error getting data" />
+            <h3>Error getting book</h3>
+          </div>
+        )}
 
-        {loading && <p>Loading book details...</p>}
-        {error && <p>Error fetching book details.</p>}
-        {bookInfo && <pre>{JSON.stringify(bookInfo, null, 2)}</pre>}
+        {bookInfo && (
+          <section>
+            <img
+              src={`https://covers.openlibrary.org/a/olid/${bookInfo.author_key}-S.jpg`}
+              alt={bookInfo.author_name}
+            />
+          </section>
+        )}
       </main>
 
       <footer>

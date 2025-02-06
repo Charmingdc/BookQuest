@@ -1,4 +1,4 @@
-import useBooks from '@hooks/useBooks.tsx'
+import useBooks from '@hooks/book/useBooks.tsx'
 import getCoverUrl from '@utils/helper/getCoverUrl.tsx';
 import convertToStar from '@utils/helper/convertToStar.tsx';
 

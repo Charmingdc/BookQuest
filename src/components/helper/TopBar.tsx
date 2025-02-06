@@ -1,12 +1,23 @@
+import { useNavigate } from 'react-router-dom';
+import { FaAngleLeft } from "react-icons/fa6";
+
+
 const TopBar = ({ pageTitle }: string) => {
+  const navigate = useNavigate();
+  
   return (
    <nav>
-    <ul>
+    <ul className='top-bar flex-between'>
+      <li onClick={() => navigate(-1)}>
+       <FaAngleLeft size={30} />
+      </li>
+      
       <li>
         <h3> { pageTitle } </h3>
       </li>
       
-      <li></li>
+      <li> {/** left empty on purpose **/}
+      </li>
     </ul>
    </nav>
   )
