@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import normalizedBookData from '@utils/helper/normalizedBookData.tsx'
 import { Book } from "@types/book/types.tsx";
 
 const useBooks = () => {
@@ -8,20 +9,6 @@ const useBooks = () => {
   
   const hasFetched = useRef(false);
 
-  
-  const normalizedData = (data: Book): Book => {
-    return {
-      key: data.key,
-      title: data.title,
-      author_name: data.author_name,
-      first_publish_year: data.first_publish_year,
-      subject: data.subject || [],
-      cover_i: data.cover_i,
-      ratings_average: data.ratings_average.toFixed(2),
-      edition_count: data.edition_count,
-      isbn: data.isbn || []
-    };
-  };
   
 
   useEffect(() => {
@@ -36,7 +23,7 @@ const useBooks = () => {
 
         const data = await response.json();
 
-        const normalizedBooks = data.docs.map((book: Book) => normalizedData(book));
+        const normalizedBooks = data.docs.map((book: Book) => normalizedBookData(book));
 
         setBooks(normalizedBooks);
       } catch (err) {

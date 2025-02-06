@@ -1,4 +1,9 @@
 const convertToStar = (rating: number) => {
+  if (!rating) {
+   console.error('No rating passed');
+   return;
+  }
+  
   const ratingString = String(rating);
   const repeatNum = ratingString.split('.')[0];
   
