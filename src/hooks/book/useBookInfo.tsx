@@ -18,7 +18,7 @@ const useBookInfo = (identifier: string) => {
     author_name: book.authors?.[0]?.name || 'Unknown Author',
     author_key: book.authors?.[0]?.url?.split('/').at(-2) || '',
     key: book.key || '',
-    cover: book?.cover?.large || 'https://via.placeholder.com/150',
+    cover: book?.cover?.large || '/illustrations/no-thumbnail.jpeg',
     excerpts: book.excerpts || [],
     links: book.links || [],
     number_of_pages: book.number_of_pages || 'N/A',
