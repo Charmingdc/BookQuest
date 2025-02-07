@@ -185,6 +185,7 @@ footer ul {
  border-top: 0.1rem solid var(--bg-color);
  border-top-left-radius: 1.5rem;
  border-top-right-radius: 1.5rem;
+ z-index: 30rem;
  
  & li {
   display: flex;

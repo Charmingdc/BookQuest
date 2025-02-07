@@ -1,0 +1,23 @@
+.book-info-section {
+ padding-top: 3rem;
+ gap: 2rem;
+}
+
+.book-info-img-wrapper {
+ width: 15rem;
+ height: 20rem;
+ object-fit: cover;
+ background-color: var(--shade);
+ border-radius: 1rem;
+ 
+ & img {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+ }
+}
+
+.book-info-about {
+ width: 100%;
+ text-align: center;
+}

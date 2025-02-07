@@ -14,7 +14,7 @@ const BookPreview = () => {
   const { bookInfo, loading, error } = useBookInfo(identifier);
 
   useEffect(() => {
-    console.log(bookInfo, identifier, error);
+    console.log(bookInfo);
   }, [bookInfo, identifier]);
 
 
@@ -35,15 +35,20 @@ const BookPreview = () => {
       )}
 
       {bookInfo && (
-        <section className='book-info-section'>
-         <div className='book-info-wrapper'>
+        <section className='book-info-section flex-col-center'>
+         <div className='book-info-img-wrapper'>
            <img src={bookInfo.cover} alt={bookInfo.title} />
-           
-           <img
+          </div>
+          
+          
+          <div className='book-info-about flex-col-center'>
+            <h2> { bookInfo.title } </h2>
+            
+            <img
               src={`https://covers.openlibrary.org/a/olid/${bookInfo.author_key}-S.jpg`}
               alt={bookInfo.author_name}
             />
-         </div>
+          </div>
         </section>
       )}
     </main>

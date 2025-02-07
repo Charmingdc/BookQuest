@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { BookInfoProp } from '@types/book/types.tsx';
 
+
+
 const useBookInfo = (identifier: string) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -8,13 +10,15 @@ const useBookInfo = (identifier: string) => {
   const hasFetched = useRef(false);
 
 
-  const normalizeInfo = (book: BookInfoProp): BookInfoProp => ({
+  
+ 
+  const normalizeInfo = (book: BookInfoProp, coverUrl: string): BookInfoProp => ({
     title: book.title,
     url: book.url || '',
     author_name: book.authors?.[0]?.name || 'Unknown Author',
     author_key: book.authors?.[0]?.url?.split('/').at(-2) || '',
     key: book.key || '',
-    cover: book?.cover?.medium || 'https://via.placeholder.com/400.jpg',
+    cover: book?.cover?.large || 'https://via.placeholder.com/150',
     excerpts: book.excerpts || [],
     links: book.links || [],
     number_of_pages: book.number_of_pages || 'N/A',
