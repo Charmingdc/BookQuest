@@ -41,13 +41,41 @@ const BookPreview = () => {
           </div>
           
           
-          <div className='book-info-about flex-col-center'>
-            <h2> { bookInfo.title } </h2>
+          <div className='book-brief flex-col-center'>
+            <h2 className='book-name'>
+              { bookInfo.title } 
+            </h2>
             
-            <img
-              src={`https://covers.openlibrary.org/a/olid/${bookInfo.author_key}-S.jpg`}
-              alt={bookInfo.author_name}
-            />
+            <p className='author-name'> 
+              {bookInfo.author_name}
+            </p>
+            
+            <div className='quick-info flex-between'>
+             <div>
+              <strong> Published </strong>
+              <p>
+                { bookInfo.publish_date }
+              </p>
+             </div>
+             
+             <div>
+              <strong> Pages </strong>
+              <p>
+                { bookInfo.number_of_pages }
+              </p>
+             </div>
+             
+             <div>
+              <strong> Editions </strong>
+              <p>
+                { bookInfo.editions_count }
+              </p>
+             </div>
+            </div>
+            
+          </div>
+          
+          <div className='book-about'>
           </div>
         </section>
       )}

@@ -1,13 +1,17 @@
 .book-info-section {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
  padding-top: 3rem;
- gap: 2rem;
+ gap: 1.5rem;
+ transform-style: preserve-3d;
+ perspective: 800px;
 }
 
 .book-info-img-wrapper {
- width: 15rem;
- height: 20rem;
- object-fit: cover;
- background-color: var(--shade);
+ width: 13.5rem;
+ height: 18.5rem;
+ position: relative;
  border-radius: 1rem;
  
  & img {
@@ -17,7 +21,47 @@
  }
 }
 
-.book-info-about {
+
+.book-brief {
  width: 100%;
  text-align: center;
+}
+
+.book-brief .book-name,
+.book-brief .author-name {
+ width: 13rem;
+ margin: .2rem 0;
+}
+.book-brief .author-name {
+ filter: opacity(0.6);
+}
+
+.quick-info {
+ width: 90%;
+ height: 4.5rem;
+ padding: 0 5%;
+ gap: .2rem;
+ background-color: var(--shade);
+ border-radius: 1rem;
+ margin-top: 1rem;
+}
+
+.quick-info > div {
+ height: 70%;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: space-between;
+ padding: 0 1rem;
+ border-right: 0.070rem solid var(--bg-color);
+}
+.quick-info > div:last-of-type {
+ border: none;
+}
+
+.book-about {
+ width: 100%;
+ height: 40rem;
+ background-color: var(--shade);
+ border-radius: 1rem;
 }

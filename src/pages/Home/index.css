@@ -146,7 +146,7 @@
 
 .bookCard {
  width: 95%;
- height: 10rem;
+ height: 10.5rem;
  padding: 1rem;
  gap: 1rem;
  background-color: var(--shade);
@@ -154,17 +154,30 @@
 }
 
 .bookImgWrapper {
- width: 9rem;
- height: 100%;
- background-color: var(--bg-color);
- border-radius: 0.8rem;
- filter: opacity(1);
- 
- & img {
+  width: 10.5rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  perspective: 800px;
+  position: relative;
+}
+
+.bookImgWrapper img {
   width: 100%;
   height: 100%;
-  border-radius: 0.8rem;
- }
+  object-fit: cover;
+  border-radius: 0.5rem;
+  box-shadow: -8px 0px 20px var(--bg-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, width 0.3s ease;
+  transform: rotateY(28deg);
+  
+  &:hover {
+   width: 90%;
+   box-shadow: none;
+   transform: rotateY(0);
+  }
 }
 
 .bookInfo {
