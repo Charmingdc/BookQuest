@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import useBookInfo from '@hooks/book/useBookInfo.tsx';
-
+import convertToStar from '@utils/helper/convertToStar.tsx';
 import TopBar from '@components/helper/TopBar.tsx';
 import Footer from '@components/helper/Footer.tsx';
 
@@ -46,6 +46,14 @@ const BookPreview = () => {
               { bookInfo.title } 
             </h2>
             
+            <p className='star-rating'>
+             { convertToStar(bookInfo.ratings_average) }
+             
+             <span>
+              { bookInfo.ratings_average }
+             </span>
+            </p>
+            
             <p className='author-name'> 
               {bookInfo.author_name}
             </p>
@@ -75,8 +83,10 @@ const BookPreview = () => {
             
           </div>
           
-          <div className='book-about'>
-          </div>
+          {bookInfo.description && (
+           <div className='book-about flex-col-center'>
+           <p>{ bookInfo.description }</p>
+          </div>)}
         </section>
       )}
     </main>

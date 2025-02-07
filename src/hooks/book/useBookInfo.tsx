@@ -28,7 +28,7 @@ const useBookInfo = (identifier: string) => {
     publish_date: book.first_publish_year || 'Unknown',
     publishers: book.publisher || [],
     editions_count: book.edition_count || 0,
-    ratings_average: book.ratings_average.toFixed(2) ?? 'N/A',
+    ratings_average: book.ratings_average.toFixed(1) ?? 'N/A',
     description: typeof workDetails?.description === 'string'
     ? workDetails.description
     : workDetails?.description?.value || 'No description available',

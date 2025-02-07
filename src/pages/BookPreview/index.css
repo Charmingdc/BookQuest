@@ -27,11 +27,20 @@
  text-align: center;
 }
 
-.book-brief .book-name,
-.book-brief .author-name {
+.book-brief > h2,
+.book-brief > p {
  width: 13rem;
- margin: .2rem 0;
+ margin: .3rem 0;
 }
+
+.book-brief .star-rating {
+ letter-spacing: .5rem;
+}
+.book-brief span {
+ letter-spacing: normal;
+ margin: 0 .5rem;
+}
+
 .book-brief .author-name {
  filter: opacity(0.6);
 }
@@ -60,8 +69,13 @@
 }
 
 .book-about {
- width: 100%;
- height: 40rem;
+ width: 90%;
+ height: auto;
+ padding: 1rem 5%;
  background-color: var(--shade);
  border-radius: 1rem;
+}
+
+.book-about p {
+ text-align: center;
 }
