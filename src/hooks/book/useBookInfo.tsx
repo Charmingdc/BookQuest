@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { BookInfoProp } from '@types/book/types.tsx';
+import { RawBook, WorkDetails, BookInfoProp } from '@types/book/types.tsx';
 
 
 
@@ -10,22 +10,30 @@ const useBookInfo = (identifier: string) => {
   const hasFetched = useRef(false);
 
 
-  
- 
-  const normalizeInfo = (book: BookInfoProp, coverUrl: string): BookInfoProp => ({
-    title: book.title,
-    url: book.url || '',
-    author_name: book.authors?.[0]?.name || 'Unknown Author',
-    author_key: book.authors?.[0]?.url?.split('/').at(-2) || '',
+  const normalizeInfo = (
+    book: RawBook,
+    workDetails: WorkDetails
+  ): BookInfoProp => ({
+    title: book.title || 'Unknown Title',
+    url: `https://openlibrary.org${book.key}`,
+    author_name: book.author_name?.[0] || 'Unknown Author',
+    author_key: book.author_key?.[0] || '',
     key: book.key || '',
-    cover: book?.cover?.large || '/illustrations/no-thumbnail.jpeg',
-    excerpts: book.excerpts || [],
-    links: book.links || [],
-    number_of_pages: book.number_of_pages || 'N/A',
-    pagination: book.pagination || 'N/A',
-    publish_date: book.publish_date || 'Unknown',
-    publishers: book.publishers || [],
-    weight: book.weight || 'Unknown',
+    cover: book.cover_i
+    ? `https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`
+    : '/illustrations/no-thumbnail.jpeg',
+    excerpts: workDetails?.excerpts || [],
+    links: workDetails?.links || [],
+    number_of_pages: book.number_of_pages_median ?? 'N/A',
+    publish_date: book.first_publish_year || 'Unknown',
+    publishers: book.publisher || [],
+    editions_count: book.edition_count || 0,
+    ratings_average: book.ratings_average.toFixed(2) ?? 'N/A',
+    description: typeof workDetails?.description === 'string'
+    ? workDetails.description
+    : workDetails?.description?.value || 'No description available',
+    subjects: book.subject || [],
+    first_sentence: workDetails?.first_sentence?.value || 'No first sentence available',
   });
 
 
@@ -35,18 +43,26 @@ const useBookInfo = (identifier: string) => {
     const getBookDetails = async () => {
       setLoading(true);
       try {
-        const url = `https://openlibrary.org/api/books?bibkeys=ISBN:${identifier}&format=json&jscmd=data`;
-        
-        const response = await fetch(url);
-        if (!response.ok) throw new Error("Error fetching book info");
+        const searchUrl = `https://openlibrary.org/search.json?isbn=${identifier}&fields=key,title,author_name,first_publish_year,cover_i,ratings_average,edition_count,author_key,subject`;
 
-        const data = await response.json();
-        const bookData = data[`ISBN:${identifier}`];
+        const searchResponse = await fetch(searchUrl);
+        if (!searchResponse.ok) throw new Error("Error fetching book info");
+
+        const searchData = await searchResponse.json();
+        const bookData: RawBook = searchData.docs?.[0];
 
         if (!bookData) throw new Error("Book not found");
 
-        setBookInfo(normalizeInfo(bookData));
-      } catch (err) {
+        let workDetails: WorkDetails = {};
+        if (bookData.key) {
+          const workUrl = `https://openlibrary.org${bookData.key}.json`;
+
+          const workResponse = await fetch(workUrl);
+          if (workResponse.ok) workDetails = await workResponse.json();
+        }
+
+        setBookInfo(normalizeInfo(bookData, workDetails));
+      } catch (err: any) {
         setError(err.message);
       } finally {
         setLoading(false);

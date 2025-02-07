@@ -1,4 +1,4 @@
-export type Book = {
+export interface Book = {
   key: string;
   title: string;
   author_name: string[];
@@ -10,8 +10,29 @@ export type Book = {
   isbn?: string[]
 };
 
+export interface RawBook {
+  title: string;
+  key: string;
+  author_name?: string[];
+  author_key?: string[];
+  cover_i?: number;
+  first_publish_year?: number;
+  number_of_pages_median?: number;
+  publisher?: string[];
+  edition_count?: number;
+  ratings_average?: string;
+  subject?: string[];
+}
 
-export type BookInfoProp {
+export interface WorkDetails {
+  description?: string | { value: string };
+  excerpts?: { text: string }[];
+  links?: { title: string; url: string }[];
+  subjects?: string[];
+  first_sentence?: { value: string };
+}
+
+export interface BookInfoProp {
   title: string;
   url: string;
   author_name: string;
@@ -20,9 +41,12 @@ export type BookInfoProp {
   cover: string;
   excerpts?: { text: string }[];
   links?: { title: string; url: string }[];
-  number_of_pages?: number;
-  pagination?: string;
-  publish_date?: string;
-  publishers?: string[];
-  weight?: string;
+  number_of_pages: string | number;
+  publish_date: string | number;
+  publishers: string[];
+  editions_count: number;
+  ratings_average: string;
+  description: string;
+  subjects: string[];
+  first_sentence: string;
 }
