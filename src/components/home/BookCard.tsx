@@ -25,7 +25,7 @@ const BookCard = ({bookDetails}: Book) => {
         <img
           src={getCoverUrl(bookDetails.cover_i, bookDetails.isbn?.[0])}
           load='lazy'
-          alt={bookDetails.title} />
+          alt={`${bookDetails.title} by ${bookDetails.author_name}`} />
       </div>
       
       <div className='bookInfo'>

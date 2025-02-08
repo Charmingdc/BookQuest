@@ -10,10 +10,10 @@ import 'swiper/css/effect-coverflow';
 
 
 const RecommendationBox = () => {
-  const { books, error, loading } = useBooks();
+  const { books, isLoading, isError } = useBooks();
   
   
-  if (loading) {
+  if (isLoading) {
    return (
      <section className="recommendation-section flex-col-center">
       <h2>Recommended Books</h2>
@@ -54,7 +54,7 @@ const RecommendationBox = () => {
    )
   }
   
-  if (error) {
+  if (isError) {
     return (
       <section className="recommendation-section">
         <h2>Categories</h2>
