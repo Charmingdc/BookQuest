@@ -22,18 +22,15 @@ const useBookInfo = (identifier: string) => {
     cover: book.cover_i
     ? `https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`
     : '/illustrations/no-thumbnail.jpeg',
-    excerpts: workDetails?.excerpts || [],
     links: workDetails?.links || [],
     number_of_pages: book.number_of_pages_median ?? 'N/A',
     publish_date: book.first_publish_year || 'Unknown',
-    publishers: book.publisher || [],
     editions_count: book.edition_count || 0,
     ratings_average: book.ratings_average.toFixed(1) ?? 'N/A',
     description: typeof workDetails?.description === 'string'
     ? workDetails.description
     : workDetails?.description?.value || 'No description available',
     subjects: book.subject || [],
-    first_sentence: workDetails?.first_sentence?.value || 'No first sentence available',
   });
 
 

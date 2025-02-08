@@ -26,10 +26,8 @@ export interface RawBook {
 
 export interface WorkDetails {
   description?: string | { value: string };
-  excerpts?: { text: string }[];
   links?: { title: string; url: string }[];
   subjects?: string[];
-  first_sentence?: { value: string };
 }
 
 export interface BookInfoProp {
@@ -39,14 +37,11 @@ export interface BookInfoProp {
   author_key: string;
   key: string;
   cover: string;
-  excerpts?: { text: string }[];
   links?: { title: string; url: string }[];
   number_of_pages: string | number;
   publish_date: string | number;
-  publishers: string[];
   editions_count: number;
   ratings_average: string;
   description: string;
   subjects: string[];
-  first_sentence: string;
 }

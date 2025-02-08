@@ -208,3 +208,13 @@ footer ul {
    filter: opacity(0.5);
   }
 }
+
+
+
+
+
+@media (min-width: 726px) {
+ footer ul {
+  display: none;
+ }
+}

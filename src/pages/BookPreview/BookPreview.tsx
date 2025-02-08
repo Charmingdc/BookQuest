@@ -1,9 +1,13 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
+
 import useBookInfo from '@hooks/book/useBookInfo.tsx';
 import convertToStar from '@utils/helper/convertToStar.tsx';
+
 import TopBar from '@components/helper/TopBar.tsx';
 import Footer from '@components/helper/Footer.tsx';
+
+import { IoBookOutline } from "react-icons/io5";
 
 import './index.css';
 
@@ -36,8 +40,15 @@ const BookPreview = () => {
 
       {bookInfo && (
         <section className='book-info-section flex-col-center'>
-         <div className='book-info-img-wrapper'>
+         <div className='book-info-img-wrapper flex-center'>
            <img src={bookInfo.cover} alt={bookInfo.title} />
+           
+           <a href={`${bookInfo.url}`} className='flex-center'>
+             Read Book 
+             <span>
+              <IoBookOutline /> 
+             </span>
+           </a>
           </div>
           
           
@@ -82,11 +93,26 @@ const BookPreview = () => {
             </div>
             
           </div>
+   
           
-          {bookInfo.description && (
-           <div className='book-about flex-col-center'>
+         <div className='book-about flex-col-center'>
+           <h3> Description </h3>
            <p>{ bookInfo.description }</p>
-          </div>)}
+           
+           <h3> Subjects </h3>
+           <div className='subjects-wrapper flex-center'>
+            {bookInfo.subjects.length > 0 ? (
+              bookInfo.subjects.map((s,i) => (
+                <div className='flex-center' key={i}>
+                 { s }
+                </div>
+               ))
+             ) : (
+              <h2> No subjects found </h2>
+             )}
+           </div>
+          
+         </div>
         </section>
       )}
     </main>
