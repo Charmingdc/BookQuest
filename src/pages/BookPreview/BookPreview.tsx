@@ -8,6 +8,7 @@ import TopBar from '@components/helper/TopBar.tsx';
 import Footer from '@components/helper/Footer.tsx';
 
 import { IoBookOutline } from "react-icons/io5";
+import { LuHeart } from "react-icons/lu";
 
 import './index.css';
 
@@ -31,6 +32,7 @@ const BookPreview = () => {
      <main>
       {loading && <p>Loading...</p>}
 
+
       {error && (
         <div className="error-box">
           <img src="/illustrations/internal-server-error.png" alt="Error getting data" />
@@ -38,18 +40,29 @@ const BookPreview = () => {
         </div>
       )}
 
+
       {bookInfo && (
         <section className='book-info-section flex-col-center'>
          <div className='book-info-img-wrapper flex-center'>
            <img src={bookInfo.cover} alt={bookInfo.title} />
-           
-           <a href={`${bookInfo.url}`} className='flex-center'>
-             Read Book 
-             <span>
-              <IoBookOutline /> 
-             </span>
-           </a>
           </div>
+          
+          
+          <div className='action-tab'>
+            <a href={`${bookInfo.url}`} className='flex-center'>
+              Read Book 
+              <span>
+               <IoBookOutline /> 
+              </span>
+            </a>
+            
+            <button className='flex-center'>
+              Add to Favourites
+              <span>
+               <LuHeart /> 
+              </span>
+            </button>
+           </div>
           
           
           <div className='book-brief flex-col-center'>
@@ -99,7 +112,8 @@ const BookPreview = () => {
            <h3> Description </h3>
            <p>{ bookInfo.description }</p>
            
-           <h3> Subjects </h3>
+          { /*
+          <h3> Subjects </h3>
            <div className='subjects-wrapper flex-center'>
             {bookInfo.subjects.length > 0 ? (
               bookInfo.subjects.map((s,i) => (
@@ -111,6 +125,7 @@ const BookPreview = () => {
               <h2> No subjects found </h2>
              )}
            </div>
+          */}
           
          </div>
         </section>

@@ -13,7 +13,7 @@ const normalizedBookData = (data: Book): Book => {
       first_publish_year: data.first_publish_year,
       subject: data.subject || [],
       cover_i: data.cover_i,
-      ratings_average: data.ratings_average.toFixed(2),
+      ratings_average: data.ratings_average.toFixed(1),
       edition_count: data.edition_count,
       isbn: data.isbn || []
     };

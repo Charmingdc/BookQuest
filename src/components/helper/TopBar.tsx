@@ -13,7 +13,7 @@ const TopBar = ({ pageTitle }: string) => {
       </li>
       
       <li>
-        <h3> { pageTitle } </h3>
+        <h2> { pageTitle } </h2>
       </li>
       
       <li> {/** left empty on purpose **/}

@@ -11,7 +11,7 @@ function App() {
        <Route path='*' element={<h1> No page here </h1>} />
        <Route path='/home' 
          element={<Home />} />
-       <Route path='/book-preview/:identifier' 
+       <Route path='/book/:identifier' 
          element={<BookPreview />} />
      </Routes>
    </BrowserRouter>

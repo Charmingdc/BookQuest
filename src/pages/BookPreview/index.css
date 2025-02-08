@@ -12,7 +12,6 @@
  position: relative;
  border: 0.1rem solid var(--shade);
  border-radius: 1rem;
- margin-bottom: 2.5rem;
  
  & img {
   width: 100%;
@@ -21,15 +20,30 @@
  }
 }
 
-.book-info-img-wrapper  a {
-  width: 8rem;
-  height: 3rem;
-  position: absolute;
-  bottom: -2rem;
-  color: rgb(255, 255, 254);
-  text-decoration: none;
-  background-color: var(--sclr);
-  border-radius: .6rem;
+.book-info-section .action-tab {
+  width: 13.5rem;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  
+  & a,
+  & button {
+   width: 100%;
+   height: 3rem;
+   color: rgb(255, 255, 254);
+   text-decoration: none;
+   font-family: 'Nunito Sans';
+   font-size: 1rem;
+   background-color: var(--sclr);
+   border: none;
+   border-radius: .6rem;
+  }
+  
+  & button {
+   background-color: red;
+  }
   
   & span {
    margin: .3rem 0 0 .4rem;
@@ -97,6 +111,7 @@
 
 .book-about p {
  text-align: center;
+ word-break: break-word;
 }
 
 

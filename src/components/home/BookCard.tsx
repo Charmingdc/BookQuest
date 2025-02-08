@@ -11,11 +11,11 @@ const BookCard = ({bookDetails}: Book) => {
   
   const openPreview = (bookInfo: Book) => {
     if (!bookInfo.isbn) {
-     navigate(`book-preview/${bookInfo.key}`); // fallback option for book preview navigation
+     navigate(`book/${bookInfo.key}`); // fallback option for book preview navigation
      return;
     }
     
-    navigate(`/book-preview/${bookInfo.isbn[0]}`); // navigate to preview book
+    navigate(`/book/${bookInfo.isbn[0]}`); // navigate to preview book
   }
   
   
