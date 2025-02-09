@@ -42,7 +42,7 @@
   }
   
   & button {
-   background-color: red;
+   background-color: var(--sclr2);
   }
   
   & span {
