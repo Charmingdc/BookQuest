@@ -1,3 +1,3 @@
-import BookPreview from './BookPreview.tsx';
+import Preview from './Preview.tsx';
 
-export default BookPreview;
+export default Preview;

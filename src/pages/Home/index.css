@@ -197,3 +197,16 @@
  -webkit-line-clamp: 1;
  text-overflow: ellipsis;
 }
+
+
+
+
+@media (min-width: 726px) {
+  main {
+   width: 100vw;
+   display: grid;
+   grid-template-columns: 30% 40% 30%;
+   grid-template-rows: 25% 75%;
+   background-color: red;
+  }
+}
