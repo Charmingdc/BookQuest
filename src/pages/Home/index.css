@@ -202,11 +202,28 @@
 
 
 @media (min-width: 726px) {
-  main {
-   width: 100vw;
-   display: grid;
-   grid-template-columns: 30% 40% 30%;
-   grid-template-rows: 25% 75%;
-   background-color: red;
+  .home-main {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 20vw 60vw 20vw;
+    place-items: center; 
+  }
+
+  .home-main > aside {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+  }
+
+  .home-main > section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center
   }
 }
