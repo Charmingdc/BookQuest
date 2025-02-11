@@ -47,7 +47,7 @@ const BookPreview = ({bookInfo}: BookInfoProp) => {
            {bookInfo.author_name}
          </p>
            
-         <div className='quick-info flex-between'>
+         <div className='quick-info flex-center'>
            <div>
              <strong> Published </strong>
              <p>

@@ -1,13 +1,15 @@
 .book-info-section {
+ width: 90%;
+ height: auto;
  display: flex;
  flex-direction: column;
  align-items: center;
- padding-top: 3rem;
+ padding: 3rem 5% 0 5%;
  gap: 1.5rem;
 }
 
 .book-info-img-wrapper {
- width: 13.5rem;
+ width: 65%;
  height: 18.5rem;
  position: relative;
  border: 0.1rem solid var(--shade);
@@ -21,7 +23,7 @@
 }
 
 .book-info-section .action-tab {
-  width: 13.5rem;
+  width: 63%;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -76,9 +78,10 @@
 
 .quick-info {
  width: 90%;
- height: 4.5rem;
+ min-height: 4.5rem;
+ flex-wrap: wrap;
  padding: 0 5%;
- gap: .2rem;
+ gap: 1rem .2rem;
  background-color: var(--shade);
  border-radius: 1rem;
  margin-top: 1rem;
@@ -91,10 +94,6 @@
  align-items: center;
  justify-content: space-between;
  padding: 0 1rem;
- border-right: 0.070rem solid var(--bg-color);
-}
-.quick-info > div:last-of-type {
- border: none;
 }
 
 .book-about {

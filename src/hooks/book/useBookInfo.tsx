@@ -1,14 +1,10 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { RawBook, WorkDetails, BookInfoProp } from '@types/book/types.tsx';
-
-
 
 const useBookInfo = (identifier: string) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [bookInfo, setBookInfo] = useState<BookInfoProp | null>(null);
-  const hasFetched = useRef(false);
-
 
   const normalizeInfo = (
     book: RawBook,
@@ -20,22 +16,22 @@ const useBookInfo = (identifier: string) => {
     author_key: book.author_key?.[0] || '',
     key: book.key || '',
     cover: book.cover_i
-    ? `https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`
-    : '/illustrations/no-thumbnail.jpeg',
+      ? `https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`
+      : '/illustrations/no-thumbnail.jpeg',
     links: workDetails?.links || [],
     number_of_pages: book.number_of_pages_median ?? 'N/A',
     publish_date: book.first_publish_year || 'Unknown',
     editions_count: book.edition_count || 0,
-    ratings_average: book.ratings_average.toFixed(1) ?? 'N/A',
+    ratings_average: book.ratings_average?.toFixed(1) ?? 'N/A',
     description: typeof workDetails?.description === 'string'
-    ? workDetails.description
-    : workDetails?.description?.value || 'No description available',
+      ? workDetails.description
+      : workDetails?.description?.value || 'No description available',
     subjects: book.subject || [],
   });
 
 
   useEffect(() => {
-    if (hasFetched.current || !identifier) return;
+    if (!identifier) return;
 
     const getBookDetails = async () => {
       setLoading(true);
@@ -67,7 +63,6 @@ const useBookInfo = (identifier: string) => {
     };
 
     getBookDetails();
-    hasFetched.current = true;
   }, [identifier]);
 
   return { bookInfo, loading, error };

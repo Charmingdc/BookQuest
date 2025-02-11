@@ -1,21 +1,25 @@
 import { useNavigate } from 'react-router-dom';
 import { Book } from '@types/book/types.tsx';
-
+import { useBookId } from '@contexts/BookIdContext.tsx';
 import convertToStar from '@utils/helper/convertToStar.tsx';
 import getCoverUrl from '@utils/helper/getCoverUrl.tsx';
 
 
 
 const BookCard = ({bookDetails}: Book) => {
+  const { bookId, updateBookId } = useBookId();
   const navigate = useNavigate();
   
-  const openPreview = (bookInfo: Book) => {
-    if (!bookInfo.isbn) {
-     navigate(`book/${bookInfo.key}`); // fallback option for book preview navigation
+  const openPreview = (clickedBook: Book) => {
+    const screenWidth = window.innerWidth;
+   
+    if (screenWidth >= 726) {
+     updateBookId(clickedBook.isbn[0]);
+     console.log('Key updated:', bookId);
      return;
     }
     
-    navigate(`/book/${bookInfo.isbn[0]}`); // navigate to preview book
+    navigate(`/book/${clickedBook.isbn[0]}`); // navigate to preview book
   }
   
   
