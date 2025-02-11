@@ -88,6 +88,35 @@ h4 {
  }
 }
 
+/* general loader codes start here **/
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.book-wrapper {
+  width: 150px;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+}
+.book {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(10px 10px 5px rgba(0, 0, 0, 0.137));
+}
+.book-wrapper .book-page {
+  width: 50%;
+  height: auto;
+  position: absolute;
+  animation: paging 0.30s linear infinite;
+  transform-origin: left;
+}
+/** general loader code ends here **/
+
+
 .top-bar li:first-of-type {
  margin-top: .3rem;
 }
@@ -203,12 +232,23 @@ footer ul {
 
 
 
+@keyframes paging {
+  0% {
+    transform: rotateY(0deg) skewY(0deg);
+  }
+  50% {
+    transform: rotateY(90deg) skewY(-20deg);
+  }
+  100% {
+    transform: rotateY(180deg) skewY(0deg);
+  }
+}
+
 @keyframes dim {
   50% {
    filter: opacity(0.5);
   }
 }
-
 
 
 
