@@ -3,6 +3,7 @@
   height: 4rem;
   list-style: none;
   margin: .6rem 0 1.5rem 0;
+  z-index: 10;
 }
 .home-topbar li {
   height: 100%;
@@ -202,8 +203,20 @@
 
 
 @media (min-width: 726px) {
+  .home-topbar {
+   width: 100vw;
+   height: 4.5rem;
+   background-color: var(--shade);
+   margin: 0;
+   
+   & li {
+    padding: 0 2rem;
+   }
+  }
+  
   .home-main {
     width: 100vw;
+    height: 100vh;
     display: grid;
     grid-template-columns: 20vw 60vw 20vw;
     place-items: center; 
@@ -211,11 +224,11 @@
 
   .home-main > aside {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: red;
+    background-color: var(--shade);
   }
 
   .home-main > section {
@@ -224,6 +237,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center
+    overflow-y: auto;
+  }
+  
+  .home-main > section::-webkit-scrollbar {
+   display: none;
   }
 }
