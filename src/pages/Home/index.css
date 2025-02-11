@@ -29,6 +29,10 @@
 }
 
 
+.home-main section > section {
+  width: 100%;
+}
+
 .recommendation-section h2 {
   align-self: flex-start;
   margin-bottom: 2rem;
@@ -44,6 +48,7 @@
 
 .categories-section {
   margin-top: 1.5rem;
+  margin-bottom: 6rem;
  }
  
 .mySwiper {
@@ -217,6 +222,7 @@
   .home-main {
     width: 100vw;
     height: 100vh;
+    position: fixed;
     display: grid;
     grid-template-columns: 10vw 60vw 30vw;
     place-items: center; 
@@ -228,6 +234,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    overflow-y: auto;
     background-color: var(--shade);
     
     & section {
@@ -237,7 +244,7 @@
  
 
   .home-main > section {
-    width: 100%;
+    width: 90%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -245,7 +252,28 @@
     overflow-y: auto;
   }
   
-  .home-main > section::-webkit-scrollbar {
+  .home-main > section::-webkit-scrollbar ,
+  .home-main > aside::-webkit-scrollbar {
    display: none;
+   scrollbar-width: none;
+  }
+  
+  .no-book {
+   width: 100%;
+   height: 80%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   gap: 1rem;
+   
+   & img {
+    width: 90%;
+    height: 18rem;
+   }
+   
+   & h2 {
+    text-align: center;
+   }
   }
 }

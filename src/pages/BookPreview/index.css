@@ -1,11 +1,12 @@
 .book-info-section {
- width: 90%;
+ width: 88%;
  height: auto;
  display: flex;
  flex-direction: column;
  align-items: center;
- padding: 3rem 5% 0 5%;
+ padding: 3rem 6% 0 6%;
  gap: 1.5rem;
+ margin-bottom: 6rem;
 }
 
 .book-info-img-wrapper {
