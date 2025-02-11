@@ -2,7 +2,7 @@
 
 Welcome to BookQuest, your personal book tracker and favorites list manager. BookQuest allows users to add books to their favorites collection, customize settings, and switch themes for a personalized experience. Users can sign up, log in, and manage their preferences securely.
 
-## Features
+## Features 📌
 
 - Sign-up and login system: Users can sign up and log in securely to manage their account.
 
@@ -17,7 +17,7 @@ Welcome to BookQuest, your personal book tracker and favorites list manager. Boo
 - User-friendly interface: A clean, intuitive design to manage your favorite books.
 
 
-## Tech Stack
+## Tech Stack ⚒️
 
 - Frontend: React, TypeScript
 
@@ -32,7 +32,7 @@ Welcome to BookQuest, your personal book tracker and favorites list manager. Boo
 - Styling: CSS (custom design)
 
 
-## Installation (For Developers)
+## Installation (For Developers) 👨🏼‍💻
 
 To get started with BookQuest, follow these steps to run the app locally:
 
@@ -75,7 +75,7 @@ npm run dev
 
 Your app should now be running on `http://localhost:5173.`
 
-## Usage (For Developers)
+## Usage (For Developers) 💻
 
 After setting up and running the app locally:
 
@@ -95,7 +95,7 @@ After setting up and running the app locally:
 
 
 
-## Contributing
+## Contributing 👥
 
 Contributions are always welcome! If you'd like to contribute, please follow these steps:
 
@@ -115,6 +115,6 @@ Contributions are always welcome! If you'd like to contribute, please follow the
 
 
 
-## License
+## License 📑
 
 This project is licensed under the GNUP License - see the LICENSE file for details.
