@@ -1,50 +1,120 @@
-# React + TypeScript + Vite
+# BookQuest  📚🤓
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to BookQuest, your personal book tracker and favorites list manager. BookQuest allows users to add books to their favorites collection, customize settings, and switch themes for a personalized experience. Users can sign up, log in, and manage their preferences securely.
 
-Currently, two official plugins are available:
+## Features 📌
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Sign-up and login system: Users can sign up and log in securely to manage their account.
 
-## Expanding the ESLint configuration
+- Add books to your favorites list: Keep track of the books you love or are interested in.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Theme Customization: Switch between light and dark themes to fit your style.
 
-- Configure the top-level `parserOptions` property like this:
+- User Settings: Customize your preferences, including username and theme.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- Quick Search: Easily find books using the Open Library API.
+
+- User-friendly interface: A clean, intuitive design to manage your favorite books.
+
+
+## Tech Stack ⚒️
+
+- Frontend: React, TypeScript
+
+- Backend: Open Library API (for fetching book data)
+
+- Authentication: Firebase (for user sign-up, login, and authorization)
+
+- State Management: React Hooks & Context Api
+
+- Build Tool: Vite
+
+- Styling: CSS (custom design)
+
+
+## Installation (For Developers) 👨🏼‍💻
+
+To get started with BookQuest, follow these steps to run the app locally:
+
+1. Clone the repository:
+
+```bash
+ git clone https://github.com/Charmingdc/BookQuest.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+2. Navigate into the project directory:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+``` bash
+cd BookQuest
 ```
+
+3. Install the required dependencies:
+
+``` bash
+npm install
+```
+
+4. Set up Firebase:
+
+Go to Firebase Console and create a new project.
+
+- Enable Firebase Authentication (email/password, Google, etc.).
+
+- Set up Firestore (optional for user settings).
+
+- Add your Firebase config to your app’s environment variables or directly into the firebase.ts file.
+
+
+5. Run the app:
+
+``` bash
+npm run dev
+```
+
+
+Your app should now be running on `http://localhost:5173.`
+
+## Usage (For Developers) 💻
+
+After setting up and running the app locally:
+
+1. Sign up or log in to create and access your account securely.
+
+
+2. Search for books using the Open Library API.
+
+
+3. Add books to your favorites list.
+
+
+4. Change themes between light and dark modes from the settings.
+
+
+5. Update your user settings (username, theme preferences).
+
+
+
+## Contributing 👥
+
+Contributions are always welcome! If you'd like to contribute, please follow these steps:
+
+1. Fork the repository.
+
+
+2. Create a new branch (git checkout -b feature-name).
+
+
+3. Make your changes and commit them (git commit -m 'Add feature').
+
+
+4. Push the branch to your fork (git push origin feature-name).
+
+
+5. Open a pull request to the main repository.
+
+
+
+## License 📑
+
+This project is licensed under the GNUP License - see the LICENSE file for details.
