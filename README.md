@@ -1,4 +1,4 @@
-# BookQuest
+# BookQuest  📚🤓
 
 Welcome to BookQuest, your personal book tracker and favorites list manager. BookQuest allows users to add books to their favorites collection, customize settings, and switch themes for a personalized experience. Users can sign up, log in, and manage their preferences securely.
 
