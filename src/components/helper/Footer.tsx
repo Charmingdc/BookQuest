@@ -6,7 +6,7 @@ import { LuSettings, LuHeart } from "react-icons/lu";
 
 const Footer = ({currentPage}: string) => {
   const navigate = useNavigate();
-  const activeColor = 'rgb(64, 123, 255)';
+  const activeColor: string = 'rgb(64, 90, 255)';
   
   return (
    <ul className='footer'>

@@ -7,6 +7,7 @@ import RecommendationBox from '@components/home/RecommendationBox.tsx';
 import CategoriesBox from '@components/home/CategoriesBox.tsx';
 import Loader from '@components/helper/Loader.tsx';
 import BookPreview from '@components/helper/BookPreview.tsx';
+import Sidebar from '@components/helper/Sidebar.tsx';
 import Footer from '@components/helper/Footer.tsx';
 
 import './index.css';
@@ -25,10 +26,7 @@ const Home = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  useEffect(() => {
-    console.log("Home log:", bookId);
-    if (bookInfo) console.log("Book info:", bookInfo);
-  }, [bookId, bookInfo, loading]);
+
 
   return (
     <>
@@ -37,7 +35,9 @@ const Home = () => {
       </header>
 
       <main className="home-main">
-        <aside aria-label="Sidebar"></aside>
+        <aside aria-label="Sidebar">
+          <Sidebar currentPage='home' />
+        </aside>
 
         <section className="mobile-home">
           <RecommendationBox />
