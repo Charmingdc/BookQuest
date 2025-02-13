@@ -3,13 +3,13 @@ const Loader = () => {
   const shade: string = 'rgba(250, 250, 250, 0.2)';
   
   return (
-    <div class="loader">
-      <div class="book-wrapper">
+    <div className="loader">
+      <div className="book-wrapper">
         <svg
          xmlns="http://www.w3.org/2000/svg"
          fill="none"
          viewBox="0 0 126 75"
-         class="book"
+         className="book"
         >
         <rect
           strokeWidth="5"
@@ -51,7 +51,7 @@ const Loader = () => {
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 65 75"
-        class="book-page">
+        className="book-page">
        <path
           strokeWidth="4"
           stroke={shade}

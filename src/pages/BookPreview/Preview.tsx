@@ -17,10 +17,6 @@ const Preview = () => {
   const identifier = params.identifier;
   const { bookInfo, loading, error } = useBookInfo(identifier);
 
-  useEffect(() => {
-    console.log(bookInfo);
-  }, [bookInfo, identifier]);
-
 
   return (
     <>
