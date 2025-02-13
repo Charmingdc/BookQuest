@@ -88,6 +88,22 @@ h4 {
  }
 }
 
+.top-bar li:first-of-type {
+ margin-top: .3rem;
+}
+.top-bar li:nth-of-type(2) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.side-bar {
+ display: none;
+}
+
+
 /* general loader codes start here **/
 .loader {
   width: 100%;
@@ -122,17 +138,6 @@ h4 {
 }
 /** general loader code ends here **/
 
-
-.top-bar li:first-of-type {
- margin-top: .3rem;
-}
-.top-bar li:nth-of-type(2) {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
 
 .bookSkeletonWrapper {
  width: 100%;
@@ -182,7 +187,7 @@ h4 {
 }
 
 .error-box {
- width: 77%;
+ width: 85%;
  min-height: 18rem;
  height: 100%;
  display: flex;
@@ -262,5 +267,16 @@ footer ul {
 @media (min-width: 726px) {
  footer ul {
   display: none;
+ }
+ 
+ .side-bar {
+   width: 100%;
+   height: auto;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   list-style: none;
+   gap: 2rem;
+   margin-top: 1rem;
  }
 }

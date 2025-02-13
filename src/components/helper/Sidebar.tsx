@@ -1,26 +1,29 @@
 import { useNavigate } from 'react-router-dom';
 
+import { TbSmartHome } from "react-icons/tb";
+import { LuSettings, LuHeart } from "react-icons/lu";
 
-const Sidebar = (currentPage: string) => {
+
+
+const Sidebar = ({currentPage}: string) => {
   const navigate = useNavigate();
   const activeColor: string = 'rgb(64, 90, 255)';
   
   
   return (
    <nav>
-    <ul>
+    <ul className='side-bar'>
      <li onClick={() => navigate('/home')}>
-       <h2 style={{color: currentPage === 'home' ? activeColor : ''}}>
-         Home
-       </h2>
+       <TbSmartHome size={34} 
+         color={currentPage === 'home' ? activeColor : 'green'} />
      </li>
      
      <li onClick={() => navigate('/favourites')}>
-       <h2> Fav </h2>
+       <LuHeart size={30} color={currentPage === 'favourites' ? activeColor : ''} />
      </li>
      
      <li onClick={() => navigate('/setting')}>
-       <h2> Setting </h2>
+       <LuSettings size={30} color={currentPage === 'setting' ? 'red' : ''} />
      </li>
     </ul>
    </nav>
