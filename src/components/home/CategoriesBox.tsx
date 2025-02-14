@@ -34,7 +34,6 @@ const CategoriesBox = () => {
   }, [selectedGenre, books]);
 
   
-  
   if (isLoading) {
     return (
       <section className="categories-section">

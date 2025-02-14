@@ -7,19 +7,17 @@ import getCoverUrl from '@utils/helper/getCoverUrl.tsx';
 
 
 const BookCard = ({bookDetails}: Book) => {
-  const { bookId, updateBookId } = useBookId();
+  const { updateBookId } = useBookId();
   const navigate = useNavigate();
   
   const openPreview = (clickedBook: Book) => {
     const screenWidth = window.innerWidth;
-   
     if (screenWidth >= 726) {
      updateBookId(clickedBook.isbn[0]);
-     console.log('Key updated:', bookId);
      return;
     }
     
-    navigate(`/book/${clickedBook.isbn[0]}`); // navigate to preview book
+    navigate(`/book/${clickedBook.isbn[0]}`);
   }
   
   

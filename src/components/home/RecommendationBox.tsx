@@ -1,4 +1,7 @@
-import useBooks from '@hooks/book/useBooks.tsx'
+import { useNavigate } from 'react-router-dom';
+import useBooks from '@hooks/book/useBooks.tsx';
+import { Book } from '@types/book/types.tsx';
+import { useBookId } from '@contexts/BookIdContext.tsx';
 import getCoverUrl from '@utils/helper/getCoverUrl.tsx';
 import convertToStar from '@utils/helper/convertToStar.tsx';
 
@@ -11,6 +14,19 @@ import 'swiper/css/effect-coverflow';
 
 const RecommendationBox = () => {
   const { books, isLoading, isError } = useBooks();
+  const { updateBookId } = useBookId();
+  const navigate = useNavigate();
+  
+  
+  const openPreview = (clickedBook: Book) => {
+    const screenWidth = window.innerWidth;
+    if (screenWidth >= 726) {
+     updateBookId(clickedBook.isbn[0]);
+     return;
+    }
+    
+    navigate(`/book/${clickedBook.isbn[0]}`);
+  }
   
   
   if (isLoading) {
@@ -94,6 +110,7 @@ const RecommendationBox = () => {
         className="mySwiper">
         {books.map((book, index) => (
           <SwiperSlide
+            onClick={() => openPreview(book)}
             key={index}> 
             <div 
              style={{backgroundImage: `url(${getCoverUrl(book.cover_i, book.isbn?.[0])})`}}>
