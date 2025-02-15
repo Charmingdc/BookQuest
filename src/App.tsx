@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BookIdProvider } from '@contexts/BookIdContext.tsx';
 
 const PageNotFound = lazy(() => import('@components/helper/PageNotFound'));
+const Landing = lazy(() => import('./pages/Landing'));
 const Home = lazy(() => import('./pages/Home'));
 const Preview = lazy(() => import('./pages/BookPreview'));
 import Loader from '@components/helper/Loader.tsx';
@@ -21,6 +22,12 @@ const App = () => {
           <Route path="*" element={
            <Suspense fallback={<Loader />}>
              <PageNotFound />
+           </Suspense>
+          } />
+          
+          <Route path="/" element={
+           <Suspense fallback={<Loader />}>
+             <Landing />
            </Suspense>
           } />
           
