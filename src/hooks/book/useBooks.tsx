@@ -17,7 +17,7 @@ const useBooks = () => {
   const { data, isLoading, isError, error } = useQuery<Book[]>({
     queryKey: ["books"],
     queryFn: fetchBooks,
-    staleTime: 4 * 60 * 1000,
+    staleTime: 6 * 60 * 1000,
   });
 
   return { books: data ?? [], isLoading, isError, error };

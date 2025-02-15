@@ -1,0 +1,33 @@
+.page-not-found {
+ width: 84vw;
+ height: 100vh;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ gap: 1rem;
+ padding: 0 8vw;
+ background-image: radial-gradient(var(--shade) 20%, var(--bg-color));
+ 
+ & h1 {
+  font-size: 4.5rem;
+  font-weight: 900;
+ }
+ 
+ & p {
+  text-align: center;
+ }
+ 
+ & button {
+  width: 10rem;
+  height: 3.8rem;
+  color: var(--clr);
+  font-family: 'Nunito Sans', Sans-Serif;
+  background-color: rgba(255, 255, 255, 0.080);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 0.1rem solid var(--shade);
+  border-radius: 1rem;
+  margin-top: 4rem;
+ }
+}

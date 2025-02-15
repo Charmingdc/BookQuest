@@ -117,7 +117,7 @@ h4 {
   gap: 1rem;
   transform: translateX(-50%);
   backdrop-filter: blur(6px);
-  z-index: 20;
+  z-index: 10;
  /* background-color: red;*/
 }
 .book-wrapper {
@@ -229,7 +229,7 @@ footer ul {
  border-top: 0.1rem solid var(--bg-color);
  border-top-left-radius: 1.5rem;
  border-top-right-radius: 1.5rem;
- z-index: 30rem;
+ z-index: 20;
  
  & li {
   display: flex;
