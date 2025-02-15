@@ -224,7 +224,7 @@
     height: 100vh;
     position: fixed;
     display: grid;
-    grid-template-columns: 10vw 60vw 30vw;
+    grid-template-columns: 15vw 60vw 25vw;
     place-items: center; 
   }
 
@@ -241,10 +241,10 @@
      align-self: flex-start;
     }
   }
- 
+  
 
   .home-main > section {
-    width: 90%;
+    width: 85%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -259,12 +259,13 @@
   }
   
   .no-book {
-   width: 100%;
+   width: 90%;
    height: 80%;
    display: flex;
    flex-direction: column;
    align-items: center;
    justify-content: center;
+   padding: 0 5%;
    gap: 1rem;
    
    & img {

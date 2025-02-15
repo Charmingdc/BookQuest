@@ -10,7 +10,11 @@ import BookPreview from '@components/helper/BookPreview.tsx';
 import Sidebar from '@components/helper/Sidebar.tsx';
 import Footer from '@components/helper/Footer.tsx';
 
+
+import '../BookPreview/index.css';
 import './index.css';
+
+
 
 const Home = () => {
   const { bookId } = useBookId();
