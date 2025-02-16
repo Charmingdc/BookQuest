@@ -49,7 +49,7 @@ const App = () => {
            <Suspense fallback={<Loader />}>
             <Search />
            </Suspense>
-          }
+          } />
         </Routes>
       </BrowserRouter>
      </BookIdProvider>

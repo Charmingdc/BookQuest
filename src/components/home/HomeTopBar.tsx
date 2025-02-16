@@ -1,6 +1,10 @@
+import { useNavigate } from 'react-router-dom';
 import { LuSearch } from "react-icons/lu";
 
+
 const HomeTopBar = () => {
+  const navigate = useNavigate();
+  
   return (
     <nav>
      <ul className='flex-between home-topbar'>
@@ -8,7 +12,7 @@ const HomeTopBar = () => {
         <h2> BookQuest </h2>
        </li>
        
-       <li className='flex-center'>
+       <li className='flex-center' onClick={() => navigate('/search')}>
         <LuSearch className='home-topbar-icon' />
         
         <div className='flex-center'>
