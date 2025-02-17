@@ -15,15 +15,16 @@ const Search = () => {
    <>
      <header>
       <nav>
-        <div className='search-bar'>
+        <div className='search-bar flex-between'>
         
          <span 
+           className='flex-center'
            onClick={() => navigate(-1)}>
-           <FaAngleLeft />
+           <FaAngleLeft size={34} />
          </span>
          
          
-         <div className='searc-box'>
+         <div className='search-box'>
            <input
              type='text'
              placeholder='Search for any book...'
@@ -32,7 +33,7 @@ const Search = () => {
            
            <span 
              onClick={() => navigate(-1)}>
-             <LuSearch />
+             <LuSearch size={28} />
            </span>
          </div>
          
@@ -41,7 +42,20 @@ const Search = () => {
      </header>
    
      <main>
-       <h1> Hello </h1>
+      <section className='searched-terms-box'>
+        <p> Recently searched terms </p>
+        
+        <div className='searched-terms'>
+          <p> Lean Startup </p>
+          <p> Millionaire Fastlane </p>
+          <p> Deep Work </p>
+          <p> Subtle art of not giving a fuck </p>
+        </div>
+        
+        <button>
+          clear all
+        </button>
+      </section>
      </main>
    </>
   )
