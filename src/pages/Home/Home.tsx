@@ -6,9 +6,9 @@ import HomeTopBar from '@components/home/HomeTopBar.tsx';
 import RecommendationBox from '@components/home/RecommendationBox.tsx';
 import CategoriesBox from '@components/home/CategoriesBox.tsx';
 import Loader from '@components/helper/Loader.tsx';
-import BookPreview from '@components/helper/BookPreview.tsx';
-import Sidebar from '@components/helper/Sidebar.tsx';
-import Footer from '@components/helper/Footer.tsx';
+import BookPreview from '@components/helper/Book/BookPreview.tsx';
+import SideBar from '@components/helper/Navigation/SideBar.tsx';
+import Footer from '@components/helper/Navigation/Footer.tsx';
 
 
 import '../BookPreview/index.css';
@@ -40,7 +40,7 @@ const Home = () => {
 
       <main className="home-main">
         <aside aria-label="Sidebar">
-          <Sidebar currentPage='home' />
+          <SideBar currentPage='home' />
         </aside>
 
         <section className="mobile-home">

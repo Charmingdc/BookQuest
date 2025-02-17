@@ -6,7 +6,7 @@ import useDefaultGenres from "@hooks/book/useDefaultGenres.tsx";
 
 import Tab from "./Tab.tsx";
 import BookCard from "./BookCard.tsx";
-import BookSkeletonLoader from "../helper/BookSkeletonLoader.tsx";
+import BookSkeletonLoader from "../helper/Book/BookSkeletonLoader.tsx";
 
 type SelectedGenre = {
   name: string;

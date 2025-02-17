@@ -55,7 +55,7 @@ const useBookInfo = (identifier: string) => {
         }
 
         setBookInfo(normalizeInfo(bookData, workDetails));
-      } catch (err: any) {
+      } catch (err: string) {
         setError(err.message);
       } finally {
         setLoading(false);

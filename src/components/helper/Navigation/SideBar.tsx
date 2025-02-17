@@ -1,11 +1,10 @@
 import { useNavigate } from 'react-router-dom';
-
 import { TbSmartHome } from "react-icons/tb";
 import { LuSettings, LuHeart } from "react-icons/lu";
 
 
 
-const Sidebar = ({currentPage}: string) => {
+const SideBar = ({currentPage}: string) => {
   const navigate = useNavigate();
   const activeColor: string = 'rgb(64, 90, 255)';
   
@@ -37,4 +36,4 @@ const Sidebar = ({currentPage}: string) => {
 }
 
 
-export default Sidebar;
+export default SideBar;

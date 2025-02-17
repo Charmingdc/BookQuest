@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-
 import { TbSmartHome } from "react-icons/tb";
 import { LuSettings, LuHeart } from "react-icons/lu";
 

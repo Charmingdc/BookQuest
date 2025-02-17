@@ -1,12 +1,11 @@
-import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 
 import useBookInfo from '@hooks/book/useBookInfo.tsx';
 
-import TopBar from '@components/helper/TopBar.tsx';
+import TopBar from '@components/helper/Navigation/TopBar.tsx';
 import Loader from '@components/helper/Loader.tsx';
-import BookPreview from '@components/helper/BookPreview.tsx';
-import Footer from '@components/helper/Footer.tsx';
+import BookPreview from '@components/helper/Book/BookPreview.tsx';
+import Footer from '@components/helper/Navigation/Footer.tsx';
 
 
 
