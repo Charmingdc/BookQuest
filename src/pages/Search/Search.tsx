@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { FaAngleLeft } from "react-icons/fa6";
-import { LuSearch } from "react-icons/lu"
+import { LuSearch } from "react-icons/lu";
+import { HiMiniXMark } from "react-icons/hi2";
 
 import './index.css';
 
@@ -45,15 +46,41 @@ const Search = () => {
       <section className='searched-terms-box'>
         <p> Recently searched terms </p>
         
-        <div className='searched-terms'>
-          <p> Lean Startup </p>
-          <p> Millionaire Fastlane </p>
-          <p> Deep Work </p>
-          <p> Subtle art of not giving a fuck </p>
-        </div>
+        <ul className='searched-terms'>
+          <li> 
+            <p>
+              Lean Startup 
+            </p>
+            
+            <button className='remove-button flex-center'>
+              <HiMiniXMark size={14} />
+            </button>
+          </li>
+          <li> 
+            <p>
+              Deep work
+            </p>
+            
+            <button className='remove-button flex-center'>
+              <HiMiniXMark size={14} />
+            </button>
+          </li>
+          <li> 
+            <p>
+             The subtle art of not giving a fuck
+            </p>
+            
+            <button className='remove-button flex-center'>
+              <HiMiniXMark size={14} />
+            </button>
+          </li>
+        </ul>
         
         <button>
           clear all
+          <span className='flex-center'>
+           <HiMiniXMark size={14} />
+          </span>
         </button>
       </section>
      </main>

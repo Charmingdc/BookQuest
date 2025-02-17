@@ -72,6 +72,9 @@ main {
  padding: 0 5%;
  border-bottom: 0.080rem solid var(--shade);
 }
+.searched-terms-box > p {
+ text-transform: uppercase;
+}
 
 .searched-terms {
  width: 100%;
@@ -79,23 +82,71 @@ main {
  height: auto;
  display: flex;
  flex-direction: column;
- gap: .3rem;
+ align-items: center;
+ justify-content: center;
  font-size: .9rem;
+ gap: .4rem;
+ list-style: none;
  margin-top: 1rem;
 }
-.searched-terms p {
- filter: opacity(0.6);
+
+.searched-terms li {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  border-radius: 0.5rem;
 }
 
-.searched-terms-box button {
- align-self: center;
- width: 100%;
- height: auto;
- color: var(--text-color);
- font-family: 'Nunito Sans', Sans-Serif;
- font-size: 1.1rem;
- font-weight: 800;
- background-color: transparent;
- border: none;
- margin: .8rem 0;
+.searched-terms li p {
+  flex-grow: 1;
+  filter: opacity(0.6);
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.remove-button {
+  width: 1.2rem;
+  height: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  background-color: var(--shade);
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: 0.2s ease-in-out;
+}
+
+
+.searched-terms-box > button {
+  align-self: center;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  font-family: 'Nunito Sans', Sans-Serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  background-color: transparent;
+  border: none;
+  margin: .8rem 0;
+}
+
+.searched-terms-box button span {
+  width: 1.2rem;
+  height: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--shade);
+  border-radius: 50%;
+  margin-left: 0.5rem;
 }
