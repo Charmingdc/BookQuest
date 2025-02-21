@@ -1,13 +1,17 @@
-const convertToStar = (rating: number) => {
+const convertToStar = (rating: number | string) => {
   if (!rating) {
    console.error('No rating passed');
    return;
   }
   
-  const ratingString = String(rating);
-  const repeatNum = ratingString.split('.')[0];
+  if (typeof rating === 'string') {
+   return rating;
+  } else {
+    const ratingString = String(rating);
+    const repeatNum = ratingString.split('.')[0];
   
-  return '⭐'.repeat(repeatNum);
+    return '⭐'.repeat(repeatNum);
+  }
 };
 
 export default convertToStar;

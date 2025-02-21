@@ -5,6 +5,7 @@ import convertToStar from '@utils/helper/convertToStar.tsx';
 import getCoverUrl from '@utils/helper/getCoverUrl.tsx';
 
 
+import '@pages/Home/index.css';
 
 const BookCard = ({bookDetails}: Book) => {
   const { updateBookId } = useBookId();

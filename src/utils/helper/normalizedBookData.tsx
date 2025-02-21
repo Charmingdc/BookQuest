@@ -1,3 +1,5 @@
+'use strict';
+
 const normalizedBookData = (data: Book): Book => {
   if (!data) {
     console.error('No book data to normalize');
@@ -7,12 +9,12 @@ const normalizedBookData = (data: Book): Book => {
   return {
     key: data.key,
     title: data.title,
-    author_name: data.author_name,
+    author_name: data?.author_name || 'Unknown Author',
     first_publish_year: data.first_publish_year,
     subject: data.subject || [],
     cover_i: data.cover_i,
-    ratings_average: data.ratings_average ? data.ratings_average.toFixed(1) : "N/A",
-    edition_count: data.edition_count,
+    ratings_average: data?.ratings_average?.toFixed(1) || 'N/A',
+    edition_count: data.edition_count || 'N/A',
     isbn: data.isbn || []
   };
 };

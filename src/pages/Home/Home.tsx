@@ -11,10 +11,8 @@ import SideBar from '@components/helper/Navigation/SideBar.tsx';
 import Footer from '@components/helper/Navigation/Footer.tsx';
 
 
-import '../BookPreview/index.css';
+import './pages/BookPreview/index.css';
 import './index.css';
-
-
 
 const Home = () => {
   const { bookId } = useBookId();
