@@ -82,7 +82,7 @@ const Search = () => {
           </button>
         </section>
 
-        <section>
+        <section className='search-result'>
           {loading ? (
             [...Array(10)].map((_, i) => <BookSkeletonLoader key={i} />)
           ) : error ? (

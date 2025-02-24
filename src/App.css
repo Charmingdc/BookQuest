@@ -110,6 +110,7 @@ h4 {
   height: 95vh;
   position: fixed;
   left: 50%;
+  top: 0;
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -118,7 +119,7 @@ h4 {
   transform: translateX(-50%);
   backdrop-filter: blur(6px);
   z-index: 10;
- /* background-color: red;*/
+ /*background-color: red;*/
 }
 .book-wrapper {
   width: 150px;

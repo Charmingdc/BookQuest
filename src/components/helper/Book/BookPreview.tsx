@@ -4,6 +4,9 @@ import { LuHeart } from "react-icons/lu";
 import { BookInfoProp } from '@types/book/types.tsx';
 import convertToStar from '@utils/helper/convertToStar.tsx';
 
+
+import '@pages/BookPreview/index.css';
+
 const BookPreview = ({bookInfo}: BookInfoProp) => {
   return (
     <section className='book-info-section flex-col-center'>

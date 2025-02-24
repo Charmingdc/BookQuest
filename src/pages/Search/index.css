@@ -155,3 +155,10 @@ main {
   border-radius: 50%;
   margin-left: 0.5rem;
 }
+
+.search-result {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ gap: 1rem;
+}

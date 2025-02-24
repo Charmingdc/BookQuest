@@ -31,7 +31,7 @@ const CategoriesBox = () => {
       );
       setBookLists(filteredBooks);
     }
-  }, [selectedGenre]);
+  }, [selectedGenre, books]);
 
   
   if (isLoading) {

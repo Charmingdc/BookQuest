@@ -32,7 +32,7 @@ const useBookSearch = (query: string) => {
         } else {
           throw new Error("Invalid data format");
         }
-      } catch (err: any) {
+      } catch (err: string) {
         setError(err.message);
       } finally {
         setLoading(false);
