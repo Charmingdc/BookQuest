@@ -4,14 +4,11 @@ const convertToStar = (rating: number | string) => {
    return;
   }
   
-  if (typeof rating === 'string') {
-   return rating;
-  } else {
-    const ratingString = String(rating);
-    const repeatNum = ratingString.split('.')[0];
+  if (rating === 'N/A') return rating;
   
-    return '⭐'.repeat(repeatNum);
-  }
+  const ratingString = String(rating);
+  const repeatNum = ratingString.split('.')[0];
+  return '⭐'.repeat(repeatNum);
 };
 
 export default convertToStar;
