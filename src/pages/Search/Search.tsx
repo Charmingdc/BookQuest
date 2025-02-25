@@ -61,7 +61,7 @@ const Search = () => {
               </button>
             </li>
             <li>
-              <p>Deep Work</p>
+              <p>Deep Work by Carl Newport </p>
               <button className="remove-button flex-center">
                 <HiMiniXMark size={14} />
               </button>
