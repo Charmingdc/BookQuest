@@ -52,9 +52,22 @@ const Search = () => {
         <SearchedTerms />
         
         <div className="search-result">
-         <h1> Hwllow world </h1>
+        {loading ? (
+          [...Array(10)].map((_, i) =>   <BookSkeletonLoader key={i} />)
+          ) : error ? (
+           <div className="error-box">
+             <img src="/illustrations/internal-server-error.png" alt="Error Fetching books" /> 
+             <h4>There was an error fetching the books. Please try again later.</h4> 
+           </div> 
+          ) : books.length > 0 ? (
+           books.map((book, i) => <BookCard bookDetails={book} key={i} />)
+          ) : (
+           searchValue && ( 
+            <div className="error-box"> <img src="/illustrations/no-data-pana.png" alt="No Books Found" /> <h4>No books match your search. Try a different term.</h4> </div> 
+           ) 
+         )}
         </div>
-        </section> 
+       </section> 
       </main>
     </>
   );
