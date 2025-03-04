@@ -1,76 +1,75 @@
 .search-bar {
-  width: 90%;
-  height: 4rem;
-  position: absolute;
-  padding: .5rem 5%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 0.1rem solid var(--shade);
+ width: 90%; 
+ height: 4rem;
+ position: absolute;
+ padding: .5rem 5%;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ background-color: var(--bg-color);
+ border-bottom: 0.1rem solid var(--shade);
 }
 
 .search-bar > span {
-  width: 3rem;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  cursor: pointer;
+ width: 3rem;
+ height: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: flex-start;
+ cursor: pointer;
 }
 
 .search-box {
-  width: 80.8%;
-  height: 2.9rem;
-  display: flex;
-  align-items: center;
-  padding: 0 1rem;
-  background-color: var(--shade);
-  border: 0.1rem solid var(--shade);
-  border-radius: 3rem;
-  position: relative;
-  transition: 200ms ease-in-out;
+ width: 80.8%;
+ height: 2.9rem;
+ display: flex;
+ align-items: center;
+ padding: 0 1rem;
+ background-color: var(--shade);
+ border: 0.1rem solid var(--shade);
+ border-radius: 3rem;
+ position: relative;
+ transition: 200ms ease-in-out;
 }
 .search-box:hover {
  background-color: var(--bg-color);
 }
 
 .search-box input {
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  font-size: .9rem;
-  font-family: 'Nunito Sans', Sans-Serif;
-  color: var(--text-color);
-  padding-right: 2.5rem;
+ width: 100%;
+ height: 100%;
+ background-color: transparent;
+ border: none;
+ outline: none; 
+ font-size: .9rem;
+ font-family: 'Nunito Sans', Sans-Serif;
+ color: var(--text-color);
+ padding-right: 2.5rem;
+ z-index: 5;
 }
 
 .search-box span {
-  width: 2rem;
-  height: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  right: 1rem;
-  border-radius: 50%;
-  cursor: pointer;
-  margin-top: -0.2rem;
-}
-
-main {
- color: var(--text-color);
- margin-top: 6rem;
+ width: 2rem;
+ height: 2rem;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ position: absolute;
+ right: 1rem;
+ border-radius: 50%;
+ cursor: pointer;
+ z-index: 8;
+ margin-top: -0.2rem;
 }
 
 .searched-terms-box {
- width: 90%;
+ width: 100%;
  height: 2.4rem;
  display: flex;
  flex-direction: column;
  padding: 0 5%;
  border-bottom: 0.080rem solid var(--shade);
+ margin-top: 4.5rem;
  transition: 200ms;
  overflow: hidden;
 }
@@ -79,7 +78,6 @@ main {
  width: 100%;
  text-transform: uppercase;
 }
-
 
 .searched-terms {
  width: 100%;
@@ -96,69 +94,84 @@ main {
 }
 
 .searched-terms li {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 1rem;
-  border-radius: 0.5rem;
+ width: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ padding: 0 1rem;
+ border-radius: 0.5rem;
 }
 
 .searched-terms li p {
-  flex-grow: 1;
-  filter: opacity(0.6);
-  background-color: transparent;
-  margin: 0;
-  padding: 0;
-  text-align: left;
+ flex-grow: 1;
+ filter: opacity(0.6);
+ background-color: transparent;
+ margin: 0;
+ padding: 0;
+ text-align: left;
 }
 
 .remove-button {
-  width: 1.2rem;
-  height: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-color);
-  background-color: var(--shade);
-  border-radius: 50%;
-  cursor: pointer;
-  border: none;
-  outline: none;
-  transition: 0.2s ease-in-out;
+ width: 1.2rem;
+ height: 1.2rem;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ color: var(--text-color);
+ background-color: var(--shade);
+ border-radius: 50%;
+ cursor: pointer;
+ border: none;
+ outline: none;
+ transition: 0.2s ease-in-out;
 }
 
 
 .searched-terms-box > button {
-  align-self: center;
-  width: auto;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-color);
-  font-family: 'Nunito Sans', Sans-Serif;
-  font-size: 1.1rem;
-  font-weight: 800;
-  background-color: transparent;
-  border: none;
-  margin: .8rem 0;
+ align-self: center;
+ width: auto;
+ height: auto; 
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ color: var(--text-color);
+ font-family: 'Nunito Sans', Sans-Serif;
+ font-size: 1.1rem;
+ font-weight: 800;
+ background-color: transparent;
+ border: none;
+ margin: .8rem 0;
 }
 
 .searched-terms-box button span {
-  width: 1.2rem;
-  height: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--shade);
-  border-radius: 50%;
-  margin-left: 0.5rem;
+ width: 1.2rem;
+ height: 1.2rem;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ background-color: var(--shade);
+ border-radius: 50%;
+ margin-left: 0.5rem;
 }
 
 .search-result {
+ width: 100%;
  display: flex;
  flex-direction: column;
  align-items: center;
  gap: 1rem;
+ background-color: green;
+}
+
+
+
+@media (min-width: 726px) {
+ .search-bar {
+  width: 75%;
+  right: 0;
+ }
+ 
+ .searched-terms-box {
+  margin: 5rem;
+ }
 }

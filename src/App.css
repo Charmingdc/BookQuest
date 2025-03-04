@@ -274,26 +274,69 @@ footer ul {
   display: none;
  }
  
+ main {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  display: grid;
+  grid-template-columns: 15vw 85vw;
+  place-items: center; 
+ }
+
+ main > aside {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center; 
+  overflow-y: auto;
+  padding-top: 2rem;
+  background-color: var(--shade);
+    
+  & section {
+   align-self: flex-start;
+  }
+ }
+  
+
+ main > section {
+  width: 90%;
+  height: 100%;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+ }
+  
+ main > section::-webkit-scrollbar ,
+ main > aside::-webkit-scrollbar {
+  display: none;
+  scrollbar-width: none;
+ }
+  
+ 
  .side-bar {
-   width: 100%;
-   height: auto;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   list-style: none;
-   gap: 1rem;
-   margin-top: 1rem;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  gap: 1rem;
+  margin-top: 1rem;
    
-   & li {
-    width: 74%;
-    height: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0 5%;
-    gap: 1rem;
-    background-color: var(--bg-color);
-    border-radius: 1rem;
-   }
+  & li {
+   width: 74%;
+   height: 4rem;
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   padding: 0 5%;
+   gap: 1rem;
+   background-color: var(--bg-color);
+   border-radius: 1rem;
+  }
  }
 }

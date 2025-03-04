@@ -12,8 +12,10 @@ const HomeTopBar = () => {
         <h2> BookQuest </h2>
        </li>
        
-       <li className='flex-center' onClick={() => navigate('/search')}>
-        <LuSearch className='home-topbar-icon' />
+       <li className='flex-center'>
+        <LuSearch 
+         className='home-topbar-icon' 
+         onClick={() => navigate('/search')}/>
         
         <div className='flex-center'>
           <img src='/illustrations/default-dp.webp' alt='User avatar' />

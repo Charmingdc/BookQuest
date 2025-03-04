@@ -36,7 +36,7 @@ const Landing = () => {
          </div>
          
          <p>
-           Discover your next book tk read by browsing through a wide and dynamic range of books with feature to filter by genres
+           Discover your next book to read by browsing through a wide and dynamic range of books with feature to filter by genres
          </p>
        </div>
        
