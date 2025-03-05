@@ -1,3 +1,0 @@
-1. Not using 'loading' in recommendBooks component (solved)
-2. Not using 'loading' in Categories components ( solved )
-3. Annotate all functions where i reeturn a value !!!

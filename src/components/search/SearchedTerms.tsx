@@ -7,7 +7,7 @@ const SearchedTerms = () => {
  const [showSearchedTerms, setShowSearchedTerms] = useState<boolean>(false);
  
  return (
-  <div className="searched-terms-box" style={{ height: showSearchedTerms ? "9.8rem" : "2.4rem" }}>
+  <div className={`searched-terms-box ${showSearchedTerms ? 'expanded' : ''}`}>
     <div className="show-searched-terms flex-between">
       <p>Recently searched terms</p>
       <span onClick={() => setShowSearchedTerms(!showSearchedTerms)}>

@@ -280,7 +280,7 @@ footer ul {
   position: fixed;
   display: grid;
   grid-template-columns: 15vw 85vw;
-  place-items: center; 
+  place-items: center;
  }
 
  main > aside {
@@ -306,13 +306,12 @@ footer ul {
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
  }
   
  main > section::-webkit-scrollbar ,
  main > aside::-webkit-scrollbar {
-  display: none;
+   display: none;
   scrollbar-width: none;
  }
   

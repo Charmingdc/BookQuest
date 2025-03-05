@@ -1,15 +1,18 @@
+/* General Section */
 section {
-  width: 90%;
+ width: 90%;
  display: flex;
  flex-direction: column;
  align-items: center;
  padding-inline: 5%;
 }
+
+/* Search Bar */
 .search-bar {
- width: 92%; 
+ width: 92%;
  height: 4rem;
  position: absolute;
- padding: .5rem 4%;
+ padding: 0.5rem 4%;
  display: flex;
  align-items: center;
  justify-content: space-between;
@@ -18,6 +21,7 @@ section {
  z-index: 10;
 }
 
+/* Search Icon */
 .search-bar > span {
  width: 3rem;
  height: 100%;
@@ -27,8 +31,9 @@ section {
  cursor: pointer;
 }
 
+/* Search Box */
 .search-box {
- width: 80.8%;
+ width: 90.8%;
  height: 2.9rem;
  display: flex;
  align-items: center;
@@ -39,23 +44,26 @@ section {
  position: relative;
  transition: 200ms ease-in-out;
 }
+
 .search-box:hover {
  background-color: var(--bg-color);
 }
 
+/* Search Input */
 .search-box input {
  width: 100%;
  height: 100%;
  background-color: transparent;
  border: none;
- outline: none; 
- font-size: .9rem;
+ outline: none;
+ font-size: 0.9rem;
  font-family: 'Nunito Sans', Sans-Serif;
  color: var(--text-color);
  padding-right: 2.5rem;
  z-index: 5;
 }
 
+/* Search Button */
 .search-box span {
  width: 2rem;
  height: 2rem;
@@ -70,6 +78,7 @@ section {
  margin-top: -0.2rem;
 }
 
+/* Recently Searched Terms */
 .searched-terms-box {
  width: 100%;
  height: 2.4rem;
@@ -78,29 +87,55 @@ section {
  padding: 0 5%;
  border-bottom: 0.080rem solid var(--shade);
  margin-top: 4.5rem;
- transition: 200ms;
+ transition: 0.3s ease-in-out;
  overflow: hidden;
 }
 
-.show-searched-terms {
- width: 100%;
- text-transform: uppercase;
+.searched-terms-box.expanded {
+ height: auto;
+ max-height: 30rem;
+ overflow: visible;
 }
 
+/* Animation for Search Terms */
 .searched-terms {
- width: 100%;
- min-height: 4rem;
- height: auto;
+ opacity: 0;
+ transform: translateY(-10px);
+ transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+ pointer-events: none;
+}
+
+.searched-terms-box.expanded .searched-terms {
+ opacity: 1;
+ transform: translateY(0);
+ pointer-events: auto;
+}
+
+/* Styling for Searched Terms List */
+.searched-terms-box.expanded .searched-terms {
  display: flex;
  flex-direction: column;
  align-items: center;
  justify-content: center;
- font-size: .9rem;
- gap: .4rem;
+ font-size: 0.9rem;
+ gap: 0.4rem;
  list-style: none;
+ padding-bottom: 1rem;
  margin-top: 1rem;
+ transition: 0.3s ease-in-out;
 }
 
+/* Toggle Button for Showing Terms */
+.show-searched-terms {
+ width: 100%;
+ text-transform: uppercase;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ cursor: pointer;
+}
+
+/* Individual Search Term */
 .searched-terms li {
  width: 100%;
  display: flex;
@@ -119,6 +154,7 @@ section {
  text-align: left;
 }
 
+/* Remove Single Search Term */
 .remove-button {
  width: 1.2rem;
  height: 1.2rem;
@@ -134,11 +170,10 @@ section {
  transition: 0.2s ease-in-out;
 }
 
-
+/* Clear All Button */
 .searched-terms-box > button {
  align-self: center;
- width: auto;
- height: auto; 
+ height: 3rem;
  display: flex;
  align-items: center;
  justify-content: center;
@@ -148,9 +183,18 @@ section {
  font-weight: 800;
  background-color: transparent;
  border: none;
- margin: .8rem 0;
+ visibility: hidden;
+ opacity: 0;
+ margin-bottom: .5rem;
+ transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
+.searched-terms-box.expanded > button {
+ visibility: visible;
+  opacity: 1;
+}
+
+/* Clear Button Icon */
 .searched-terms-box button span {
  width: 1.2rem;
  height: 1.2rem;
@@ -162,35 +206,35 @@ section {
  margin-left: 0.5rem;
 }
 
+/* Search Results */
 .search-result {
- width: 95%;
+ width: 90%;
  display: flex;
  flex-direction: column;
  align-items: center;
+ gap: 1rem;
  margin-block: 1rem 3rem;
 }
 
 
 
+
+/* Responsive Design */
 @media (min-width: 726px) {
  .search-bar {
-  width: 75%;
-  right: 0;
+   width: 75%;
+   right: 0;
  }
- 
+
  .searched-terms-box {
-  height: 10rem;
-  margin-top: 5rem;
-  z-index: 50;
+   width: 97%;
+   margin-top: 5rem;
+   margin-bottom: 1rem;
  }
- 
+
  .search-result {
-  width: 100%;
-  height: 60%;
-  display: flex;
- flex-direction: column;
- align-items: center;
-  align-self: flex-end;
-  background-color: green;
+   width: 100%;
+   height: calc(100vh - 10rem);
+   overflow-y: auto;
  }
 }

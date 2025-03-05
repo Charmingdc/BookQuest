@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 import useBookSearch from "@hooks/book/useBookSearch.tsx";
@@ -15,9 +15,19 @@ import "./index.css";
 const Search = () => {
   const navigate = useNavigate();
   const [searchValue, setSearchValue] = useState<string>("");
+  const prevSearchValueRef = useRef<string>("");
 
   const { loading, error, books } = useBookSearch(searchValue);
-
+ 
+  
+  const handleSearch = () => {
+   if (searchValue) {
+    prevSearchValueRef.current = searchValue;
+    setSearchValue("");
+   } else {
+    setSearchValue(prevSearchValueRef.current);
+   }
+  };
 
   return (
     <>
@@ -35,10 +45,11 @@ const Search = () => {
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}
               />
-              <span onClick={() => navigate(-1)}>
+              <span onClick={handleSearch}>
                 <LuSearch size={28} />
               </span>
             </div>
+            
           </div>
         </nav>
       </header>
@@ -52,7 +63,7 @@ const Search = () => {
         <SearchedTerms />
         
         <div className="search-result">
-        {loading ? (
+         {loading ? (
           [...Array(10)].map((_, i) =>   <BookSkeletonLoader key={i} />)
           ) : error ? (
            <div className="error-box">
@@ -63,9 +74,11 @@ const Search = () => {
            books.map((book, i) => <BookCard bookDetails={book} key={i} />)
           ) : (
            searchValue && ( 
-            <div className="error-box"> <img src="/illustrations/no-data-pana.png" alt="No Books Found" /> <h4>No books match your search. Try a different term.</h4> </div> 
-           ) 
-         )}
+            <div className="error-box"> <img src="/illustrations/no-data-pana.png" alt="No Books Found" />
+            
+             <h4>No books match your search. Try a different term.</h4> 
+            </div>) 
+          )}
         </div>
        </section> 
       </main>
