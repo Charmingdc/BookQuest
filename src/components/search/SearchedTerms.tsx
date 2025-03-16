@@ -1,10 +1,17 @@
 import { useState } from 'react';
-
 import { FaAngleDown } from "react-icons/fa6";
 import { HiMiniXMark } from "react-icons/hi2";
 
-const SearchedTerms = () => {
+type SearchedTermProps = {
+ searchedTerms: string[];
+ deleteSearchedTerm: (index: number) => void;
+ clearAllHistory: () => void;
+}
+
+
+const SearchedTerms = ({ searchedTerms, deleteSearchedTerm, clearAllHistory }: SearchedTermProps) => {
  const [showSearchedTerms, setShowSearchedTerms] = useState<boolean>(false);
+ 
  
  return (
   <div className={`searched-terms-box ${showSearchedTerms ? 'expanded' : ''}`}>
@@ -16,32 +23,30 @@ const SearchedTerms = () => {
     </div>
 
     <ul className="searched-terms">
-     <li>
-      <p>Lean Startup</p>
-        <button className="remove-button flex-center">
+     {searchedTerms.length > 0 ? (
+       searchedTerms.map((term, i) => (
+        <li key={i}>
+        <p> { term } </p>
+        <button 
+          className="remove-button flex-center"
+          onClick={() => deleteSearchedTerm(i)}>
           <HiMiniXMark size={14} />
         </button>
-     </li>
-     <li>
-       <p>Deep Work by Carl Newport </p>
-       <button className="remove-button flex-center">
-         <HiMiniXMark size={14} />
-       </button>
-     </li>
-     <li>
-       <p>The Subtle Art of Not Giving a F*ck</p>
-       <button className="remove-button flex-center">
-          <HiMiniXMark size={14} />
-       </button>
-      </li>
+        </li>
+       ))
+      ) : (
+        <p> No search history </p>
+      )}
     </ul>
 
-    <button>
+    { searchedTerms.length > 0 ? (
+     <button 
+      onClick={() => clearAllHistory()}>
       Clear All
       <span className="flex-center">
        <HiMiniXMark size={14} />
       </span>
-    </button>
+    </button>) : null }
   </div>
  )
 }

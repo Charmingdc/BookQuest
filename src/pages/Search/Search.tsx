@@ -1,7 +1,8 @@
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
-import useBookSearch from "@hooks/book/useBookSearch.tsx";
+import useBookSearch from "@hooks/book/useBookSearch";
+import useSearchHistory from "@hooks/book/useSearchHistory";
 
 import BookCard from "@components/helper/Book/BookCard.tsx";
 import BookSkeletonLoader from "@components/helper/Book/BookSkeletonLoader.tsx";
@@ -16,14 +17,24 @@ const Search = () => {
   const navigate = useNavigate();
   const [searchValue, setSearchValue] = useState<string>("");
   const prevSearchValueRef = useRef<string>("");
-
+  
+  const { searchedTerms, saveSearchedTerm, deleteSearchedTerm, clearAllHistory } = useSearchHistory();
   const { loading, error, books } = useBookSearch(searchValue);
- 
+  
+
+  const handleInputChange = (query: string) => {
+   if (query) {
+    setSearchValue(query);
+    saveSearchedTerm(query);
+   }
+  }
   
   const handleSearch = () => {
    if (searchValue) {
     prevSearchValueRef.current = searchValue;
-    setSearchValue("");
+    
+    saveSearchedTerm(prevSearchValueRef.current);
+    setSearchValue('');
    } else {
     setSearchValue(prevSearchValueRef.current);
    }
@@ -31,27 +42,27 @@ const Search = () => {
 
   return (
     <>
-      <header>
-        <nav>
-          <div className="search-bar flex-between">
-            <span className="flex-center" onClick={() => navigate(-1)}>
-              <FaAngleLeft size={34} />
-            </span>
+     <header>
+       <nav>
+         <div className="search-bar flex-between">
+           <span className="flex-center" onClick={() => navigate(-1)}>
+             <FaAngleLeft size={34} />
+           </span>
 
-            <div className="search-box">
-              <input
-                type="text"
-                placeholder="Search for any book..."
-                value={searchValue}
-                onChange={(e) => setSearchValue(e.target.value)}
-              />
-              <span onClick={handleSearch}>
-                <LuSearch size={28} />
-              </span>
-            </div>
+           <div className="search-box">
+             <input
+               type="text"
+               placeholder="Search for any book..."
+               value={searchValue}
+               onChange={(e) => handleInputChange(e.target.value)}
+             />
+             <span onClick={handleSearch}>
+               <LuSearch size={28} />
+             </span>
+           </div>
             
-          </div>
-        </nav>
+         </div>
+       </nav>
       </header>
 
       <main>
@@ -60,7 +71,10 @@ const Search = () => {
        </aside>
 
        <section>
-        <SearchedTerms />
+        <SearchedTerms 
+          searchedTerms={searchedTerms} 
+          deleteSearchedTerm={deleteSearchedTerm}
+          clearAllHistory={clearAllHistory} />
         
         <div className="search-result">
          {loading ? (
