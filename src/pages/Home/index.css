@@ -278,4 +278,20 @@
     text-align: center;
    }
   }
+  
+ 
+ .quick-info {
+  width: 90%;
+  justify-content: center;
+ }
+ .book-about {
+  width: 90%;
+ }
+ .book-main-info {
+  width: 100%;
+  height: auto;
+  display: flex; 
+  flex-direction: column;
+  gap: 2rem;
+ }
 }

@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Book } from '@types/book/types.tsx';
 import { useBookId } from '@contexts/BookIdContext.tsx';
 import convertToStar from '@utils/helper/convertToStar.tsx';
@@ -10,10 +10,12 @@ import '@pages/Home/index.css';
 const BookCard = ({bookDetails}: Book) => {
   const { updateBookId } = useBookId();
   const navigate = useNavigate();
+  const location = useLocation();
+  
   
   const openPreview = (clickedBook: Book) => {
     const screenWidth = window.innerWidth;
-    if (screenWidth >= 726) {
+    if (screenWidth >= 726 && location.pathname === '/home') {
      updateBookId(clickedBook.isbn[0]);
      return;
     }

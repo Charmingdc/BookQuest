@@ -23,10 +23,8 @@ const Search = () => {
   
 
   const handleInputChange = (query: string) => {
-   if (query) {
-    setSearchValue(query);
-    saveSearchedTerm(query);
-   }
+   setSearchValue(query);
+   saveSearchedTerm(query);
   }
   
   const handleSearch = () => {
@@ -44,22 +42,22 @@ const Search = () => {
     <>
      <header>
        <nav>
-         <div className="search-bar flex-between">
-           <span className="flex-center" onClick={() => navigate(-1)}>
-             <FaAngleLeft size={34} />
-           </span>
+        <div className="search-bar flex-between">
+          <span className="flex-center" onClick={() => navigate(-1)}>
+            <FaAngleLeft size={34} />
+          </span>
 
-           <div className="search-box">
-             <input
-               type="text"
-               placeholder="Search for any book..."
-               value={searchValue}
-               onChange={(e) => handleInputChange(e.target.value)}
-             />
-             <span onClick={handleSearch}>
-               <LuSearch size={28} />
-             </span>
-           </div>
+          <div className="search-box">
+           <input
+             type="text"
+             placeholder="Search for any book..."
+             value={searchValue}
+             onChange={(e) => handleInputChange(e.target.value)}
+           />
+           <span onClick={handleSearch}>
+             <LuSearch size={28} />
+           </span>
+          </div>
             
          </div>
        </nav>
@@ -72,9 +70,11 @@ const Search = () => {
 
        <section>
         <SearchedTerms 
+          setSearchValue={setSearchValue}
           searchedTerms={searchedTerms} 
           deleteSearchedTerm={deleteSearchedTerm}
           clearAllHistory={clearAllHistory} />
+        
         
         <div className="search-result">
          {loading ? (

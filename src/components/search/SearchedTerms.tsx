@@ -4,12 +4,13 @@ import { HiMiniXMark } from "react-icons/hi2";
 
 type SearchedTermProps = {
  searchedTerms: string[];
+ setSearchValue: (value: string) => string;
  deleteSearchedTerm: (index: number) => void;
  clearAllHistory: () => void;
 }
 
 
-const SearchedTerms = ({ searchedTerms, deleteSearchedTerm, clearAllHistory }: SearchedTermProps) => {
+const SearchedTerms = ({ setSearchValue, searchedTerms, deleteSearchedTerm, clearAllHistory }: SearchedTermProps) => {
  const [showSearchedTerms, setShowSearchedTerms] = useState<boolean>(false);
  
  
@@ -26,7 +27,12 @@ const SearchedTerms = ({ searchedTerms, deleteSearchedTerm, clearAllHistory }: S
      {searchedTerms.length > 0 ? (
        searchedTerms.map((term, i) => (
         <li key={i}>
-        <p> { term } </p>
+        <p 
+         onClick={() => {
+          setSearchValue(term)
+          setShowSearchedTerms(false)}}> 
+         { term } 
+        </p>
         <button 
           className="remove-button flex-center"
           onClick={() => deleteSearchedTerm(i)}>

@@ -1,11 +1,12 @@
 import { useParams } from 'react-router-dom';
 
-import useBookInfo from '@hooks/book/useBookInfo.tsx';
+import useBookInfo from '@hooks/book/useBookInfo';
 
-import TopBar from '@components/helper/Navigation/TopBar.tsx';
-import Loader from '@components/helper/Loader.tsx';
-import BookPreview from '@components/helper/Book/BookPreview.tsx';
-import Footer from '@components/helper/Navigation/Footer.tsx';
+import TopBar from '@components/helper/Navigation/TopBar';
+import SideBar from '@components/helper/Navigation/SideBar';
+import Loader from '@components/helper/Loader';
+import BookPreview from '@components/helper/Book/BookPreview';
+import Footer from '@components/helper/Navigation/Footer';
 
 
 
@@ -24,20 +25,26 @@ const Preview = () => {
      </header>
 
      <main>
-      {loading && <Loader />}
+      <aside>
+       <SideBar currentPage='home' />
+      </aside>
+      
+      <section className='book-overview'>
+       {loading && <Loader />}
 
 
-      {error && (
-        <div className="error-box">
-          <img src="/illustrations/internal-server-error.png" alt="Error getting data" />
-          <h3>Error getting book</h3>
-        </div>
-      )}
+       {error && (
+         <div className="error-box">
+           <img src="/illustrations/internal-server-error.png" alt="Error getting data" />
+           <h3>Error getting book</h3>
+         </div>
+       )}
 
 
-      {bookInfo && (
+       {bookInfo && (
         <BookPreview bookInfo={bookInfo} />
-      )}
+       )}
+      </section>
     </main>
 
     <footer>
