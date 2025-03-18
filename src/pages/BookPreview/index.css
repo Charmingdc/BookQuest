@@ -1,3 +1,9 @@
+.book-overview {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
 .book-info-section {
  width: 90%;
  height: auto;
@@ -16,7 +22,7 @@
  flex-direction: column;
  align-items: center;
  gap: 2rem;
- margin-top: 1.5rem;
+ margin-top: -1rem;
 }
 
 .book-meta-data {
@@ -26,6 +32,10 @@
  flex-direction: column;
  align-items: center;
  gap: 1rem;
+}
+.book-meta-data .book-name {
+ text-align: center;
+ margin-top: 1.5rem;
 }
 
 .book-info-img-wrapper {
@@ -43,38 +53,40 @@
 }
 
 .book-info-section .action-tab {
-  width: 65%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: .5rem;
+ width: 65%;
+ height: auto;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ gap: .5rem;
   
-  & a,
-  & button {
-   width: 100%;
-   height: 3rem;
-   color: rgb(255, 255, 254);
-   text-decoration: none;
-   font-family: 'Nunito Sans';
-   font-size: 1rem;
-   background-color: var(--sclr);
-   border: none;
-   border-radius: .6rem;
-  }
+ & a,
+ & button {
+  width: 100%;
+  height: 3rem;
+  color: rgb(255, 255, 254);
+  text-decoration: none;
+  text-align: center;
+  font-family: 'Nunito Sans';
+  font-size: 1rem;
+  background-color: var(--sclr);
+  border: none;
+  border-radius: .6rem;
+ }
   
-  & button {
-   background-color: var(--sclr2);
-  }
+ & button {
+  background-color: var(--sclr2);
+ }
   
-  & span {
-   margin: .3rem 0 0 .4rem;
-  }
+ & span {
+  margin: .3rem 0 0 .4rem;
+ }
 }
 
 
 .book-meta-data .star-rating {
  letter-spacing: .3rem;
+ margin-bottom: -.5rem;
 }
 .book-meta-data span {
  letter-spacing: normal;
@@ -86,9 +98,9 @@
 
 .quick-info {
  width: 100%;
- min-height: 4.5rem;
+ min-height: 3.5rem;
  flex-wrap: wrap;
- padding: 0 5%;
+ padding: .5rem 5%;
  gap: 1rem .2rem;
  background-color: var(--shade);
  border-radius: 1rem;
@@ -146,15 +158,15 @@
 /* Responsive Design */
 @media (min-width: 726px) {
  .top-bar {
-   width: 85%;
-   right: 0;
+  width: 85%;
+  right: 0;
  }
 
  .book-overview {
-   width: 90%;
-   height: calc(100vh - 2rem);
-   overflow-y: auto;
-   margin-top: 4rem;
+  width: 90%;
+  height: calc(100vh - 2rem);
+  overflow-y: auto;
+  margin-top: 4rem;
  }
  
  .book-main-info {
@@ -163,5 +175,6 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
+  margin-top: 1rem;
  }
 }

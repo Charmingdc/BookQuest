@@ -81,7 +81,6 @@ h4 {
 .top-bar {
  width: 100vw;
  height: 4rem;
- position: fixed;
  background-color: var(--bg-color);
  list-style: none;
  z-index: 10;
@@ -340,5 +339,11 @@ footer ul {
    background-color: var(--bg-color);
    border-radius: 1rem;
   }
+ }
+ 
+ .top-bar {
+  width: 85%;
+  position: fixed;
+  right: 0;
  }
 }

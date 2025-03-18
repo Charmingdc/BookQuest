@@ -11,9 +11,10 @@ const Landing = lazy(() => import('./pages/Landing'));
 const Home = lazy(() => import('./pages/Home'));
 const Preview = lazy(() => import('./pages/BookPreview'));
 const Search = lazy(() => import('./pages/Search'));
+const Favourite = lazy(() => import('./pages/Favourite'));
+
+
 import "./App.css";
-
-
 const queryClient = new QueryClient();
 const App = () => {
   return (
@@ -48,6 +49,12 @@ const App = () => {
           <Route path="/search" element={
            <Suspense fallback={<Loader />}>
             <Search />
+           </Suspense>
+          } />
+          
+          <Route path="/favourite" element={
+           <Suspense fallback={<Loader />}>
+            <Favourite />
            </Suspense>
           } />
         </Routes>

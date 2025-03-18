@@ -14,12 +14,12 @@ const SideBar = ({currentPage}: string) => {
     <ul className='side-bar'>
      <li onClick={() => navigate('/home')}>
        <TbSmartHome size={34} 
-         color={currentPage === 'home' ? activeColor : 'green'} />
+         color={currentPage === 'home' ? activeColor : ''} />
          
        <h4> Home </h4>
      </li>
      
-     <li onClick={() => navigate('/favourites')}>
+     <li onClick={() => navigate('/favourite')}>
        <LuHeart size={30} color={currentPage === 'favourites' ? activeColor : ''} />
        
        <h4> Favourites </h4>

@@ -11,14 +11,14 @@ const Footer = ({currentPage}: string) => {
    <ul className='footer'>
      <li onClick={() => navigate('/home')}>
        <TbSmartHome size={29} 
-         color={currentPage === 'home' ? activeColor : 'green'} />
+         color={currentPage === 'home' ? activeColor : ''} />
        <p 
          style={{color: currentPage === 'home' ? activeColor : ''}}>
          Home 
        </p>
      </li>
       
-     <li onClick={() => navigate('/favourites')}>
+     <li onClick={() => navigate('/favourite')}>
        <LuHeart size={25} color={currentPage === 'favourites' ? activeColor : ''} />
        <p 
          style={{color: currentPage === 'favourites' ? activeColor : ''}}>

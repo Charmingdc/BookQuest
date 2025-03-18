@@ -1,9 +1,11 @@
 import { useNavigate } from 'react-router-dom';
+
 import useBooks from '@hooks/book/useBooks.tsx';
 import { Book } from '@types/book/types.tsx';
 import { useBookId } from '@contexts/BookIdContext.tsx';
 import getCoverUrl from '@utils/helper/getCoverUrl.tsx';
 import convertToStar from '@utils/helper/convertToStar.tsx';
+import ErrorBox from "../helper/ErrorBox";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Autoplay } from 'swiper/modules';
@@ -74,12 +76,9 @@ const RecommendationBox = () => {
     return (
       <section className="recommendation-section">
         <h2>Categories</h2>
-        <div className="error-box">
-          <img 
-            src='/illustrations/internal-server-error.png' 
-            alt='Error Fetching books' />
-          <h4>There was an error fetching the books. Please try again later.</h4>
-        </div>
+        <ErrorBox 
+         type='internal-error'
+         message='There was an error fetching the books. Please try again later.' />
       </section>
     );
   }

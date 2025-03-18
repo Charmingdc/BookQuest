@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom';
 import { IoBookOutline } from "react-icons/io5";
 import { LuHeart } from "react-icons/lu";
 
@@ -8,9 +9,12 @@ import convertToStar from '@utils/helper/convertToStar.tsx';
 import '@pages/BookPreview/index.css';
 
 const BookPreview = ({bookInfo}: BookInfoProp) => {
+ const location = useLocation();
+ 
+ 
   return (
     <section className='book-info-section flex-col-center'>
-      <div className='book-main-info'>
+      <div className={`${location.pathname === '/home' ? 'book-main-info-home' : 'book-main-info'}`}>
         <div className='book-info-img-wrapper flex-center'>
           <img src={bookInfo.cover} alt={bookInfo.title} />
         </div>
@@ -53,12 +57,12 @@ const BookPreview = ({bookInfo}: BookInfoProp) => {
       </div>
          
           
-      <div className='quick-info flex-between'>
+      <div className='quick-info flex-center'>
         <div>
-        <strong> Published </strong>
-         <p>
-          { bookInfo.publish_date }
-         </p>
+         <strong> Published </strong>
+          <p>
+           { bookInfo.publish_date }
+          </p>
         </div>
              
         <div>

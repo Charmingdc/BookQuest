@@ -7,6 +7,7 @@ import useDefaultGenres from "@hooks/book/useDefaultGenres.tsx";
 import Tab from "./Tab.tsx";
 import BookCard from "../helper/Book/BookCard.tsx";
 import BookSkeletonLoader from "../helper/Book/BookSkeletonLoader.tsx";
+import ErrorBox from "../helper/ErrorBox";
 
 type SelectedGenre = {
   name: string;
@@ -47,15 +48,14 @@ const CategoriesBox = () => {
 
  
   if (isError) {
-    return (
-      <section className="categories-section">
-        <h2>Categories</h2>
-        <div className="error-box">
-          <img src="/illustrations/internal-server-error.png" alt="Error Fetching books" />
-          <h4>There was an error fetching the books. Please try again later.</h4>
-        </div>
-      </section>
-    );
+   return (
+    <section className="categories-section">
+      <h2>Categories</h2>
+       <ErrorBox 
+         type='internal-error'
+         message='There was an error fetching the books. Please try again later.' />
+    </section>
+   );
   }
 
   return (
@@ -65,10 +65,10 @@ const CategoriesBox = () => {
       <div className="tabs flex-between">
         {genres.map((genre, index) => (
           <Tab
-            genre={genre}
-            key={genre}
-            onClick={() => setSelectedGenre({ name: genre, index })}
-            isActive={selectedGenre.index === index}
+           genre={genre}
+           key={genre}
+           onClick={() => setSelectedGenre({ name: genre, index })}
+           isActive={selectedGenre.index === index}
           />
         ))}
       </div>
@@ -77,10 +77,9 @@ const CategoriesBox = () => {
         {bookLists.length > 0 ? (
           bookLists.map((book, index) => <BookCard bookDetails={book} key={index} />)
         ) : (
-          <div className="error-box">
-            <img src="/illustrations/no-data-pana.png" alt="No Books Found" />
-            <h4>No books available for this genre</h4>
-          </div>
+         <ErrorBox
+          type='no-data'
+          message='No books available for this genre' />
         )}
       </div>
     </section>

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import useBookSearch from "@hooks/book/useBookSearch";
 import useSearchHistory from "@hooks/book/useSearchHistory";
 
+import ErrorBox from "@components/helper/ErrorBox";
 import BookCard from "@components/helper/Book/BookCard.tsx";
 import BookSkeletonLoader from "@components/helper/Book/BookSkeletonLoader.tsx";
 import SearchedTerms from "@components/search/SearchedTerms.tsx";
@@ -80,18 +81,16 @@ const Search = () => {
          {loading ? (
           [...Array(10)].map((_, i) =>   <BookSkeletonLoader key={i} />)
           ) : error ? (
-           <div className="error-box">
-             <img src="/illustrations/internal-server-error.png" alt="Error Fetching books" /> 
-             <h4>There was an error fetching the books. Please try again later.</h4> 
-           </div> 
+           <ErrorBox
+            type='internal-error'
+            message='There was an error fetching the books. Please try again later.' />
           ) : books.length > 0 ? (
            books.map((book, i) => <BookCard bookDetails={book} key={i} />)
           ) : (
-           searchValue && ( 
-            <div className="error-box"> <img src="/illustrations/no-data-pana.png" alt="No Books Found" />
-            
-             <h4>No books match your search. Try a different term.</h4> 
-            </div>) 
+           searchValue && (
+            <ErrorBox
+             type='no-data'
+             message='No books match your search. Try a different term.' />) 
           )}
         </div>
        </section> 

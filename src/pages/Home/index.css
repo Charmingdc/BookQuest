@@ -243,14 +243,14 @@
   }
   
 
-  .home-main > section {
-    width: 85%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: auto;
-    overflow-x: hidden;
+ .home-main > section {
+   width: 85%;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   overflow-y: auto;
+   overflow-x: hidden;
   }
   
   .home-main > section::-webkit-scrollbar ,
@@ -287,11 +287,17 @@
  .book-about {
   width: 90%;
  }
- .book-main-info {
+ 
+ .book-main-info-home {
   width: 100%;
   height: auto;
   display: flex; 
   flex-direction: column;
+  align-items: center;
   gap: 2rem;
+ }
+ 
+ .book-info-img-wrapper {
+  height: 20rem;
  }
 }
