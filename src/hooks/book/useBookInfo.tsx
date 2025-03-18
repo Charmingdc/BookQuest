@@ -58,7 +58,7 @@ const useBookInfo = (identifier: string) => {
   staleTime: 1000 * 60 * 5, 
  });
 
- return { bookInfo, loading, error };
+ return { bookInfo, loading, isError, error };
 };
 
 export default useBookInfo;
