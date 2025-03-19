@@ -16,13 +16,17 @@ const Favourite = () => {
      <SideBar currentPage='favourites' />
     </aside>
       
-    <section>
-     <h1>  Favourite books </h1>
+    <section className='favourite-books-container'>
+     {[...Array(10)].map((_, i) => (
+       <div className='book' key={i}>
+       
+       </div>
+      ))}
     </section>
    </main>
 
    <footer>
-    <Footer currentPage="favourites" />
+    <Footer currentPage='favourites' />
    </footer>
   </>
   );

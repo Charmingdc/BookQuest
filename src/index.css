@@ -12,7 +12,7 @@
 @media (prefers-color-scheme: light ) {
  :root {
   --text-color: rgb(20, 20, 20);
-  --bg-color: rgb(245, 245, 255);
-  --shade: rgb(234, 234, 244);
+  --bg-color: rgb(235, 235, 240);
+  --shade: rgb(245, 245, 245);
  }
 }

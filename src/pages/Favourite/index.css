@@ -1,0 +1,21 @@
+.favourite-books-container {
+ width: 80%;
+ display: flex;
+ flex-direction: row;
+ flex-wrap: wrap;
+ justify-content: center;
+ gap: 1rem;
+ padding-top: 1rem;
+}
+
+.favourite-books-container > .book {
+ width: 9rem;
+ height: 12rem;
+ position: relative;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ object-fit: cover;
+ border-radius: .8rem;
+ background-color: var(--shade);
+}

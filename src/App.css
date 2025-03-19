@@ -247,6 +247,9 @@ footer ul {
   }
  }
 }
+footer li:active {
+ color: var(--sclr);
+}
 
 
 
@@ -325,11 +328,10 @@ footer ul {
   flex-direction: column;
   align-items: center;
   list-style: none;
-  gap: 1rem;
   margin-top: 1rem;
    
   & li {
-   width: 74%;
+   width: 75%;
    height: 4rem;
    display: flex;
    align-items: center;
@@ -338,6 +340,7 @@ footer ul {
    gap: 1rem;
    background-color: var(--bg-color);
    border-radius: 1rem;
+   margin-bottom: 1rem;
   }
  }
  
