@@ -51,6 +51,8 @@ h4 {
 }
 
 button {
+ color: var(--text-color);
+ font-weight: 500;
  font-family: 'Nunito Sans';
 }
 /*** essential classess starts ***/

@@ -50,6 +50,76 @@
 }
 
 
+.clicked-book-modal-wrapper {
+ width: 100%;
+ height: 100vh;
+ position: fixed;
+ bottom: 0;
+ display: flex;
+ align-items: flex-end;
+ justify-content: center;
+ background-color: rgba(255, 255, 255, 0.020);
+ backdrop-filter: blur(4px);
+ -webkit-backdrop-filter: blur(4px);
+ z-index: 20;
+}
+
+.clicked-book-modal {
+ width: 90%;
+ height: auto;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ padding-inline: 5%;
+ padding-top: 1rem;
+ padding-bottom: 6rem;
+ background-color: var(--shade);
+ border-top: .1rem solid var(--bg-color);
+ border-top-left-radius: 1.6rem;
+ border-top-right-radius: 1.6rem;
+ z-index: 22;
+}
+
+.clicked-book-modal > div {
+ width: 100%;
+ height: 12rem;
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ justify-content: center;
+ gap: 1rem;
+}
+
+.clicked-book-modal button {
+ width: 100%;
+ height: 3.5rem;
+ background-color: red;
+ border: .1rem solid red;
+ border-radius: 1rem;
+ margin-top: 1rem;
+}
+
+.clicked-book-img {
+ width: 8.5rem;
+ height: 10.5rem;
+ background-color: var(--bg-color);
+ border-radius: .8rem;
+}
+
+.clicked-book-info {
+ display: flex;
+ flex-direction: column;
+ gap: .5rem;
+}
+.clicked-book-info button {
+ width: 8rem;
+ height: 2.5rem;
+ background-color: var(--sclr);
+ border: .1rem solid var(--sclr);
+ border-radius: 1rem;
+}
+
+
 
 @media (min-width: 726px) {
  .favourite-books-container {
