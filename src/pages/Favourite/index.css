@@ -1,21 +1,68 @@
 .favourite-books-container {
- width: 80%;
+ width: 90%;
  display: flex;
  flex-direction: row;
  flex-wrap: wrap;
  justify-content: center;
- gap: 1rem;
+ padding: 0;
+ gap: 1.5rem .5rem;
  padding-top: 1rem;
 }
 
-.favourite-books-container > .book {
- width: 9rem;
- height: 12rem;
+.favourite-books,
+.favourite-books-loader {
+ width: 6.8rem;
+ height: auto;
  position: relative;
  display: flex;
+ flex-direction: column;
  align-items: center;
- justify-content: center;
- object-fit: cover;
- border-radius: .8rem;
+ gap: .6rem 0;
+}
+
+.favourite-books > div,
+.favourite-books-loader > div {
+ width: 100%;
+ height: 11rem;
  background-color: var(--shade);
+ border-radius: .8rem;
+}
+
+.favourite-books > p,
+.favourite-books-loader > p {
+ width: 90%;
+ display: -webkit-box;
+ -webkit-box-orient: vertical;
+ -webkit-line-clamp: 2;
+ font-size: .9rem;
+ text-align: center;
+ text-overflow: ellipsis;
+ overflow: hidden;
+}
+.favourite-books-loader > p {
+ height: 1.4rem;
+ background-color: var(--shade);
+ opacity: .8;
+}
+
+.favourite-books-loader {
+ animation: dim 1s linear infinite;
+}
+
+
+
+@media (min-width: 726px) {
+ .favourite-books-container {
+   width: 90%;
+   height: calc(100vh - 8rem);
+   display: grid;
+   grid-template-rows: repeat(auto-fit, auto);
+   grid-template-columns: repeat(auto-fit, 8rem);
+   grid-auto-flow: row;
+   grid-auto-rows: 12rem;
+   grid-row-gap: 1rem;
+   padding: 6rem 0 6rem 0;
+   justify-content: center;
+   overflow-y: auto;
+ }
 }

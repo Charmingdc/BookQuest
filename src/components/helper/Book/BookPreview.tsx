@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { IoBookOutline } from "react-icons/io5";
-import { LuHeart } from "react-icons/lu";
+import { IoBookOutline, IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
+import { LuHeart } from 'react-icons/lu';
 
 import { BookInfoProp } from '@types/book/types.tsx';
 import convertToStar from '@utils/helper/convertToStar.tsx';
@@ -9,6 +10,7 @@ import convertToStar from '@utils/helper/convertToStar.tsx';
 import '@pages/BookPreview/index.css';
 
 const BookPreview = ({bookInfo}: BookInfoProp) => {
+ const [openFullDesc, setOpenFullDesc] = useState<boolean>(false);
  const location = useLocation();
  
  
@@ -82,8 +84,17 @@ const BookPreview = ({bookInfo}: BookInfoProp) => {
             
       <div className='book-about flex-col-center'>
        <h3> Description </h3>
-       <p>{ bookInfo.description }</p>
+       <p className={`${openFullDesc ? 'show-full-desc' : ''}`}> 
+        { bookInfo.description }
+       </p>
       </div>
+      
+      <button className='toggle-desc flex-center' onClick={() => setOpenFullDesc(!openFullDesc)}>
+       {openFullDesc ? 'Read less' : 'Read more'}
+       <span>
+        {openFullDesc ? (<IoEyeOffOutline size={20} />) : (<IoEyeOutline size={20} />)}
+       </span>
+      </button>
     </section>
   )
 }

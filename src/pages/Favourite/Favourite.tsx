@@ -17,9 +17,11 @@ const Favourite = () => {
     </aside>
       
     <section className='favourite-books-container'>
-     {[...Array(10)].map((_, i) => (
-       <div className='book' key={i}>
-       
+     {[...Array(28)].map((_, i) => (
+       <div className='favourite-books' key={i}>
+        <div></div>
+        
+        <p> The Millionaire Fastlane </p>
        </div>
       ))}
     </section>

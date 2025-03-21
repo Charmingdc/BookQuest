@@ -50,7 +50,9 @@ h4 {
  font-family: Montserrat;
 }
 
-
+button {
+ font-family: 'Nunito Sans';
+}
 /*** essential classess starts ***/
 .flex-center {
  display: flex;
@@ -270,8 +272,6 @@ footer li:active {
    filter: opacity(0.5);
   }
 }
-
-
 
 
 @media (min-width: 726px) {
