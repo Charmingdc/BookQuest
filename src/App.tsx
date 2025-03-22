@@ -8,6 +8,7 @@ import { BookIdProvider } from '@contexts/BookIdContext.tsx';
 import Loader from '@components/helper/Loader.tsx';
 const PageNotFound = lazy(() => import('@components/helper/PageNotFound'));
 const Landing = lazy(() => import('./pages/Landing'));
+const Signup = lazy(() => import('./pages/Signup'));
 const Home = lazy(() => import('./pages/Home'));
 const Preview = lazy(() => import('./pages/BookPreview'));
 const Search = lazy(() => import('./pages/Search'));
@@ -31,6 +32,12 @@ const App = () => {
           <Route path="/" element={
            <Suspense fallback={<Loader />}>
              <Landing />
+           </Suspense>
+          } />
+          
+          <Route path="/signup" element={
+           <Suspense fallback={<Loader />}>
+             <Signup />
            </Suspense>
           } />
           
