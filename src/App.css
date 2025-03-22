@@ -50,11 +50,18 @@ h4 {
  font-family: Montserrat;
 }
 
+a,
+a:active,
+a:hover {
+ text-decoration: none;
+}
+
 button {
  color: var(--text-color);
  font-weight: 500;
  font-family: 'Nunito Sans';
 }
+
 /*** essential classess starts ***/
 .flex-center {
  display: flex;

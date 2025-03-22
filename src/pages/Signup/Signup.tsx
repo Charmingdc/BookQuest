@@ -1,27 +1,28 @@
 import { useReducer } from 'react';
+import { Link } from 'react-router-dom';
 import './index.css';
 
 type FormState = {
-  username: string;
-  email: string;
-  password: string;
-  isValid: boolean;
+ username: string;
+ email: string;
+ password: string;
+ isValid: boolean;
 };
 
 type Action =
-  | { type: 'SET_FIELD'; field: keyof FormState; value: string }
-  | { type: 'RESET_FORM' };
+ | { type: 'SET_FIELD'; field: keyof FormState; value: string }
+ | { type: 'RESET_FORM' };
 
 const initialState: FormState = {
-  username: '',
-  email: '',
-  password: '',
-  isValid: false,
+ username: '',
+ email: '',
+ password: '',
+ isValid: false,
 };
 
 const validateForm = (state: FormState): boolean => {
   return (
-    state.username.trim().length > 0 &&
+    state.username.trim().length > 4 &&
     /\S+@\S+\.\S+/.test(state.email) &&
     state.password.length >= 6
   );
@@ -55,10 +56,22 @@ const Signup = () => {
   };
 
   return (
-    <main>
-      <h2>Signup Page</h2>
+    <main className='signup-container'>
+      <div>
+       <div className='flex-center'>
+        📚
+       </div>
+       
+       <h2> BookQuest </h2>
+      </div>
 
-      <form onSubmit={handleSubmit}>
+      <form className='signup-form' onSubmit={handleSubmit}>
+        <h2> Start Exploring </h2> 
+        
+        <button className='oauth flex-center'>
+          Signup with Google
+        </button>
+        
         <input
           type="text"
           placeholder="Username"
@@ -78,13 +91,13 @@ const Signup = () => {
           onChange={(e) => handleChange('password', e.target.value)}
         />
 
-        <button type="submit" disabled={!state.isValid}>
+        <button type="submit" className='signup-button flex-center' disabled={false/*!state.isValid*/}>
           Sign Up
         </button>
         
-        <button type="button" onClick={() => dispatch({ type: 'RESET_FORM' })}>
-          Reset
-        </button>
+        <p>
+         Already have an account? <Link to='/login'> login </Link>
+        </p>
       </form>
     </main>
   );
