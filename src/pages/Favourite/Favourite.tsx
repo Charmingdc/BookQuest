@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { FaStar } from "react-icons/fa6";
+import { CiTrash } from "react-icons/ci";
 import TopBar from '@components/helper/Navigation/TopBar';
 import SideBar from '@components/helper/Navigation/SideBar';
 import Footer from '@components/helper/Navigation/Footer';
@@ -37,7 +39,7 @@ const Favourite = () => {
     </aside>
       
     <section className='favourite-books-container'>
-     {[...Array(28)].map((_, i) => (
+     {[...Array(18)].map((_, i) => (
        <div 
         className='favourite-books'
         key={i}
@@ -60,13 +62,19 @@ const Favourite = () => {
           <h3>
            The Millionaire Fastlane 
           </h3>
-          <p> 4.3 </p>
+          <div> 
+           <span> <FaStar /> </span>
+           4.3 
+          </div>
           <button> More Info </button>
          </div>
         </div>
         
-        <button className'flex-center'> 
-         Remove
+        <button className='flex-center'>
+         <span>
+          <CiTrash size={24} />
+         </span>
+         Remove from favourites list
         </button>
        </div>
       </div> }
