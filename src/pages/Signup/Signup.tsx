@@ -18,6 +18,7 @@ const Signup = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     alert('Form submitted! 🎉');
+    dispatch({ type: 'RESET_FORM' });
   };
 
   return (
@@ -33,7 +34,7 @@ const Signup = () => {
       <form className='auth-form' onSubmit={handleSubmit}>
         <h2> Start Exploring </h2> 
         
-        <button className='oauth flex-center'>
+        <button type="button" className='oauth flex-center'>
           Signup with Google
         </button>
         

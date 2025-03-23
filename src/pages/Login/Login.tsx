@@ -23,7 +23,7 @@ const Login = () => {
 
   return (
     <main className='auth-container'>
-      <div>
+      <div className='flex-center'>
        <div className='flex-center'>
         📚
        </div>

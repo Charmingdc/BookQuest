@@ -8,6 +8,7 @@ export type FormState = {
 
 type Action =
   | { type: 'SET_FIELD'; field: keyof FormState; value: string }
+  | { type: 'RESET_FORM' }
   | { type: 'TOGGLE_PASSWORD_VISIBILITY' };
 
 const validateForm = (state: FormState, formType: 'signup' | 'login'): boolean => {
@@ -18,7 +19,7 @@ const validateForm = (state: FormState, formType: 'signup' | 'login'): boolean =
   );
 };
 
-const formReducer = (formType: 'signup' | 'login') => {
+const formReducer = (formType: 'signup' | 'login', initialState: FormState) => {
   return (state: FormState, action: Action): FormState => {
     switch (action.type) {
       case 'SET_FIELD': {
@@ -27,6 +28,10 @@ const formReducer = (formType: 'signup' | 'login') => {
       }
       case 'TOGGLE_PASSWORD_VISIBILITY':
         return { ...state, showPassword: !state.showPassword };
+        
+      case 'RESET_FORM':
+        return initialState;
+        
       default:
         return state;
     }
@@ -42,7 +47,7 @@ const useAuth = (formType: 'signup' | 'login') => {
     showPassword: false,
   };
 
-  return { formReducer: formReducer(formType), initialState };
+  return { formReducer: formReducer(formType, initialState), initialState };
 };
 
 export default useAuth;
