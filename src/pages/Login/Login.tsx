@@ -1,46 +1,14 @@
 import { useReducer } from 'react';
 import { Link } from 'react-router-dom';
+import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
+import { FormState } from '@hooks/auth/useAuth.tsx'; 
+import useAuth from '@hooks/auth/useAuth.tsx'; 
+
 import '../Signup/index.css';
 
-type FormState = {
- username: string;
- password: string;
- isValid: boolean;
-};
-
-type Action =
- | { type: 'SET_FIELD'; field: keyof FormState; value: string }
- | { type: 'RESET_FORM' };
-
-const initialState: FormState = {
- username: '',
- password: '',
- isValid: false,
-};
-
-const validateForm = (state: FormState): boolean => {
-  return (
-    state.username.trim().length > 4 &&
-    state.password.length >= 6
-  );
-};
-
-const formReducer = (state: FormState, action: Action): FormState => {
-  switch (action.type) {
-    case 'SET_FIELD': {
-      const newState = { ...state, [action.field]: action.value };
-      return { ...newState, isValid: validateForm(newState) };
-    }
-
-    case 'RESET_FORM':
-      return initialState;
-
-    default:
-      return state;
-  }
-};
 
 const Login = () => {
+ const { formReducer, initialState } = useAuth('login');
   const [state, dispatch] = useReducer(formReducer, initialState);
 
   const handleChange = (field: keyof FormState, value: string) => {
@@ -49,7 +17,8 @@ const Login = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Form submitted! 🎉');
+    alert('Form submitted! 🎉, Check console');
+    console.log(`Username: ${state.username}, Password: ${state.password}`)
   };
 
   return (
@@ -75,14 +44,21 @@ const Login = () => {
           value={state.username}
           onChange={(e) => handleChange('username', e.target.value)}
         />
-        <input
-          type="password"
+        
+        <div className='password-input'>
+         <input
+          type={state.showPassword ? 'text' : 'password'}
           placeholder="Password"
           value={state.password}
           onChange={(e) => handleChange('password', e.target.value)}
-        />
+         />
+         
+         <button type="button" onClick={() => dispatch({ type: 'TOGGLE_PASSWORD_VISIBILITY'})}>
+          { state.showPassword ? <IoEyeOffOutline size={22} /> : <IoEyeOutline size={22} /> }
+         </button>
+        </div>
 
-        <button type="submit" className='auth-button flex-center' disabled={false/*!state.isValid*/}>
+        <button type="submit" className={`auth-button flex-center ${!state.isValid ? 'disabled-button' : ''}`} disabled={!state.isValid}>
           Login
         </button>
         
