@@ -1,10 +1,9 @@
 import { useReducer } from 'react';
 import { Link } from 'react-router-dom';
-import './index.css';
+import '../Signup/index.css';
 
 type FormState = {
  username: string;
- email: string;
  password: string;
  isValid: boolean;
 };
@@ -15,7 +14,6 @@ type Action =
 
 const initialState: FormState = {
  username: '',
- email: '',
  password: '',
  isValid: false,
 };
@@ -23,7 +21,6 @@ const initialState: FormState = {
 const validateForm = (state: FormState): boolean => {
   return (
     state.username.trim().length > 4 &&
-    /\S+@\S+\.\S+/.test(state.email) &&
     state.password.length >= 6
   );
 };
@@ -43,7 +40,7 @@ const formReducer = (state: FormState, action: Action): FormState => {
   }
 };
 
-const Signup = () => {
+const Login = () => {
   const [state, dispatch] = useReducer(formReducer, initialState);
 
   const handleChange = (field: keyof FormState, value: string) => {
@@ -66,10 +63,10 @@ const Signup = () => {
       </div>
 
       <form className='auth-form' onSubmit={handleSubmit}>
-        <h2> Start Exploring </h2> 
+        <h2> Welcome Back </h2> 
         
         <button className='oauth flex-center'>
-          Signup with Google
+         Login with Google
         </button>
         
         <input
@@ -79,12 +76,6 @@ const Signup = () => {
           onChange={(e) => handleChange('username', e.target.value)}
         />
         <input
-          type="email"
-          placeholder="Email"
-          value={state.email}
-          onChange={(e) => handleChange('email', e.target.value)}
-        />
-        <input
           type="password"
           placeholder="Password"
           value={state.password}
@@ -92,15 +83,15 @@ const Signup = () => {
         />
 
         <button type="submit" className='auth-button flex-center' disabled={false/*!state.isValid*/}>
-          Sign Up
+          Login
         </button>
         
         <p>
-         Already have an account? <Link to='/login'> login </Link>
+          Don't have an account? <Link to='/signup'> Signup </Link>
         </p>
       </form>
     </main>
   );
 };
 
-export default Signup;
+export default Login;
