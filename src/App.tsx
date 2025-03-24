@@ -10,6 +10,7 @@ const PageNotFound = lazy(() => import('@components/helper/PageNotFound'));
 const Landing = lazy(() => import('./pages/Landing'));
 const Signup = lazy(() => import('./pages/Signup'));
 const Login = lazy(() => import('./pages/Login'));
+const ResetPassword = lazy(() => import('./pages/ResetPassword'));
 const Home = lazy(() => import('./pages/Home'));
 const Preview = lazy(() => import('./pages/BookPreview'));
 const Search = lazy(() => import('./pages/Search'));
@@ -45,6 +46,12 @@ const App = () => {
           <Route path="/Login" element={
            <Suspense fallback={<Loader />}>
              <Login />
+           </Suspense>
+          } />
+          
+          <Route path="/reset_password" element={
+           <Suspense fallback={<Loader />}>
+             <ResetPassword />
            </Suspense>
           } />
           
