@@ -59,18 +59,6 @@
  border-bottom: .080rem solid var(--sclr);
 }
 
-.auth-form .reset-link {
- text-align: right;
- margin-top: 1.2rem;
-}
-.auth-form .reset-link a {
- color: var(--sclr);
- transition: .2s;
-}
-.auth-form .reset-link a:hover {
- color: var(--text-color);
-}
-
 .password-input {
  height: 3.2rem;
  position: relative;

@@ -27,7 +27,7 @@ const Footer = ({currentPage}: string) => {
      </li>
       
      <li onClick={() => navigate('/setting')}>
-       <LuSettings size={25} color={currentPage === 'setting' ? 'red' : ''} />
+       <LuSettings size={25} color={currentPage === 'setting' ? activeColor : ''} />
        <p 
          style={{color: currentPage === 'setting' ? activeColor : ''}}>
          Setting

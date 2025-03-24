@@ -10,11 +10,11 @@ const PageNotFound = lazy(() => import('@components/helper/PageNotFound'));
 const Landing = lazy(() => import('./pages/Landing'));
 const Signup = lazy(() => import('./pages/Signup'));
 const Login = lazy(() => import('./pages/Login'));
-const ResetPassword = lazy(() => import('./pages/ResetPassword'));
 const Home = lazy(() => import('./pages/Home'));
 const Preview = lazy(() => import('./pages/BookPreview'));
 const Search = lazy(() => import('./pages/Search'));
 const Favourite = lazy(() => import('./pages/Favourite'));
+const Setting = lazy(() => import('./pages/Setting'));
 
 
 import "./App.css";
@@ -49,12 +49,6 @@ const App = () => {
            </Suspense>
           } />
           
-          <Route path="/reset_password" element={
-           <Suspense fallback={<Loader />}>
-             <ResetPassword />
-           </Suspense>
-          } />
-          
           <Route path="/home" element={
            <Suspense fallback={<Loader/>}>
              <Home />
@@ -76,6 +70,12 @@ const App = () => {
           <Route path="/favourite" element={
            <Suspense fallback={<Loader />}>
             <Favourite />
+           </Suspense>
+          } />
+          
+         <Route path="/setting" element={
+           <Suspense fallback={<Loader />}>
+            <Setting />
            </Suspense>
           } />
         </Routes>

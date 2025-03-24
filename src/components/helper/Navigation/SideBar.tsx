@@ -26,7 +26,7 @@ const SideBar = ({currentPage}: string) => {
      </li>
      
      <li onClick={() => navigate('/setting')}>
-       <LuSettings size={30} color={currentPage === 'setting' ? 'red' : ''} />
+       <LuSettings size={30} color={currentPage === 'setting' ? activeColor : ''} />
        
        <h4> Settings </h4>
      </li>

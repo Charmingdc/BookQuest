@@ -58,12 +58,6 @@ const Login = () => {
          </button>
         </div>
         
-        <div className="reset-link">
-         <Link to="/reset_password">
-          Forgot password?
-         </Link>
-        </div>
-
         <button type="submit" className={`auth-button flex-center ${!state.isValid ? 'disabled-button' : ''}`} disabled={!state.isValid}>
           Login
         </button>
