@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
-
-import { Book } from "@types/book/types.tsx";
-import useBooks from "@hooks/book/useBooks.tsx";
-import useDefaultGenres from "@hooks/book/useDefaultGenres.tsx";
+import { useState, useEffect } from "react"
+import { Book } from "@types/book/types"
+import useBooks from "@hooks/book/useBooks"
+import useGenres from "@hooks/book/useGenres";
 
 import Tab from "./Tab.tsx";
 import BookCard from "../helper/Book/BookCard.tsx";
@@ -15,14 +14,14 @@ type SelectedGenre = {
 };
 
 const CategoriesBox = () => {
-  const { genres } = useDefaultGenres();
+  const { genres } = useGenres(8);
   const { books, isError, isLoading } = useBooks();
-
   
   const [bookLists, setBookLists] = useState<Book[]>(books);
   const [selectedGenre, setSelectedGenre] = useState<SelectedGenre>({ name: "All", index: 0 });
-
  
+  const tabGenres: string[] = ['All', ...genres];
+  
   useEffect(() => {
     if (selectedGenre.name === "All") {
       setBookLists(books);
@@ -63,7 +62,7 @@ const CategoriesBox = () => {
       <h2>Categories</h2>
 
       <div className="tabs flex-between">
-        {genres.map((genre, index) => (
+        {tabGenres.map((genre, index) => (
           <Tab
            genre={genre}
            key={genre}

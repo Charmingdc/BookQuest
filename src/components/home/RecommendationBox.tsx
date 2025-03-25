@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 
-import useBooks from '@hooks/book/useBooks.tsx';
-import { Book } from '@types/book/types.tsx';
-import { useBookId } from '@contexts/BookIdContext.tsx';
-import getCoverUrl from '@utils/helper/getCoverUrl.tsx';
-import convertToStar from '@utils/helper/convertToStar.tsx';
+import useRecommendedBooks from '@hooks/book/useRecommendedBooks';
+import { Book } from '@types/book/types';
+import { useBookId } from '@contexts/BookIdContext';
+import getCoverUrl from '@utils/helper/getCoverUrl';
+import convertToStar from '@utils/helper/convertToStar';
 import ErrorBox from "../helper/ErrorBox";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -15,10 +15,13 @@ import 'swiper/css/effect-coverflow';
 
 
 const RecommendationBox = () => {
-  const { books, isLoading, isError } = useBooks();
+  const { recommendedBooks, isLoading, isError, error } = useRecommendedBooks();
   const { updateBookId } = useBookId();
   const navigate = useNavigate();
   
+  if (isError) {
+   console.log(error)
+  };
   
   const openPreview = (clickedBook: Book) => {
     const screenWidth = window.innerWidth;
@@ -107,7 +110,7 @@ const RecommendationBox = () => {
         }}
         modules={[EffectCoverflow, Autoplay]}
         className="mySwiper">
-        {books.map((book, index) => (
+        {recommendedBooks.map((book, index) => (
           <SwiperSlide
             onClick={() => openPreview(book)}
             key={index}> 
