@@ -1,24 +1,22 @@
 import { useState, useEffect } from "react"
 
-const useIsBottom = () => {
+const useIsBottom = (threshold: number = 10): boolean => {
   const [isBottom, setIsBottom] = useState(false);
-  let ticking = false;
-  
+
   useEffect(() => {
     const handleScroll = () => {
-     if (!ticking) {
-      ticking = true;
-       requestAnimationFrame(() => {
-        const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-        setIsBottom(scrollTop + clientHeight >= scrollHeight - 10);
-        ticking = false;
-      });
-    }
-  };
-  
+      const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+      setIsBottom(scrollTop + clientHeight >= scrollHeight - threshold);
+    };
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    handleScroll();
+    
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [threshold]);
 
   return isBottom;
 };

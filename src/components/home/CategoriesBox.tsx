@@ -1,5 +1,7 @@
-import { useState } from "react";
-import useBooks from "@hooks/book/useBooks"
+import { useState, useEffect } from "react";
+import useIsBottom from "@hooks/helper/useIsBottom";
+import useBooks from "@hooks/book/useBooks";
+import { Book } from "@types/book/types";
 
 import Tab from "./Tab.tsx";
 import BookCard from "../helper/Book/BookCard.tsx";
@@ -12,14 +14,26 @@ type SelectedGenre = {
 };
 
 const CategoriesBox = () => {
+  const isBottom = useIsBottom();
+  
   const [selectedGenre, setSelectedGenre] = useState<SelectedGenre>({ name: "All", index: 0 });
   const [offset, setOffset] = useState<number>(0);
-  
   const { books, genres, isError, isLoading } = useBooks(selectedGenre.name, offset);
-  console.log(books)
-  const tabGenres: string[] = ['All', ...genres];
+  
+  const [booksList, setBooksList] = useState<Book[]>([]);
+  const tabGenres: string[] = ["All", ...genres];
 
-  if (isLoading) {
+
+  useEffect(() => {
+   setBooksList(prev => [...prev, ...books]); 
+  }, [books, offset]);
+
+  useEffect(() => {
+   if (isBottom) setOffset(prev => prev + 20);
+  }, [isBottom]);
+
+
+  if (booksList.length === 0 && isLoading) {
     return (
       <section className="categories-section">
         <h2>Categories</h2>
@@ -34,9 +48,7 @@ const CategoriesBox = () => {
     return (
       <section className="categories-section">
         <h2>Categories</h2>
-        <ErrorBox 
-          type="internal-error"
-          message="There was an error fetching the books. Please try again later." />
+        <ErrorBox type="internal-error" message="There was an error fetching the books. Please try again later." />
       </section>
     );
   }
@@ -57,12 +69,16 @@ const CategoriesBox = () => {
       </div>
 
       <div className="booksWrapper flex-col-center">
-        {books.length > 0 ? (
-          books.map((book) => <BookCard bookDetails={book} key={book.key} />)
+        {booksList.length > 0 ? (
+          booksList.map((book) => <BookCard bookDetails={book} key={book.key} />)
         ) : (
           <ErrorBox type="no-data" message="No books available for this genre" />
         )}
       </div>
+      
+      { ( booksList.length > 0 && isLoading) && (
+        <p> Getting more books... </p>
+       ) } 
     </section>
   );
 };
