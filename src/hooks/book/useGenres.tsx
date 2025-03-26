@@ -1,26 +1,13 @@
 import { useState, useMemo } from "react";
 
-const randomGenres: string[] = [
-  "Fantasy",
-  "SciFi",
-  "Mystery",
-  "Thriller",
-  "Horror",
-  "Romance",
-  "History",
-  "Adventure",
-  "Dystopia",
-  "Poetry",
-  "SelfHelp",
-  "Biography",
-  "Memoir",
-  "Philosophy",
-  "Psychology",
-  "Classics",
-  "YoungAdult",
-  "Humor",
-  "Productivity",
-  "Mythology"
+export const randomGenres: string[] = [
+  "fiction", "nonfiction", "fantasy", "mystery", "romance", "science fiction",
+  "history", "biography", "poetry", "philosophy", "psychology", "self-help",
+  "health", "education", "science", "technology", "business", "economics",
+  "politics", "law", "religion", "mythology", "horror", "thriller",
+  "young adult", "children", "graphic novels", "art", "music",
+  "cooking", "sports", "travel", "war", "literature", "drama",
+  "LGBTQ", "classic", "contemporary", "spirituality"
 ];
 
 const useGenres = (numOfGenres: number) => {
