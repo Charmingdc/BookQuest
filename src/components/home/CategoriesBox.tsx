@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import useIsBottom from "@hooks/helper/useIsBottom";
+// import useIsBottom from "@hooks/helper/useIsBottom";
 import useBooks from "@hooks/book/useBooks";
 import { Book } from "@types/book/types";
 
@@ -14,25 +14,52 @@ type SelectedGenre = {
 };
 
 const CategoriesBox = () => {
-  const isBottom = useIsBottom();
+  // const isBottom = useIsBottom();
   
-  const [selectedGenre, setSelectedGenre] = useState<SelectedGenre>({ name: "All", index: 0 });
   const [offset, setOffset] = useState<number>(0);
+  const [selectedGenre, setSelectedGenre] = useState<SelectedGenre>({ name: "All", index: 0 });
   const { books, genres, isError, isLoading } = useBooks(selectedGenre.name, offset);
-  
   const [booksList, setBooksList] = useState<Book[]>([]);
-  const tabGenres: string[] = ["All", ...genres];
-
-
+  
+  const [cachedGenres, setCachedGenres] = useState<string[]>([]);
+  const tabGenres: string[] = cachedGenres;
+  
+  
   useEffect(() => {
-   setBooksList(prev => [...prev, ...books]); 
-  }, [books, offset]);
+   if (genres.length > 0 && cachedGenres.length === 0) {
+    setCachedGenres(["All", ...genres]);
+   }
+  }, [genres]);
 
-  useEffect(() => {
-   if (isBottom) setOffset(prev => prev + 20);
+/*  useEffect(() => {
+   if (isBottom && booksList.length > 0) setOffset(prev => prev + 20);
   }, [isBottom]);
-
-
+*/
+  const handleScroll = () => {
+   alert('hi');
+   if (window.innerHeight + document.documentElement.scrollTop + 1 >= document.documentElement.scrollHeight) {
+     setOffset(prev => prev + 20);
+     alert('bottom reach');
+   }
+  }
+  
+  useEffect(() => {
+   window.addEventListener('scroll', handleScroll);
+   
+   return () => window.removeEventListener('scroll', handleScroll)
+  }, []);
+  
+  useEffect(() => {
+   if (books.length > 0) 
+    setBooksList(prev => [...prev, ...books]); 
+  }, [books]);
+  
+  useEffect(() => {
+   setBooksList([]); 
+   setOffset(0); 
+  }, [selectedGenre]);
+  
+  
   if (booksList.length === 0 && isLoading) {
     return (
       <section className="categories-section">
@@ -77,7 +104,9 @@ const CategoriesBox = () => {
       </div>
       
       { ( booksList.length > 0 && isLoading) && (
-        <p> Getting more books... </p>
+        <div className="flex-center" style={{marginTop: '1rem'}}> 
+         Getting more books... 
+        </div>
        ) } 
     </section>
   );

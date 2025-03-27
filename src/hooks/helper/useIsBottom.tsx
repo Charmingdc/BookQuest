@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 
 const useIsBottom = (threshold: number = 10): boolean => {
   const [isBottom, setIsBottom] = useState(false);
@@ -6,17 +6,17 @@ const useIsBottom = (threshold: number = 10): boolean => {
   useEffect(() => {
     const handleScroll = () => {
       const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-      setIsBottom(scrollTop + clientHeight >= scrollHeight - threshold);
+      const atBottom = scrollTop + clientHeight >= scrollHeight - threshold;
+
+      setIsBottom(atBottom);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-    
-    
+    document.addEventListener("scroll", handleScroll, { passive: true });
+
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("scroll", handleScroll);
     };
-  }, [threshold]);
+  }, []);
 
   return isBottom;
 };
