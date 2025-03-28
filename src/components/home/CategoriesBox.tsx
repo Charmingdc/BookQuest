@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-// import useIsBottom from "@hooks/helper/useIsBottom";
 import useBooks from "@hooks/book/useBooks";
 import { Book } from "@types/book/types";
 
 import Tab from "./Tab.tsx";
-import BookCard from "../helper/Book/BookCard.tsx";
-import BookSkeletonLoader from "../helper/Book/BookSkeletonLoader.tsx";
+import BookCard from "../helper/Book/BookCard";
+import BookSkeletonLoader from "../helper/Book/BookSkeletonLoader";
+import Spinner from "../helper/Spinner";
 import ErrorBox from "../helper/ErrorBox";
 
 type SelectedGenre = {
@@ -14,8 +14,6 @@ type SelectedGenre = {
 };
 
 const CategoriesBox = () => {
-  // const isBottom = useIsBottom();
-  
   const [offset, setOffset] = useState<number>(0);
   const [selectedGenre, setSelectedGenre] = useState<SelectedGenre>({ name: "All", index: 0 });
   const { books, genres, isError, isLoading } = useBooks(selectedGenre.name, offset);
@@ -31,28 +29,24 @@ const CategoriesBox = () => {
    }
   }, [genres]);
 
-/*  useEffect(() => {
-   if (isBottom && booksList.length > 0) setOffset(prev => prev + 20);
-  }, [isBottom]);
-*/
+
   const handleScroll = () => {
-   alert('hi');
-   if (window.innerHeight + document.documentElement.scrollTop + 1 >= document.documentElement.scrollHeight) {
-     setOffset(prev => prev + 20);
-     alert('bottom reach');
-   }
+   const isBottom: boolean = window.innerHeight + document.documentElement.scrollTop + 1 >= document.documentElement.scrollHeight;
+   
+   if (isBottom) setOffset(prev => prev + 20);
   }
-  
   useEffect(() => {
    window.addEventListener('scroll', handleScroll);
    
-   return () => window.removeEventListener('scroll', handleScroll)
+   return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+  
   
   useEffect(() => {
    if (books.length > 0) 
     setBooksList(prev => [...prev, ...books]); 
   }, [books]);
+  
   
   useEffect(() => {
    setBooksList([]); 
@@ -97,15 +91,15 @@ const CategoriesBox = () => {
 
       <div className="booksWrapper flex-col-center">
         {booksList.length > 0 ? (
-          booksList.map((book) => <BookCard bookDetails={book} key={book.key} />)
+          booksList.map((book, i) => <BookCard bookDetails={book} key={i} />)
         ) : (
           <ErrorBox type="no-data" message="No books available for this genre" />
         )}
       </div>
       
       { ( booksList.length > 0 && isLoading) && (
-        <div className="flex-center" style={{marginTop: '1rem'}}> 
-         Getting more books... 
+        <div className="flex-center" style={{marginTop: '1.2rem'}}> 
+          <Spinner />
         </div>
        ) } 
     </section>

@@ -132,7 +132,6 @@ button {
   transform: translateX(-50%);
   backdrop-filter: blur(6px);
   z-index: 10;
- /*background-color: red;*/
 }
 .book-wrapper {
   width: 150px;
@@ -155,6 +154,28 @@ button {
   transform-origin: left;
 }
 /** general loader code ends here **/
+
+
+/** spinner loader code starts here **/ 
+.spinner-loader {
+ width: 1.4rem;
+ height: 1.4rem;
+ border: 3px solid rgb(100, 100, 100);
+ border-left-color: transparent;
+ border-radius: 50%;
+ animation: spin89345 1s linear infinite;
+}
+
+@keyframes spin89345 {
+ 0% {
+   transform: rotate(0deg);
+ }
+
+ 100% {
+   transform: rotate(360deg);
+ }
+}
+/** spinner loader code ends here **/
 
 
 .bookSkeletonWrapper {

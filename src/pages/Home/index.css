@@ -197,6 +197,7 @@
  padding: .5rem 0;
 }
 
+.bookInfo p strong,
 .bookInfo h4 {
  display: -webkit-box;
  -webkit-box-orient: vertical;
@@ -205,6 +206,9 @@
  text-overflow: ellipsis;
 }
 
+.bookInfo p strong {
+ -webkit-line-clamp: 2;
+}
 
 
 
