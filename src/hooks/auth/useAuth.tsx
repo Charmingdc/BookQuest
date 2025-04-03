@@ -13,7 +13,7 @@ type Action =
 
 const validateForm = (state: FormState, formType: 'signup' | 'login'): boolean => {
   return (
-    state.username.trim().length > 4 &&
+    state.username.trim().length >= 4 &&
     state.password.length >= 6 &&
     (formType === 'signup' ? /\S+@\S+\.\S+/.test(state.email || '') : true)
   );

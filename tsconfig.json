@@ -7,7 +7,8 @@
       "@utils/*": ["src/utils/*"],
       "@types/*": ["src/types/*"],
       "@contexts/*": ["src/contexts/*"],
-      "@pages/*": ["src/pages/*"]
+      "@pages/*": ["src/pages/*"],
+      "@firebase/*": ["src/firebase/*"]
     }
   },
   "files": [],

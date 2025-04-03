@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import { FormState } from '@hooks/auth/useAuth.tsx'; 
 import useAuth from '@hooks/auth/useAuth.tsx'; 
+import signupUser from '@utils/auth/signupUser.tsx';
 
 import './index.css';
 
@@ -15,10 +16,20 @@ const Signup = () => {
     dispatch({ type: 'SET_FIELD', field, value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Form submitted! 🎉');
-    dispatch({ type: 'RESET_FORM' });
+    
+    try {
+      await signupUser({
+       username: state.username, 
+       email: state.email,
+       password: state.password
+      });
+    } catch (err: any) {
+      console.error('Error:', err.message);
+    } finally {
+      dispatch({ type: 'RESET_FORM' });
+    }
   };
 
   return (
@@ -31,7 +42,7 @@ const Signup = () => {
        <h2> BookQuest </h2>
       </div>
 
-      <form className='auth-form' onSubmit={handleSubmit}>
+      <form className='auth-form' onSubmit={async (e) => handleSubmit(e)}>
         <h2> Start Exploring </h2> 
         
         <button type="button" className='oauth flex-center'>
