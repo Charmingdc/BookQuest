@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "sonner";
 import useUserActions from "@hooks/user/useUserActions.tsx";
 
@@ -14,6 +14,9 @@ const Setting = () => {
  const [newUsername, setNewUsername] = useState<string>('');
  const [preferredGenres, setPreferredGenres] = useState<string[]>([]);
  
+ const { changeUsername, signoutUser, updatePreferredGenres, currentUsername, saving } = useUserActions();
+ 
+ 
  
  const handleSettingAction = (action: string) => {
   setSelectedAction(action);
@@ -21,6 +24,32 @@ const Setting = () => {
  }
  
  
+ const performUserAction = async (e: React.FormEvent, actionType: string) => {
+  e.preventDefault();
+  
+  try {
+   if (actionType === 'change-username') {
+    const response = await changeUsername(newUsername);
+    
+    if (response.type === 'error') throw new Error(response.message);
+    
+    toast.success(`${response.message} to '${newUsername}'`);
+   }
+   
+   
+   if (actionType === 'signout') {
+    const response = await signoutUser();
+    if (response.type === 'error') throw new Error(response.message);
+   }
+   
+   setShowActionModal(false);
+  } catch (err: any) {
+   toast.error(err.message);
+  } finally {
+   setNewUsername('');
+   setPreferredGenres([]);
+  }
+ }
  
  return (
   <>
@@ -35,6 +64,12 @@ const Setting = () => {
     
    
     <section className="edit-section">
+     <div className="setting-username">
+      <h3>
+        Welcome back: { currentUsername }
+      </h3>
+     </div >
+     
      <ul className="actions-container">
        <li onClick={() => handleSettingAction('edit-username')}>
          <span></span>
@@ -74,8 +109,8 @@ const Setting = () => {
               onChange={(e) => setNewUsername(e.target.value)} 
                className="new-username-input" />
              
-             <button className="save-username-btn" onClick={handleChangeUsername}>
-               Save Changes 
+             <button className="save-username-btn" onClick={(e) => performUserAction(e, 'change-username')}>
+               { saving ? 'Saving...' : 'Save Changes' }
              </button>
            </>
           )}
@@ -94,7 +129,7 @@ const Setting = () => {
            </p>
          
            <div className="signout-buttons flex-start">
-            <button onClick={handleSignout}>
+            <button onClick={(e) => performUserAction(e, 'signout')}>
                Yes, Signout
             </button>
             <button onClick={() => setShowActionModal(false)}>

@@ -56,6 +56,10 @@ a:hover {
  text-decoration: none;
 }
 
+input {
+ color: var(--text-color);
+}
+
 button {
  color: var(--text-color);
  font-weight: 500;
