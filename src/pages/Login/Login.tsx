@@ -1,8 +1,10 @@
-import { useReducer } from 'react';
-import { Link } from 'react-router-dom';
+import { useReducer } from "react";
+import { Link } from "react-router-dom";
+import { toast } from "sonner";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
-import { FormState } from '@hooks/auth/useAuth.tsx'; 
-import useAuth from '@hooks/auth/useAuth.tsx'; 
+import { FormState } from "@hooks/auth/useAuth.tsx"; 
+import useAuth from "@hooks/auth/useAuth.tsx"; 
+import useSigninUser from "@hooks/auth/useSigninUser.tsx";
 
 import '../Signup/index.css';
 
@@ -10,15 +12,30 @@ import '../Signup/index.css';
 const Login = () => {
  const { formReducer, initialState } = useAuth('login');
   const [state, dispatch] = useReducer(formReducer, initialState);
+  const { signin, loading } = useSigninUser();
 
   const handleChange = (field: keyof FormState, value: string) => {
     dispatch({ type: 'SET_FIELD', field, value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Form submitted! 🎉, Check console');
-    console.log(`Username: ${state.username}, Password: ${state.password}`)
+    
+    try {
+     const response = await signin({
+      username: state.username,
+      password: state.password
+     });
+     
+     if (response.type === "error") throw new Error(response.message);
+     
+     toast.success('Welcome back!');
+    } catch (err: any) {
+     console.log('Error:', err.message);
+     toast.error(err.message);
+    } finally {
+     dispatch({ type: 'RESET_FORM'});
+    }
   };
 
   return (
@@ -31,7 +48,7 @@ const Login = () => {
        <h2> BookQuest </h2>
       </div>
 
-      <form className='auth-form' onSubmit={handleSubmit}>
+      <form className='auth-form' onSubmit={async(e) => handleSubmit(e)}>
         <h2> Welcome Back </h2> 
         
         <button className='oauth flex-center'>
@@ -58,8 +75,8 @@ const Login = () => {
          </button>
         </div>
         
-        <button type="submit" className={`auth-button flex-center ${!state.isValid ? 'disabled-button' : ''}`} disabled={!state.isValid}>
-          Login
+        <button type="submit" className={`auth-button flex-center ${(!state.isValid || loading) ? 'disabled-button' : ''}`} disabled={(!state.isValid || loading)}>
+          { loading ? 'Processing...' : 'Login' }
         </button>
         
         <p>

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { toast } from "sonner";
+import useUserActions from "@hooks/user/useUserActions.tsx";
 
 import TopBar from "@components/helper/Navigation/TopBar";
 import SideBar from "@components/helper/Navigation/SideBar";
@@ -9,6 +11,7 @@ import "./index.css";
 const Setting = () => {
  const [showActionModal, setShowActionModal] = useState<boolean>(false);
  const [selectedAction, setSelectedAction] = useState<string>('');
+ const [newUsername, setNewUsername] = useState<string>('');
  const [preferredGenres, setPreferredGenres] = useState<string[]>([]);
  
  
@@ -17,9 +20,7 @@ const Setting = () => {
   if (!showActionModal) setShowActionModal(true);
  }
  
- const handleSignout = () => {
-  
- }
+ 
  
  return (
   <>
@@ -31,45 +32,79 @@ const Setting = () => {
     <aside>
      <SideBar currentPage='setting' />
     </aside>
-   
+    
    
     <section className="edit-section">
      <ul className="actions-container">
-      <li onClick={() => handleSettingAction('edit-theme')}>
-       <span></span>
-       <h3> Change Theme </h3>
-      </li>
+       <li onClick={() => handleSettingAction('edit-username')}>
+         <span></span>
+         <h3> Edit Username </h3>
+       </li>
       
-      <li onClick={() => handleSettingAction('edit-genres')}>
-       <span></span>
-       <h3> Preferred Genres </h3>
-      </li>
+       <li onClick={() => handleSettingAction('edit-genres')}>
+         <span></span>
+         <h3> Preferred Genres </h3>
+       </li>
       
-      <li onClick={() => handleSettingAction('edit-genres')}>
-       <span></span>
-       <h3> Preferred Genres </h3>
-      </li>
-      
-      <li onClick={handleSignout}>
-       <span></span>
-       <h3> Signout </h3>
-      </li>
+       <li onClick={() => handleSettingAction('signout')}>
+         <span></span>
+         <h3> Signout </h3>
+       </li>
      </ul>
      
      
      { showActionModal && 
-     <div className="current-action-modal-wrapper" onClick={() => setShowActionModal(false)}>
-      <form>
-       { selectedAction === 'edit-theme' && (
-         <h3> Edit Theme </h3>
-        )}
+      <>
+       <div className="current-action-modal-wrapper" onClick={() => setShowActionModal(false)}>
+         { /** div to enable outter box click closing of modal **/ }
+       </div>
+     
+        <form>
+         {selectedAction === 'edit-username' && (
+           <>
+            <h2> Edit Username </h2>
+            <p>
+             Type your preferred username in the input below
+             </p>
+           
+             <input
+              type='text'
+              value={newUsername}
+              placeholder='Enter your preferred username'
+              onChange={(e) => setNewUsername(e.target.value)} 
+               className="new-username-input" />
+             
+             <button className="save-username-btn" onClick={handleChangeUsername}>
+               Save Changes 
+             </button>
+           </>
+          )}
         
         
-       { selectedAction === 'edit-genres' && (
-         <h3> Set Preferred Genres </h3>
+         {selectedAction === 'edit-genres' && (
+           <h2> Set Preferred Genres </h2>
+          )}
+        
+        
+         {selectedAction === 'signout' && (
+          <>
+           <h2> Signout </h2>
+           <p>
+            Are you sure you want to signout of your account?
+           </p>
+         
+           <div className="signout-buttons flex-start">
+            <button onClick={handleSignout}>
+               Yes, Signout
+            </button>
+            <button onClick={() => setShowActionModal(false)}>
+              Nope, it was a mistake
+            </button>
+           </div>
+          </>
         )}
-      </form>
-     </div>}
+       </form>
+      </>}
     </section>
    </main>
    

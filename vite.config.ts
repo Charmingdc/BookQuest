@@ -13,7 +13,7 @@ export default defineConfig({
       '@types': path.resolve(__dirname, 'src/types'),
       '@contexts': path.resolve(__dirname, 'src/contexts'),
       '@pages': path.resolve(__dirname, 'src/pages'),
-      '@firebase': path.resolve(__dirname, 'src/firebase')
+      '@fb': path.resolve(__dirname, 'src/firebase')
     }
   }
 })

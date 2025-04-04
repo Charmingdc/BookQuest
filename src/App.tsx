@@ -1,88 +1,93 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from "sonner";
+import Loader from "@components/helper/Loader.tsx";
 
-import { BookIdProvider } from '@contexts/BookIdContext.tsx';
+// Providers
+import { AuthProvider } from "@contexts/AuthContext.tsx";
+import { BookIdProvider } from "@contexts/BookIdContext.tsx";
 
-
-import Loader from '@components/helper/Loader.tsx';
-const PageNotFound = lazy(() => import('@components/helper/PageNotFound'));
-const Landing = lazy(() => import('./pages/Landing'));
-const Signup = lazy(() => import('./pages/Signup'));
-const Login = lazy(() => import('./pages/Login'));
-const Home = lazy(() => import('./pages/Home'));
-const Preview = lazy(() => import('./pages/BookPreview'));
-const Search = lazy(() => import('./pages/Search'));
-const Favourite = lazy(() => import('./pages/Favourite'));
-const Setting = lazy(() => import('./pages/Setting'));
-
+// Protected and Public Routes components
+import ProtectedRoute from "./routes/ProtectedRoute.tsx";
+import PublicRoute from "./routes/PublicRoute.tsx";
 
 import "./App.css";
+
+
+const routes = [
+  { 
+   path: "*", component: lazy(() => import("@components/helper/PageNotFound"))
+   },
+  { 
+   path: "/", component: lazy(() => import("./pages/Landing")) 
+   
+  },
+  { 
+   path: "/signup", component: lazy(() => import("./pages/Signup"))
+   },
+  {
+   path: "/login", component: lazy(() => import("./pages/Login"))
+  },
+
+  // Protected Routes
+  {
+    path: "/home", component: lazy(() => import("./pages/Home")), protected: true,
+  },
+  {
+    path: "/book/:identifier", component: lazy(() => import("./pages/BookPreview")), protected: true,
+  },
+  {
+    path: "/search", component: lazy(() => import("./pages/Search")), protected: true,
+  },
+  {
+    path: "/favourite", component: lazy(() => import("./pages/Favourite")), protected: true,
+  },
+  {
+    path: "/setting", component: lazy(() => import("./pages/Setting")), protected: true
+  },
+];
+
 const queryClient = new QueryClient();
+
 const App = () => {
   return (
-    <QueryClientProvider client={queryClient}>
+   <QueryClientProvider client={queryClient}>
+    <AuthProvider>
      <BookIdProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="*" element={
-           <Suspense fallback={<Loader />}>
-             <PageNotFound />
-           </Suspense>
-          } />
-          
-          <Route path="/" element={
-           <Suspense fallback={<Loader />}>
-             <Landing />
-           </Suspense>
-          } />
-          
-          <Route path="/signup" element={
-           <Suspense fallback={<Loader />}>
-             <Signup />
-           </Suspense>
-          } />
-          
-          <Route path="/Login" element={
-           <Suspense fallback={<Loader />}>
-             <Login />
-           </Suspense>
-          } />
-          
-          <Route path="/home" element={
-           <Suspense fallback={<Loader/>}>
-             <Home />
-           </Suspense>
-          } />
-          
-          <Route path="/book/:identifier" element={
-           <Suspense fallback={<Loader/>}>
-             <Preview />
-           </Suspense>
-          } />
-          
-          <Route path="/search" element={
-           <Suspense fallback={<Loader />}>
-            <Search />
-           </Suspense>
-          } />
-          
-          <Route path="/favourite" element={
-           <Suspense fallback={<Loader />}>
-            <Favourite />
-           </Suspense>
-          } />
-          
-         <Route path="/setting" element={
-           <Suspense fallback={<Loader />}>
-            <Setting />
-           </Suspense>
-          } />
-        </Routes>
-      </BrowserRouter>
+       <BrowserRouter>
+         <Routes>
+          {routes.map(({ path, component: Component, protected: isProtected }) => (
+            <Route 
+             key={path} 
+             path={path} 
+             element={
+              <Suspense fallback={<Loader />}>
+              {isProtected ? (
+                <ProtectedRoute>
+                  <Component />
+                </ProtectedRoute>
+               ) : (
+                <PublicRoute>
+                  <Component />
+                </PublicRoute>
+               )}
+             </Suspense>} />
+           ))}
+         </Routes>
+       </BrowserRouter>
+
+       <Toaster
+         richColors 
+         closeButton
+         position="top-center"
+         toastOptions={{
+          duration: 3000 
+       }} />
      </BookIdProvider>
-    </QueryClientProvider>
+    </AuthProvider>
+   </QueryClientProvider>
   );
-}
+};
 
 export default App;

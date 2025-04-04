@@ -45,26 +45,46 @@
  height: 100vh;
  position: fixed;
  top: 0;
- display: flex;
- align-items: flex-end;
- justify-content: center;
  background-color: rgba(255, 255, 255, .010);
  backdrop-filter: blur(4px);
  -webkit-backdrop-filter: blur(4px);
  z-index: 10;
 }
 
-.current-action-modal-wrapper > form {
+.current-action-modal-wrapper + form {
  width: 90%;
- min-height: 20rem;
+ min-height: 14rem;
+ position: fixed;
+ bottom: 0;
  display: flex;
  flex-direction: column;
- padding: 1rem 5%;
- padding-bottom: 5rem;
+ padding: 1.2rem 5%;
+ padding-bottom: 2rem;
  background-color: var(--shade);
  border-top: .1rem solid var(--bg-color);
  border-top-left-radius: 1.2rem;
  border-top-right-radius: 1.2rem;
+ z-index: 12;
+}
+
+.current-action-modal-wrapper + form > h2 {
+ margin-bottom: .5rem;
+}
+
+.signout-buttons {
+ margin-top: 1rem;
+}
+.signout-buttons > button {
+ height: 3.5rem;
+ color: rgb(245, 245, 245);
+ padding-inline: 1rem;
+ background-color: var(--sclr);
+ border: none;
+ border-radius: .6rem;
+}
+.signout-buttons > button:first-of-type {
+ background-color: rgb(220, 0, 0);
+ margin-right: 1rem;
 }
 
 
