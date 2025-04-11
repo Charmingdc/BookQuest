@@ -45,3 +45,10 @@ export interface BookInfoProp {
   description: string;
   subjects: string[];
 }
+
+export interface FavouriteBooksProps {
+ title: string;
+ key: string;
+ cover: string;
+ ratings_average: string;
+}

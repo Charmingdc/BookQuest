@@ -6,14 +6,6 @@ import SideBar from '@components/helper/Navigation/SideBar';
 import Footer from '@components/helper/Navigation/Footer';
 
 
-/*
-type FavouriteBooksProps = {
- title: string;
- key: string;
- cover: string;
- ratings_average: string;
-}
-*/
 
 import './index.css';
 const Favourite = () => {
