@@ -6,16 +6,57 @@
  padding: 1rem 5%;
 }
 
-.setting-username {
- width: 90%;
- height: 4rem;
+.setting-user-modal {
+ width: 94%;
+ display: flex;
+ flex-direction: column;
+ padding: .8rem 3%;
+ gap: 1rem;
+ background-color: var(--shade);
+ border-radius: 1rem;
+}
+.setting-user-modal > div {
+ width: 94%;
  display: flex;
  align-items: center;
- justify-content: flex-start;
- padding: .5rem 5%;
- background-color: var(--shade);
- border-bottom: .1rem solid var(--shade);
+ padding: .8rem 3%;
+ background-color: var(--bg-color);
  border-radius: 1rem;
+ margin-top: .8rem;
+}
+.setting-user-modal .dp {
+ width: 3rem;
+ height: 3rem;
+ background-color: var(--shade);
+ border-radius: 50%;
+ margin-right: .5rem;
+}
+
+.setting-genres {
+ width: 100%;
+ display: flex;
+ align-items: center;
+ white-space: nowrap;
+ gap: .5rem;
+ overflow-x: auto;
+ margin-top: .8rem;
+}
+.setting-genres > div {
+ width: auto;
+ height: 2rem;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ gap: .8rem;
+ padding-inline: 1rem;
+ border: .080rem solid var(--bg-color);
+ border-radius: .6rem;
+}
+.setting-genres > div button {
+ color: red;
+ background-color: transparent;
+ border: none;
+ margin-bottom: -.2rem;
 }
 
 .actions-container {
@@ -82,7 +123,7 @@
  margin-bottom: .5rem;
 }
 
-.new-username-input {
+.new-data-input {
  width: 92%;
  height: 3.5rem;
  padding-inline: 4%;
@@ -91,13 +132,17 @@
  border-radius: .8rem;
  margin-block: 1.5rem;
 }
-.save-username-btn {
+.save-data-btn,
+.disabled-btn {
  width: 100%;
  height: 3.5rem;
  color: rgb(245, 245, 245);
  background-color: var(--sclr);
  border: none;
  border-radius: .8rem;
+}
+.disabled-btn {
+ background-color: rgb(100, 100, 100);
 }
 
 .signout-buttons {
@@ -120,7 +165,7 @@
 
 
 @media (min-width: 726px) {
- .setting-username {
+ .setting-user-modal {
   margin-top: 4rem;
  }
  
