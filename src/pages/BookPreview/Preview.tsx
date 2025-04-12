@@ -15,7 +15,7 @@ const Preview = () => {
   const params = useParams();
   const identifier = params.identifier;
   const { bookInfo, loading, error } = useBookInfo(identifier);
-
+ 
 
   return (
     <>

@@ -13,13 +13,14 @@ import '@pages/BookPreview/index.css';
 const BookPreview = ({ bookInfo }: BookInfoProp) => {
   const [openFullDesc, setOpenFullDesc] = useState<boolean>(false);
   const location = useLocation();
-  const { addToFavourite, loading } = useFavouriteBooks();
+  const { addToFavourite, updatingFavBooks } = useFavouriteBooks();
 
 
   const handleAddToFavourites = async () => {
-    const { title, key, cover, ratings_average } = bookInfo;
+    const { title, isbn, cover, ratings_average } = bookInfo;
+   
     const response = await addToFavourite({
-      title, key, cover, ratings_average
+      title, isbn, cover, ratings_average
      });
 
     try {
@@ -50,7 +51,7 @@ const BookPreview = ({ bookInfo }: BookInfoProp) => {
             <button 
               className='flex-center'
               onClick={handleAddToFavourites}>
-              { loading ? 'Adding...' : (
+              { updatingFavBooks ? 'Adding...' : (
                <>
                 Add to Favourite
                 <span>

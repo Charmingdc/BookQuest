@@ -21,6 +21,7 @@ export interface RawBook {
   publisher?: string[];
   edition_count?: number;
   ratings_average?: string;
+  isbn?: string[];
   subject?: string[];
 }
 
@@ -42,13 +43,14 @@ export interface BookInfoProp {
   publish_date: string | number;
   editions_count: number;
   ratings_average: string;
+  isbn: string;
   description: string;
   subjects: string[];
-}
+} 
 
 export interface FavouriteBooksProps {
  title: string;
- key: string;
+ isbn: string;
  cover: string;
  ratings_average: string;
 }

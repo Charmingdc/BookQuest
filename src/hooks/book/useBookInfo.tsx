@@ -4,7 +4,7 @@ import { RawBook, WorkDetails, BookInfoProp } from "@types/book/types.tsx";
 const fetchBookInfo = async (identifier: string): Promise<BookInfoProp> => {
   if (!identifier) throw new Error("Identifier is required");
 
-  const searchUrl = `https://openlibrary.org/search.json?isbn=${identifier}&fields=key,title,author_name,first_publish_year,cover_i,ratings_average,edition_count,author_key,subject`;
+  const searchUrl = `https://openlibrary.org/search.json?isbn=${identifier}&fields=key,title,author_name,first_publish_year,cover_i,ratings_average,isbn,edition_count,author_key,subject`;
   const searchResponse = await fetch(searchUrl);
 
   if (!searchResponse.ok) throw new Error("Error fetching book info");
@@ -38,6 +38,7 @@ const normalizeInfo = (book: RawBook, workDetails: WorkDetails): BookInfoProp =>
   publish_date: book.first_publish_year || "Unknown",
   editions_count: book.edition_count || 0,
   ratings_average: book.ratings_average?.toFixed(1) ?? "N/A",
+  isbn: book.isbn[0],
   description:
     typeof workDetails?.description === "string"
       ? workDetails.description

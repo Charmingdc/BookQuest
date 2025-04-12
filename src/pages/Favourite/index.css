@@ -27,6 +27,11 @@
  background-color: var(--shade);
  border-radius: .8rem;
 }
+.favourite-books > div img {
+ width: 100%;
+ height: 100%;
+ border-radius: .8rem;
+}
 
 .favourite-books > p,
 .favourite-books-loader > p {
@@ -108,6 +113,12 @@
  width: 8.5rem;
  height: 10.5rem;
  background-color: var(--bg-color);
+ border-radius: .8rem;
+}
+.clicked-book-img > img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
  border-radius: .8rem;
 }
 
