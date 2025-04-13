@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { auth, db } from "@fb/config.ts";
-import { collection, serverTimestamp, addDoc, query, where, getDocs } from "firebase/firestore";
+import { collection, serverTimestamp, addDoc, query, where, getDocs, doc, deleteDoc } from "firebase/firestore";
 import { FavouriteBooksProps } from "@types/book/types";
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 
@@ -61,6 +61,25 @@ const useFavouriteBooks = () => {
       ...doc.data(),
     })) as FavouriteBooksPropsWithId[];
   };
+  
+  
+  const removeFromFavourites = async (bookId: string) => {
+    setUpdatingFavBooks(true);
+
+   try {
+     const docRef = doc(collection(db, 'favBooks'), bookId);
+     await deleteDoc(docRef);
+     
+     queryClient.invalidateQueries(['favouriteBooks']);
+     
+     return { type: 'success', message: 'Book removed from favourites.' };
+   } catch (err: any) {
+     return { type: 'error', message: err.message || 'An error occurred' };
+   } finally {
+     setUpdatingFavBooks(false);
+   }
+  };
+
 
   const { data: favouriteBooks, isLoading, isError, error } = useQuery({
     queryKey: ['favouriteBooks'],
@@ -68,7 +87,7 @@ const useFavouriteBooks = () => {
     enabled: !!auth.currentUser,
   });
 
-  return { addToFavourite, favouriteBooks, isLoading, updatingFavBooks, isError, error };
+  return { addToFavourite, favouriteBooks, removeFromFavourites, isLoading, updatingFavBooks, isError, error };
 };
 
 export default useFavouriteBooks;

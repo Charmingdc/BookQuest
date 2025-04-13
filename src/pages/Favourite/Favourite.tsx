@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'sonner';
 import { FaStar } from 'react-icons/fa6';
 import { CiTrash } from 'react-icons/ci';
 import TopBar from '@components/helper/Navigation/TopBar';
@@ -20,15 +21,27 @@ const Favourite = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
 
   const navigate = useNavigate();
-  const { favouriteBooks, isLoading, isError, error } = useFavouriteBooks();
+  const { favouriteBooks, removeFromFavourites, updatingFavBooks, isLoading, isError, error } = useFavouriteBooks();
 
   const handleBookClick = (favBook: FavouriteBooksPropsWithId) => {
     setClickedBook(favBook);
     setOpenModal(true);
   };
 
-  const handleRemoveFavourite = () => {
-    setOpenModal(false);
+  const handleRemoveFavourite = async (e: React.MouseEvent, bookId: string) => {
+    e.stopPropagation();
+   
+    try {
+     console.log('Clicked book id:', bookId);
+     const response = await removeFromFavourites(bookId);
+   
+     if (response.type === 'error') throw new Error(response.message);
+    
+     toast.success(response.message)
+     setOpenModal(false);
+    } catch (err: any) {
+     toast.error(err.message);
+    }
   };
 
   const handleMoreInfoClick = (e: React.MouseEvent) => {
@@ -93,11 +106,18 @@ const Favourite = () => {
                </div>
              </div>
 
-             <button className="remove-button flex-center" onClick={handleRemoveFavourite}>
-               <span>
+             <button 
+             className="remove-button flex-center"
+             disabled={updatingFavBooks}
+             onClick={async (e) => handleRemoveFavourite(e, clickedBook.id)}>
+               { updatingFavBooks ? 'Removing...' : (
+               <>
+                <span>
                  <CiTrash size={24} />
-               </span>
-               Remove from favourites list
+                </span>
+                Remove from favourites list
+               </>
+              )}
              </button>
            </div>
          </div>
