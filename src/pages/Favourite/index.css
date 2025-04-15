@@ -3,7 +3,7 @@
  display: flex;
  flex-direction: row;
  flex-wrap: wrap;
- justify-content: center;
+ justify-content: flex-start;
  padding: 0;
  gap: 1.5rem .5rem;
  padding-top: 1rem;
@@ -56,10 +56,11 @@
 
 
 .clicked-book-modal-wrapper {
- width: 100%;
+ width: 100vw;
  height: 100vh;
  position: fixed;
  bottom: 0;
+ left: 0;
  display: flex;
  align-items: flex-end;
  justify-content: center;

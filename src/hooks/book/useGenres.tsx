@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { db, auth } from "@/fb";
+import { db, auth } from "@fb/config.ts";
 import { doc, getDoc } from "firebase/firestore";
 
 export const randomGenres: string[] = [
