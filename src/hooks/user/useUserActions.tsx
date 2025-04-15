@@ -84,7 +84,7 @@ const useUserActions = () => {
       setUsername(null);
       return { type: 'success', message: 'Logged out successfully' };
     } catch (err: any) {
-      return { type: 'error', message: 'Error logging out' };
+      return { type: 'error', message: err.message};
     } finally {
       setSaving(false);
     }

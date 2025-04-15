@@ -27,7 +27,7 @@ const CategoriesBox = () => {
    if (genres.length > 0 && cachedGenres.length === 0) {
     setCachedGenres(["All", ...genres]);
    }
-  }, [genres]);
+  }, [genres, cachedGenres.length]);
 
 
   const handleScroll = () => {

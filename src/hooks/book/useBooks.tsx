@@ -7,7 +7,7 @@ const fetchBooks = async (keyword: string, booksOffset: number) => {
     .sort(() => Math.random() - 0.5)
     .slice(0, 9);
   
-  let query = keyword === "All" ? randomKeywords.map(encodeURIComponent).join("&") : encodeURIComponent(keyword);
+   const query = keyword === "All" ? randomKeywords.map(encodeURIComponent).join("&") : encodeURIComponent(keyword);
 
   const response = await fetch(
    `https://openlibrary.org/search.json?q=${query}&fields=key,title,author_name,first_publish_year,cover_i,ratings_average,edition_count,author_key,subject,isbn&limit=20&offset=${booksOffset}`

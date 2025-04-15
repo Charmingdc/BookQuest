@@ -13,7 +13,7 @@ const HomeTopBar = () => {
    if (!user) navigate('/login');
    
    setUsername(user.displayName.slice(0, 2));
-  }, [])
+  }, [navigate])
   
   return (
     <nav>

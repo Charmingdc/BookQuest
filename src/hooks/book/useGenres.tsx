@@ -1,4 +1,6 @@
-import { useState, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { db, auth } from "@/fb";
+import { doc, getDoc } from "firebase/firestore";
 
 export const randomGenres: string[] = [
   "fiction", "nonfiction", "fantasy", "mystery", "romance", "science fiction",
@@ -11,13 +13,37 @@ export const randomGenres: string[] = [
 ];
 
 const useGenres = (numOfGenres: number) => {
-  const userPreferredGenres: string[] = [];
+  const [userPreferredGenres, setUserPreferredGenres] = useState<string[]>([]);
+
+  useEffect(() => {
+    const fetchGenres = async () => {
+      const currentUser = auth.currentUser;
+
+      if (!currentUser) return;
+
+      try {
+        const userRef = doc(db, "users", currentUser.uid);
+        const docSnap = await getDoc(userRef);
+
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          setUserPreferredGenres(data.preferredGenres || []);
+        }
+      } catch (error: any) {
+        console.error("Error fetching user genres:", error);
+      }
+    };
+
+    fetchGenres();
+  }, []);
 
   const genres = useMemo(() => {
-    const availableGenres = userPreferredGenres.length > 0 ? userPreferredGenres : randomGenres;
-    
-    return [...availableGenres].sort(() => Math.random() - 0.5).slice(0, numOfGenres);
-  }, []); 
+    const availableGenres =
+      userPreferredGenres.length > 0 ? userPreferredGenres : randomGenres;
+    return [...availableGenres]
+      .sort(() => Math.random() - 0.5)
+      .slice(0, numOfGenres);
+  }, [userPreferredGenres, numOfGenres]);
 
   return { genres };
 };
