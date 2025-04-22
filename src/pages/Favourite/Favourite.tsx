@@ -6,6 +6,8 @@ import { CiTrash } from 'react-icons/ci';
 import TopBar from '@components/helper/Navigation/TopBar';
 import SideBar from '@components/helper/Navigation/SideBar';
 import Footer from '@components/helper/Navigation/Footer';
+import ErrorBox from "@components/helper/ErrorBox";
+
 import FavouriteBooksLoader from '@components/favourite-books/FavouriteBooksLoader';
 import useFavouriteBooks from '@hooks/book/useFavouriteBooks';
 import { FavouriteBooksProps } from '@types/book/types';
@@ -21,7 +23,7 @@ const Favourite = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
 
   const navigate = useNavigate();
-  const { favouriteBooks, removeFromFavourites, updatingFavBooks, isLoading, isError, error } = useFavouriteBooks();
+  const { favouriteBooks, removeFromFavourites, updatingFavBooks, isLoading, isError } = useFavouriteBooks();
 
   const handleBookClick = (favBook: FavouriteBooksPropsWithId) => {
     setClickedBook(favBook);
@@ -65,7 +67,9 @@ const Favourite = () => {
        {isLoading ? (
          <FavouriteBooksLoader />
        ) : isError ? (
-         <p>Error loading favourite books: {error}</p>
+         <ErrorBox
+          type='internal-error'
+          message='There was an error loading favourite books. Please try again later.' />
        ) : favouriteBooks.length > 0 ? (
          favouriteBooks.map((favBook: FavouriteBooksPropsWithId) => (
            <div

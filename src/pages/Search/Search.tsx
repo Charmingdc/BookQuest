@@ -61,6 +61,10 @@ const Search = () => {
     setBooksList(prev => [...prev, ...books]); 
   }, [books]);
   
+  useEffect(() => {
+   setBooksList([]);
+  }, [searchValue]);
+  
   
   return (
     <>
