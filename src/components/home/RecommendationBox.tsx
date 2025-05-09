@@ -2,10 +2,10 @@ import { useNavigate } from 'react-router-dom';
 
 import useRecommendedBooks from '@hooks/book/useRecommendedBooks';
 import { Book } from '@types/book/types';
-import { useBookId } from '@contexts/BookIdContext';
-import getCoverUrl from '@utils/helper/getCoverUrl';
-import convertToStar from '@utils/helper/convertToStar';
-import ErrorBox from "../helper/ErrorBox";
+import { useBookId } from '@contexts/BookIdContext.tsx';
+import getCoverUrl from '@utils/helper/getCoverUrl.tsx';
+import convertToStar from '@utils/helper/convertToStar.tsx';
+import ErrorBox from "../helper/ErrorBox.tsx";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Autoplay } from 'swiper/modules';

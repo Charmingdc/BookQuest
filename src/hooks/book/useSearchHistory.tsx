@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import useDebounce from "../helper/useDebounce";
+import useDebounce from "../helper/useDebounce.tsx";
 
 const useSearchHistory = () => {
   const [searchedTerms, setSearchedTerms] = useState<string[]>(() => {

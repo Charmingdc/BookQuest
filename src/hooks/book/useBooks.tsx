@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { randomGenres as generalKeywords } from "./useGenres";
-import normalizedBookData from "@utils/helper/normalizedBookData";
+import { randomGenres as generalKeywords } from "./useGenres.tsx";
+import normalizedBookData from "@utils/helper/normalizedBookData.tsx";
 
 const fetchBooks = async (keyword: string, booksOffset: number) => {
   const randomKeywords = [...generalKeywords]

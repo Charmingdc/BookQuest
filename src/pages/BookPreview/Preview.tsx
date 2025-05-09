@@ -1,13 +1,13 @@
 import { useParams } from 'react-router-dom';
 
-import useBookInfo from '@hooks/book/useBookInfo';
+import useBookInfo from '@hooks/book/useBookInfo.tsx';
 
-import ErrorBox from "@components/helper/ErrorBox";
-import TopBar from '@components/helper/Navigation/TopBar';
-import SideBar from '@components/helper/Navigation/SideBar';
-import Loader from '@components/helper/Loader';
-import BookPreview from '@components/helper/Book/BookPreview';
-import Footer from '@components/helper/Navigation/Footer';
+import ErrorBox from "@components/helper/ErrorBox.tsx";
+import TopBar from '@components/helper/Navigation/TopBar.tsx';
+import SideBar from '@components/helper/Navigation/SideBar.tsx';
+import Loader from '@components/helper/Loader.tsx';
+import BookPreview from '@components/helper/Book/BookPreview.tsx';
+import Footer from '@components/helper/Navigation/Footer.tsx';
 
 
 import './index.css';

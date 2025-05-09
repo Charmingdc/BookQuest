@@ -1,16 +1,16 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
-import useBookSearch from "@hooks/book/useBookSearch";
-import useSearchHistory from "@hooks/book/useSearchHistory";
-import { Book } from "@types/book/types";
+import useBookSearch from "@hooks/book/useBookSearch.tsx";
+import useSearchHistory from "@hooks/book/useSearchHistory.tsx";
+import { Book } from "@types/book/types.tsx";
 
-import ErrorBox from "@components/helper/ErrorBox";
-import BookCard from "@components/helper/Book/BookCard";
-import BookSkeletonLoader from "@components/helper/Book/BookSkeletonLoader";
-import Spinner from "@components/helper/Spinner";
-import SearchedTerms from "@components/search/SearchedTerms";
-import SideBar from '@components/helper/Navigation/SideBar';
+import ErrorBox from "@components/helper/ErrorBox.tsx";
+import BookCard from "@components/helper/Book/BookCard.tsx";
+import BookSkeletonLoader from "@components/helper/Book/BookSkeletonLoader.tsx";
+import Spinner from "@components/helper/Spinner.tsx";
+import SearchedTerms from "@components/search/SearchedTerms.tsx";
+import SideBar from '@components/helper/Navigation/SideBar.tsx';
 
 import { FaAngleLeft } from "react-icons/fa6";
 import { LuSearch } from "react-icons/lu";

@@ -6,9 +6,9 @@ import { CgNotes } from "react-icons/cg";
 import { IoIosLogOut } from "react-icons/io";
 import useUserActions from "@hooks/user/useUserActions.tsx";
 
-import TopBar from "@components/helper/Navigation/TopBar";
-import SideBar from "@components/helper/Navigation/SideBar";
-import Footer from "@components/helper/Navigation/Footer";
+import TopBar from "@components/helper/Navigation/TopBar.tsx";
+import SideBar from "@components/helper/Navigation/SideBar.tsx";
+import Footer from "@components/helper/Navigation/Footer.tsx";
 import "./index.css";
 
 const Setting = () => {

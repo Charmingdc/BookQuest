@@ -3,10 +3,10 @@ import useBooks from "@hooks/book/useBooks";
 import { Book } from "@types/book/types";
 
 import Tab from "./Tab.tsx";
-import BookCard from "../helper/Book/BookCard";
-import BookSkeletonLoader from "../helper/Book/BookSkeletonLoader";
-import Spinner from "../helper/Spinner";
-import ErrorBox from "../helper/ErrorBox";
+import BookCard from "../helper/Book/BookCard.tsx";
+import BookSkeletonLoader from "../helper/Book/BookSkeletonLoader.tsx";
+import Spinner from "../helper/Spinner.tsx";
+import ErrorBox from "../helper/ErrorBox.tsx";
 
 type SelectedGenre = {
   name: string;

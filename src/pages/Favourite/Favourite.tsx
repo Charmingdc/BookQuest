@@ -3,14 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import { FaStar } from 'react-icons/fa6';
 import { CiTrash } from 'react-icons/ci';
-import TopBar from '@components/helper/Navigation/TopBar';
-import SideBar from '@components/helper/Navigation/SideBar';
-import Footer from '@components/helper/Navigation/Footer';
-import ErrorBox from "@components/helper/ErrorBox";
+import TopBar from '@components/helper/Navigation/TopBar.tsx';
+import SideBar from '@components/helper/Navigation/SideBar.tsx';
+import Footer from '@components/helper/Navigation/Footer.tsx';
+import ErrorBox from "@components/helper/ErrorBox.tsx";
 
-import FavouriteBooksLoader from '@components/favourite-books/FavouriteBooksLoader';
-import useFavouriteBooks from '@hooks/book/useFavouriteBooks';
-import { FavouriteBooksProps } from '@types/book/types';
+import FavouriteBooksLoader from '@components/favourite-books/FavouriteBooksLoader.tsx';
+import useFavouriteBooks from '@hooks/book/useFavouriteBooks.tsx';
+import { FavouriteBooksProps } from '@types/book/types.tsx';
 
 interface FavouriteBooksPropsWithId extends FavouriteBooksProps {
   id: string;
