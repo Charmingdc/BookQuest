@@ -1,5 +1,5 @@
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Book } from '@types/book/types.tsx';
+import { Book } from '@tp/book/types.tsx';
 import { useBookId } from '@contexts/BookIdContext.tsx';
 import convertToStar from '@utils/helper/convertToStar.tsx';
 import getCoverUrl from '@utils/helper/getCoverUrl.tsx';
@@ -7,7 +7,7 @@ import getCoverUrl from '@utils/helper/getCoverUrl.tsx';
 
 import '@pages/Home/index.css';
 
-const BookCard = ({bookDetails}: Book) => {
+const BookCard = ({bookDetails}: {bookDetails: Book}) => {
   const { updateBookId } = useBookId();
   const navigate = useNavigate();
   const location = useLocation();
@@ -16,11 +16,13 @@ const BookCard = ({bookDetails}: Book) => {
   const openPreview = (clickedBook: Book) => {
     const screenWidth = window.innerWidth;
     if (screenWidth >= 726 && location.pathname === '/home') {
-     updateBookId(clickedBook.isbn[0]);
+     if (clickedBook.isbn) updateBookId(clickedBook.isbn[0]);
      return;
     }
     
-    navigate(`/book/${clickedBook.isbn[0]}`);
+    if (clickedBook.isbn) {
+      navigate(`/book/${clickedBook.isbn[0]}`);
+    }
   }
   
   
@@ -29,7 +31,7 @@ const BookCard = ({bookDetails}: Book) => {
       <div className='bookImgWrapper'>
         <img
           src={getCoverUrl(bookDetails.cover_i, bookDetails.isbn?.[0])}
-          load='lazy'
+          loading='lazy'
           alt={`${bookDetails.title} by ${bookDetails.author_name}`} />
       </div>
       

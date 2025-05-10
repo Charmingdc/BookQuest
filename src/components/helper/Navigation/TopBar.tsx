@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { FaAngleLeft } from "react-icons/fa6";
 
 
-const TopBar = ({ pageTitle }: string) => {
+const TopBar = ({ pageTitle }: {pageTitle: string}) => {
   const navigate = useNavigate();
   
   return (

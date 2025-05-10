@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import useBooks from "@hooks/book/useBooks";
-import { Book } from "@types/book/types";
+import { Book } from "@tp/book/types";
 
 import Tab from "./Tab.tsx";
 import BookCard from "../helper/Book/BookCard.tsx";
@@ -91,14 +91,14 @@ const CategoriesBox = () => {
 
       <div className="booksWrapper flex-col-center">
         {booksList.length > 0 ? (
-          booksList.map((book, i) => <BookCard bookDetails={book} key={i} />)
+          booksList.map((book, i: number) => <BookCard bookDetails={book} key={i} />)
         ) : (
           <ErrorBox type="no-data" message="No books available for this genre" />
         )}
       </div>
       
       { ( booksList.length > 0 && isLoading) && (
-        <div className="flex-center" style={{marginTop: '1.2rem'}}> 
+       <div className="flex-center" style={{marginTop: '1.2rem'}}> 
           <Spinner />
         </div>
        ) } 

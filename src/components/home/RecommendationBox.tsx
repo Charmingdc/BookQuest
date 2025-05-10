@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 import useRecommendedBooks from '@hooks/book/useRecommendedBooks';
-import { Book } from '@types/book/types';
+import { Book } from '@tp/book/types';
 import { useBookId } from '@contexts/BookIdContext.tsx';
 import getCoverUrl from '@utils/helper/getCoverUrl.tsx';
 import convertToStar from '@utils/helper/convertToStar.tsx';
@@ -25,12 +25,14 @@ const RecommendationBox = () => {
   
   const openPreview = (clickedBook: Book) => {
     const screenWidth = window.innerWidth;
-    if (screenWidth >= 726) {
+    if (screenWidth >= 726 && clickedBook.isbn) {
      updateBookId(clickedBook.isbn[0]);
      return;
     }
     
-    navigate(`/book/${clickedBook.isbn[0]}`);
+    if (clickedBook.isbn) {
+     navigate(`/book/${clickedBook.isbn[0]}`);
+    }
   }
   
   

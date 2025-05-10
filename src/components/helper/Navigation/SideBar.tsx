@@ -4,7 +4,7 @@ import { LuSettings, LuHeart } from "react-icons/lu";
 
 
 
-const SideBar = ({currentPage}: string) => {
+const SideBar = ({currentPage}: {currentPage: string}) => {
   const navigate = useNavigate();
   const activeColor: string = 'rgb(64, 90, 255)';
   

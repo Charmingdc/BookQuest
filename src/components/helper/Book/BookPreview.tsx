@@ -4,7 +4,7 @@ import { toast } from 'sonner';
 import { IoBookOutline, IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import { LuHeart } from 'react-icons/lu';
 
-import { BookInfoProp } from '@types/book/types.tsx';
+import { BookInfoProp } from '@tp/book/types.tsx';
 import useFavouriteBooks from "@hooks/book/useFavouriteBooks.tsx";
 import convertToStar from '@utils/helper/convertToStar.tsx';
 

@@ -3,7 +3,7 @@ import { TbSmartHome } from "react-icons/tb";
 import { LuSettings, LuHeart } from "react-icons/lu";
 
 
-const Footer = ({currentPage}: string) => {
+const Footer = ({currentPage}: {currentPage: string}) => {
   const navigate = useNavigate();
   const activeColor: string = 'rgb(64, 90, 255)';
   
