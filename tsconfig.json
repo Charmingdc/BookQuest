@@ -8,7 +8,8 @@
       "@tp/*": ["src/types/*"],
       "@contexts/*": ["src/contexts/*"],
       "@pages/*": ["src/pages/*"],
-      "@fb/*": ["src/firebase/*"]
+      "@fb/*": ["src/firebase/*"],
+      "mySwiper/*": ["node_modules/swiper/*"]
     }
   },
   "files": [],

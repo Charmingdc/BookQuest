@@ -10,8 +10,8 @@ import ErrorBox from "../helper/ErrorBox.tsx";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Autoplay } from 'swiper/modules';
 
-import 'swiper/css';
-import 'swiper/css/effect-coverflow';
+import 'mySwiper/swiper.min.css';
+import 'mySwiper/modules/effect-coverflow.css'
 
 
 const RecommendationBox = () => {

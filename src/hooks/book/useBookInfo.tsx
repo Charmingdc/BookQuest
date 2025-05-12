@@ -37,7 +37,7 @@ const normalizeInfo = (book: RawBook, workDetails: WorkDetails): BookInfoProp =>
   number_of_pages: book.number_of_pages_median ?? "N/A",
   publish_date: book.first_publish_year || "Unknown",
   editions_count: book.edition_count || 0,
-  ratings_average: book.ratings_average ? Number(data.ratings_average).toFixed(1): "N/A",
+  ratings_average: book.ratings_average ? Number(book.ratings_average).toFixed(1): "N/A",
   isbn: (book.isbn?.[0]) ?? "N/A",
   description:
     typeof workDetails?.description === "string"

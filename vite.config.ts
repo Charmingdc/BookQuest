@@ -13,7 +13,8 @@ export default defineConfig({
       '@tp': path.resolve(__dirname, 'src/types'),
       '@contexts': path.resolve(__dirname, 'src/contexts'),
       '@pages': path.resolve(__dirname, 'src/pages'),
-      '@fb': path.resolve(__dirname, 'src/firebase')
+      '@fb': path.resolve(__dirname, 'src/firebase'),
+      'mySwiper': path.resolve(__dirname, 'node_modules/swiper')
     }
   }
 })
