@@ -10,7 +10,7 @@ import convertToStar from '@utils/helper/convertToStar.tsx';
 
 import '@pages/BookPreview/index.css';
 
-const BookPreview = ({ bookInfo }: BookInfoProp) => {
+const BookPreview = ({ bookInfo }: {bookInfo: BookInfoProp}) => {
   const [openFullDesc, setOpenFullDesc] = useState<boolean>(false);
   const location = useLocation();
   const { addToFavourite, updatingFavBooks } = useFavouriteBooks();

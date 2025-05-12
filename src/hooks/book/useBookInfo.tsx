@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import { RawBook, WorkDetails, BookInfoProp } from "@types/book/types.tsx";
+import { RawBook, WorkDetails, BookInfoProp } from "@tp/book/types.tsx";
 
-const fetchBookInfo = async (identifier: string): Promise<BookInfoProp> => {
+const fetchBookInfo = async (identifier: string | undefined): Promise<BookInfoProp> => {
   if (!identifier) throw new Error("Identifier is required");
 
   const searchUrl = `https://openlibrary.org/search.json?isbn=${identifier}&fields=key,title,author_name,first_publish_year,cover_i,ratings_average,isbn,edition_count,author_key,subject`;

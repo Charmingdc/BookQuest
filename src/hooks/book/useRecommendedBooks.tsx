@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useGenres from "@hooks/book/useGenres";
 import normalizedBookData from "@utils/helper/normalizedBookData.tsx";
-import { Book } from "@types/book/types.tsx";
+import { Book } from "@tp/book/types.tsx";
 
 const fetchRecommendedBooks = async (genres: string[]): Promise<Book[]> => {
   const genreQuery = genres.map((genre) => encodeURIComponent(genre)).join("&");

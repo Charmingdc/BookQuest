@@ -1,6 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { randomGenres as generalKeywords } from "./useGenres.tsx";
 import normalizedBookData from "@utils/helper/normalizedBookData.tsx";
+import { Book } from "@tp/book/types.tsx";
+
 
 const fetchBooks = async (keyword: string, booksOffset: number) => {
   const randomKeywords = [...generalKeywords]
@@ -16,7 +18,7 @@ const fetchBooks = async (keyword: string, booksOffset: number) => {
   if (!response.ok) throw new Error("Failed to load books");
 
   const data = await response.json();
-  return { books: data.docs.map((book) => normalizedBookData(book)), genres: randomKeywords };
+  return { books: data.docs.map((book: Book) => normalizedBookData(book)), genres: randomKeywords };
 };
 
 

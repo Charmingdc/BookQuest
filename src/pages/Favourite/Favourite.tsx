@@ -10,7 +10,7 @@ import ErrorBox from "@components/helper/ErrorBox.tsx";
 
 import FavouriteBooksLoader from '@components/favourite-books/FavouriteBooksLoader.tsx';
 import useFavouriteBooks from '@hooks/book/useFavouriteBooks.tsx';
-import { FavouriteBooksProps } from '@types/book/types.tsx';
+import { FavouriteBooksProps } from '@tp/book/types.tsx';
 
 interface FavouriteBooksPropsWithId extends FavouriteBooksProps {
   id: string;
@@ -70,7 +70,7 @@ const Favourite = () => {
          <ErrorBox
           type='internal-error'
           message='There was an error loading favourite books. Please try again later.' />
-       ) : favouriteBooks.length > 0 ? (
+       ) : favouriteBooks && favouriteBooks.length > 0 ? (
          favouriteBooks.map((favBook: FavouriteBooksPropsWithId) => (
            <div
              className="favourite-books"

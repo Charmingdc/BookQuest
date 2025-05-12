@@ -16,7 +16,7 @@ import 'swiper/css/effect-coverflow';
 
 const RecommendationBox = () => {
   const { recommendedBooks, isLoading, isError, error } = useRecommendedBooks();
-  const { updateBookId } = useBookId();
+  const updateBookId = useBookId();
   const navigate = useNavigate();
   
   if (isError) {

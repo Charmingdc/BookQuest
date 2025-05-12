@@ -1,15 +1,34 @@
-import React, { createContext, useState, useContext } from 'react';
+import { createContext, useState, useContext, ReactNode } from 'react';
 
 
-export const BookIdContext = createContext();
-export const BookIdProvider = ({ children }) => {
-  const [bookId, setBookId] = useState<string>(''); 
-  
+interface BookIdContextType {
+  bookId: string;
+  updateBookId: (id: string) => void;
+}
+
+const defaultContext: BookIdContextType = {
+  bookId: '',
+  updateBookId: () => {
+    throw new Error('updateBookId function must be overridden inside a Provider');
+  },
+};
+
+
+export const BookIdContext = createContext<BookIdContextType>(defaultContext);
+
+interface BookIdProviderProps {
+  children: ReactNode;
+}
+
+
+export const BookIdProvider = ({ children }: BookIdProviderProps) => {
+  const [bookId, setBookId] = useState<string>('');
+
   const updateBookId = (id: string) => {
-   if (!id) throw new Error('No id passed');
-   setBookId(id);
-  }
-  
+    if (!id) throw new Error('No id passed');
+    setBookId(id);
+  };
+
   return (
     <BookIdContext.Provider value={{ bookId, updateBookId }}>
       {children}

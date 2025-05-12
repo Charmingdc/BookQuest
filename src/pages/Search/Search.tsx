@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import useBookSearch from "@hooks/book/useBookSearch.tsx";
 import useSearchHistory from "@hooks/book/useSearchHistory.tsx";
-import { Book } from "@types/book/types.tsx";
+import { Book } from "@tp/book/types.tsx";
 
 import ErrorBox from "@components/helper/ErrorBox.tsx";
 import BookCard from "@components/helper/Book/BookCard.tsx";

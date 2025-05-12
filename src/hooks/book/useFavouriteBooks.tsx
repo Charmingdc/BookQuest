@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { auth, db } from "@fb/config.ts";
 import { collection, serverTimestamp, addDoc, query, where, getDocs, doc, deleteDoc } from "firebase/firestore";
-import { FavouriteBooksProps } from "@types/book/types";
+import { FavouriteBooksProps } from "@tp/book/types";
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 
 interface FavouriteBooksPropsWithId extends FavouriteBooksProps {
@@ -37,7 +37,8 @@ const useFavouriteBooks = () => {
         createdAt: serverTimestamp()
       });
       
-      queryClient.invalidateQueries(['favouriteBooks']);
+     // queryClient.invalidateQueries(['favouriteBooks']);
+      queryClient.invalidateQueries({ queryKey: ['favouriteBooks'] });
       
       return { type: 'success', message: 'Book added to favourites' };
     } catch (err: any) {
@@ -70,7 +71,8 @@ const useFavouriteBooks = () => {
      const docRef = doc(collection(db, 'favBooks'), bookId);
      await deleteDoc(docRef);
      
-     queryClient.invalidateQueries(['favouriteBooks']);
+     // queryClient.invalidateQueries(['favouriteBooks']);
+     queryClient.invalidateQueries({ queryKey: ['favouriteBooks'] });
      
      return { type: 'success', message: 'Book removed from favourites.' };
    } catch (err: any) {

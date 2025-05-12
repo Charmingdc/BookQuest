@@ -14,7 +14,7 @@ import Footer from '@components/helper/Navigation/Footer.tsx';
 import './index.css';
 
 const Home = () => {
-  const { bookId } = useBookId();
+  const { bookId: string } = useBookId();
   const { bookInfo, loading } = useBookInfo(bookId);
   const [isDesktop, setIsDesktop] = useState<boolean>(window.innerWidth > 726);
 

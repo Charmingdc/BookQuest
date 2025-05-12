@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useDebounce from "@hooks/helper/useDebounce.tsx";
 import normalizedBookData from "@utils/helper/normalizedBookData.tsx";
-import { Book } from "@types/book/types.tsx";
+import { Book } from "@tp/book/types.tsx";
 
 const fetchBooks = async (query: string, searchOffset: number): Promise<Book[]> => {
   if (!query.trim()) return [];
@@ -15,7 +15,7 @@ const fetchBooks = async (query: string, searchOffset: number): Promise<Book[]> 
   const data = await response.json();
   if (!data.docs) throw new Error("Invalid data format");
 
-  return data.docs.map((book) => normalizedBookData(book));
+  return data.docs.map((book: Book) => normalizedBookData(book));
 };
 
 
