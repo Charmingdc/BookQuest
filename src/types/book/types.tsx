@@ -20,7 +20,7 @@ export interface RawBook {
   number_of_pages_median?: number;
   publisher?: string[];
   edition_count?: number;
-  ratings_average?: string;
+  ratings_average?: number | string;
   isbn?: string[];
   subject?: string[];
 }
@@ -42,7 +42,7 @@ export interface BookInfoProp {
   number_of_pages: string | number;
   publish_date: string | number;
   editions_count: number;
-  ratings_average: string;
+  ratings_average: number | string;
   isbn: string;
   description: string;
   subjects: string[];
@@ -52,5 +52,5 @@ export interface FavouriteBooksProps {
  title: string;
  isbn: string;
  cover: string;
- ratings_average: string;
+ ratings_average: number | string;
 }

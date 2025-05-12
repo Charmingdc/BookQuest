@@ -14,6 +14,8 @@ import './index.css';
 const Preview = () => {
   const params = useParams();
   const identifier = params.identifier;
+  if (!identifier) return;
+  
   const { bookInfo, loading, error } = useBookInfo(identifier);
  
 

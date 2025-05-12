@@ -1,4 +1,5 @@
 'use strict';
+import { Book } from '@tp/book/types.tsx';
 
 const normalizedBookData = (data: Book): Book => {
   if (!data) {

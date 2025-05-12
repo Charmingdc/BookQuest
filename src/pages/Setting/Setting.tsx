@@ -68,7 +68,9 @@ const Setting = () => {
        if (response.type === 'error') throw new Error(response.message);
       }
 
-      if (!actionType === 'update-genres')setShowActionModal(false);
+      if (!actionType) {
+       setShowActionModal(false);
+      }
     } catch (err: any) {
       toast.error(err.message);
     } finally {

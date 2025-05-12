@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { RawBook, WorkDetails, BookInfoProp } from "@tp/book/types.tsx";
 
-const fetchBookInfo = async (identifier: string | undefined): Promise<BookInfoProp> => {
+const fetchBookInfo = async (identifier: string): Promise<BookInfoProp> => {
   if (!identifier) throw new Error("Identifier is required");
 
   const searchUrl = `https://openlibrary.org/search.json?isbn=${identifier}&fields=key,title,author_name,first_publish_year,cover_i,ratings_average,isbn,edition_count,author_key,subject`;
@@ -37,9 +37,7 @@ const normalizeInfo = (book: RawBook, workDetails: WorkDetails): BookInfoProp =>
   number_of_pages: book.number_of_pages_median ?? "N/A",
   publish_date: book.first_publish_year || "Unknown",
   editions_count: book.edition_count || 0,
-  ratings_average: (typeof book.ratings_average === 'number')
-  ? book.ratings_average.toFixed(1)
-  : (book.ratings_average ?? "N/A"),
+  ratings_average: book.ratings_average ? book.ratings_average.toFixed(1) : "N/A",
   isbn: (book.isbn?.[0]) ?? "N/A",
   description:
     typeof workDetails?.description === "string"
