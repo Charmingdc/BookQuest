@@ -28,13 +28,15 @@ const useSigninUser = () => {
       }
 
       const userCredentials = await signInWithEmailAndPassword(auth, email, password);
+   
+    /*
       const emailVerified = userCredentials.user.emailVerified;
-
       if (!emailVerified) {
        await signOut(auth);
        return { type: "error", message: "Signin unsuccessful, verify your email and try again" };
       }
-
+    */
+    
       return { type: "success", message: `Welcome back ${username}` };
     } catch (err: any) {
       console.log("Error signing user in:", err.message);

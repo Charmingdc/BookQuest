@@ -34,10 +34,6 @@ const Signup = () => {
 
      toast.success(response.message);
      dispatch({ type: "RESET_FORM" });
-     
-     setTimeout(async () => {
-      await logout();
-     }, 2000);
    } catch (err: any) {
      console.error("Unexpected error testing:", err.message);
      toast.error(err.message);

@@ -106,16 +106,17 @@ footer {
 
 @media (min-width: 726px) {
  main {
-  width: 90vw;
+  width: 100vw;
+  position: relative;
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: 60% 45%;
-  padding: 0 5vw;
+  grid-template-columns: 55% 45%;
   gap: 0;
-  margin-top: 1.5rem;
+  margin-top: 1.5rem auto;
  }
  
  main > section {
+  width: 70%;
   height: 90%;
  }
  main > section img {
