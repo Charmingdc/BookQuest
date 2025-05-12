@@ -12,7 +12,7 @@ import "./index.css";
 const Signup = () => {
   const { formReducer, initialState } = useAuth("signup");
   const [state, dispatch] = useReducer(formReducer, initialState);
-  const { signup, loading, logout } = useSignupUser();
+  const { signup, loading } = useSignupUser();
   
   const handleChange = (field: keyof FormState, value: string) => {
     dispatch({ type: "SET_FIELD", field, value });

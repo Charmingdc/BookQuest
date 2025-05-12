@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { auth, db } from "@fb/config.ts";
-import { signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { collection, doc, getDoc } from "firebase/firestore";
 
 type SigninCredProps = {
@@ -27,7 +27,7 @@ const useSigninUser = () => {
         return { type: "error", message: "User email not found." };
       }
 
-      const userCredentials = await signInWithEmailAndPassword(auth, email, password);
+     await signInWithEmailAndPassword(auth, email, password);
    
     /*
       const emailVerified = userCredentials.user.emailVerified;
