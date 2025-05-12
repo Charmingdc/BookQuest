@@ -21,7 +21,9 @@ const Setting = () => {
   const { changeUsername, signoutUser, updatePreferredGenres, removePreferredGenre, currentUsername, preferredGenres, saving } = useUserActions();
 
   useEffect(() => {
+   if (currentUsername) {
     setExtractedDpName(currentUsername.slice(0, 2));
+   }
   }, [currentUsername]);
 
   const handleSettingAction = (action: string) => {

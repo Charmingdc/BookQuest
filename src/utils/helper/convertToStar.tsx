@@ -1,4 +1,4 @@
-const convertToStar = (rating: number | string) => {
+const convertToStar = (rating: number | string | null) => {
   if (!rating) {
    console.error('No rating passed');
    return;

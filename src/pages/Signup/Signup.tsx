@@ -21,7 +21,8 @@ const Signup = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
      e.preventDefault();
-
+     if (!state.email) return;
+     
      try {
       const response = await signup({
        username: state.username,

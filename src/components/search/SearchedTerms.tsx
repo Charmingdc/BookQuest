@@ -3,10 +3,10 @@ import { FaAngleDown } from "react-icons/fa6";
 import { HiMiniXMark } from "react-icons/hi2";
 
 type SearchedTermProps = {
- searchedTerms: string[];
- setSearchValue: (value: string) => string;
- deleteSearchedTerm: (index: number) => void;
- clearAllHistory: () => void;
+  searchedTerms: string[];
+  setSearchValue: (value: string) => void;
+  deleteSearchedTerm: (index: number) => void;
+  clearAllHistory: () => void;
 }
 
 

@@ -5,7 +5,7 @@ export interface Book {
   first_publish_year: number;
   subject: string[];
   cover_i: number;
-  ratings_average: number | null;
+  ratings_average: number | string | null;
   edition_count: number;
   isbn?: string[]
 };
