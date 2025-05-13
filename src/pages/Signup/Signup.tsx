@@ -47,9 +47,11 @@ const Signup = () => {
    try {
      const response = await googleAuth();
 
-     if (response.type === "error") throw new Error(response.message);
+     if (response) {
+      if (response.type === "error") throw new Error(response.message);
 
-     toast.success(response.message);
+      toast.success(response.message);
+     }
    } catch (err: any) {
      toast.error(err.message);
    }

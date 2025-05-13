@@ -44,10 +44,12 @@ const Login = () => {
   const handleGoogleLogin = async () => {
    try {
      const response = await googleAuth();
+     
+     if (response) {
+      if (response.type === "error") throw new Error(response.message);
 
-     if (response.type === "error") throw new Error(response.message);
-
-     toast.success(response.message);
+      toast.success(response.message);
+     }
    } catch (err: any) {
      toast.error(err.message);
    }

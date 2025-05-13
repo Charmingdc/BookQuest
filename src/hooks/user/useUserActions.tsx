@@ -13,7 +13,7 @@ import {
 const useUserActions = () => {
   const [saving, setSaving] = useState<boolean>(false);
   const [username, setUsername] = useState<string | null>(auth.currentUser?.displayName || null);
-  const [emailVerified, setEmailVerified] = useState<boolean | null>(auth.currentUser.emailVerified);
+  const [emailVerified, setEmailVerified] = useState<boolean | null>(auth.currentUser?.emailVerified);
   const [userGenres, setUserGenres] = useState<string[]>([]);
   
   

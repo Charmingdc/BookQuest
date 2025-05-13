@@ -17,10 +17,10 @@ import {
 
 
 const useGoogleAuth = () => {
-  const [loading, setLoading] = useState<boolean>(false);
+  const [googleLoading, setGoogleLoading] = useState<boolean>(false);
 
   const googleAuth = async (): Promise<{ type: string; message: string } | null> => {
-    setLoading(true);
+    setGoogleLoading(true);
     const provider = new GoogleAuthProvider();
 
     try {
@@ -51,11 +51,11 @@ const useGoogleAuth = () => {
       console.error("Error signing in with Google:", err);
       return { type: "error", message: err.message };
     } finally {
-      setLoading(false);
+      setGoogleLoading(false);
     }
   };
 
-  return { googleAuth, loading };
+  return { googleAuth, googleLoading };
 };
 
 export default useGoogleAuth;
