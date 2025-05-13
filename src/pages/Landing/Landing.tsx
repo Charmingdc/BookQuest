@@ -7,7 +7,7 @@ const Landing = () => {
    <>
     <header>
       <nav>
-       <ul>
+       <ul className="landing-page-ul">
          <li>
           <h3> BookQuest </h3>
          </li>

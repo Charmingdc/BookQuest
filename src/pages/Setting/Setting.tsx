@@ -18,13 +18,16 @@ const Setting = () => {
   const [newGenre, setNewGenre] = useState<string>('');
 
   const [extractedDpName, setExtractedDpName] = useState<string>('');
-  const { changeUsername, signoutUser, updatePreferredGenres, removePreferredGenre, currentUsername, preferredGenres, saving } = useUserActions();
+  const { changeUsername, signoutUser, updatePreferredGenres, removePreferredGenre, currentUsername, emailVerified, preferredGenres, saving } = useUserActions();
+
 
   useEffect(() => {
    if (currentUsername) {
     setExtractedDpName(currentUsername.slice(0, 2));
+    console.log(emailVerified)
    }
   }, [currentUsername]);
+  
 
   const handleSettingAction = (action: string) => {
     setSelectedAction(action);
@@ -100,6 +103,13 @@ const Setting = () => {
            </div>
 
            <h3>{currentUsername}</h3>
+          </div>
+          
+          <div 
+           className={`${emailVerified ? 'verified-bar' : 'unverified-bar'}`}>
+             <p>
+              {emailVerified ? 'Verfied email account' : 'Email account not verified'}
+             </p>
           </div>
         </div>
 

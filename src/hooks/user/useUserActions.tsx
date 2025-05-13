@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { auth, db } from '@fb/config.ts';
-import { updateProfile } from 'firebase/auth';
+import { onAuthStateChanged, updateProfile } from 'firebase/auth';
 import {
   doc,
   getDoc,
@@ -13,25 +13,38 @@ import {
 const useUserActions = () => {
   const [saving, setSaving] = useState<boolean>(false);
   const [username, setUsername] = useState<string | null>(auth.currentUser?.displayName || null);
+  const [emailVerified, setEmailVerified] = useState<boolean | null>(auth.currentUser.emailVerified);
   const [userGenres, setUserGenres] = useState<string[]>([]);
-
+  
+  
+  
   useEffect(() => {
-    const user = auth.currentUser;
+   const unsubscribeAuth = onAuthStateChanged(auth, (user) => {
     if (!user) return;
 
     setUsername(user.displayName);
+    setEmailVerified(user.emailVerified);
+
     const userRef = doc(db, 'users', user.displayName?.toLowerCase() || '');
-    const unsubscribe = onSnapshot(userRef, (docSnap) => {
-      if (docSnap.exists()) {
-        const data = docSnap.data();
-        setUserGenres(data?.preferredGenres || []);
+    const unsubscribeSnapshot = onSnapshot(
+      userRef,
+      (docSnap) => {
+        if (docSnap.exists()) {
+         const data = docSnap.data();
+         setUserGenres(data?.preferredGenres || []);
+        }
+      },
+      (error) => {
+        console.error('Genre sync error:', error.message);
       }
-    }, (error) => {
-      console.error('Genre sync error:', error.message);
+    );
+
+     return () => unsubscribeSnapshot();
     });
 
-    return () => unsubscribe(); 
+   return () => unsubscribeAuth();
   }, []);
+
 
 
   const changeUsername = async (newUsername: string) => {
@@ -144,6 +157,7 @@ const useUserActions = () => {
     updatePreferredGenres,
     removePreferredGenre,
     currentUsername: username,
+    emailVerified,
     preferredGenres: userGenres,
     saving,
   };

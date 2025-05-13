@@ -5,6 +5,7 @@ import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import { FormState } from "@hooks/auth/useAuth.tsx"; 
 import useAuth from "@hooks/auth/useAuth.tsx"; 
 import useSignupUser from "@hooks/auth/useSignupUser.tsx";
+import useGoogleAuth from "@hooks/auth/useGoogleAuth.tsx";
 
 import "./index.css";
 
@@ -13,6 +14,8 @@ const Signup = () => {
   const { formReducer, initialState } = useAuth("signup");
   const [state, dispatch] = useReducer(formReducer, initialState);
   const { signup, loading } = useSignupUser();
+  const { googleAuth, googleLoading } = useGoogleAuth();
+  
   
   const handleChange = (field: keyof FormState, value: string) => {
     dispatch({ type: "SET_FIELD", field, value });
@@ -35,10 +38,22 @@ const Signup = () => {
      toast.success(response.message);
      dispatch({ type: "RESET_FORM" });
    } catch (err: any) {
-     console.error("Unexpected error testing:", err.message);
      toast.error(err.message);
    }
   };
+  
+  
+  const handleGoogleSignup = async () => {
+   try {
+     const response = await googleAuth();
+
+     if (response.type === "error") throw new Error(response.message);
+
+     toast.success(response.message);
+   } catch (err: any) {
+     toast.error(err.message);
+   }
+  }
 
   return (
     <main className="auth-container">
@@ -53,8 +68,11 @@ const Signup = () => {
       <form className="auth-form" onSubmit={async (e) => handleSubmit(e)}>
         <h2> Start Exploring </h2> 
         
-        <button type="button" className="oauth flex-center">
-          Signup with Google
+        <button type="button"
+         onClick={handleGoogleSignup}
+         className={`oauth flex-center ${googleLoading ? "disabled-button" : ""}`} 
+         disabled={googleLoading}>
+          {googleLoading ? 'Processing...' : 'Signup with Google' }
         </button>
         
         <input
@@ -82,9 +100,13 @@ const Signup = () => {
           { state.showPassword ? <IoEyeOffOutline size={22} /> : <IoEyeOutline size={22} /> }
          </button>
         </div>
-
-        <button type="submit" className={`auth-button flex-center ${(!state.isValid || loading) ? "disabled-button" : ""}`} disabled={(!state.isValid || loading)}>
-          { loading ? "Processing.." : "Sign Up" }
+        
+        
+        <button 
+         type="submit" 
+         className={`auth-button flex-center ${(!state.isValid || loading) ? 'disabled-button' : ''}`} 
+         disabled={(!state.isValid || loading)}>
+          { loading ? 'Processing...' : 'Sign Up' }
         </button>
         
         <p>

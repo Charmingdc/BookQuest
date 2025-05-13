@@ -22,7 +22,7 @@ footer {
  justify-content: center;
 }
 
-header > nav ul {
+header > nav .landing-page-ul {
  width: 80vw;
  height: 4rem;
  display: flex;

@@ -5,6 +5,7 @@ import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import { FormState } from "@hooks/auth/useAuth.tsx"; 
 import useAuth from "@hooks/auth/useAuth.tsx"; 
 import useSigninUser from "@hooks/auth/useSigninUser.tsx";
+import useGoogleAuth from "@hooks/auth/useGoogleAuth.tsx";
 
 import '../Signup/index.css';
 
@@ -13,6 +14,8 @@ const Login = () => {
  const { formReducer, initialState } = useAuth('login');
   const [state, dispatch] = useReducer(formReducer, initialState);
   const { signin, loading } = useSigninUser();
+  const { googleAuth, googleLoading } = useGoogleAuth();
+  
 
   const handleChange = (field: keyof FormState, value: string) => {
     dispatch({ type: 'SET_FIELD', field, value });
@@ -31,12 +34,24 @@ const Login = () => {
      
      toast.success('Welcome back!');
     } catch (err: any) {
-     console.log('Error:', err.message);
      toast.error(err.message);
     } finally {
      dispatch({ type: 'RESET_FORM'});
     }
   };
+  
+  
+  const handleGoogleLogin = async () => {
+   try {
+     const response = await googleAuth();
+
+     if (response.type === "error") throw new Error(response.message);
+
+     toast.success(response.message);
+   } catch (err: any) {
+     toast.error(err.message);
+   }
+  }
 
   return (
     <main className='auth-container'>
@@ -51,8 +66,11 @@ const Login = () => {
       <form className='auth-form' onSubmit={async(e) => handleSubmit(e)}>
         <h2> Welcome Back </h2> 
         
-        <button className='oauth flex-center'>
-         Login with Google
+        <button type="button"
+         onClick={handleGoogleLogin}
+         className={`oauth flex-center ${googleLoading ? "disabled-button" : ""}`} 
+         disabled={googleLoading}>
+          {googleLoading ? 'Processing...' : 'Login with Google' }
         </button>
         
         <input
